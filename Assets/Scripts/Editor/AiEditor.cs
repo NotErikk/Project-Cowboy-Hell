@@ -10,7 +10,7 @@ public class AiEditor : Editor
     {
         MovementAndSensesBrain brain = (MovementAndSensesBrain)target;
         Handles.color = Color.white;        Handles.DrawWireArc(brain.transform.position, new Vector3(0,0,1), Vector2.right, 360, brain.visionRange);
-
+        
         Handles.color = Color.red;
         Handles.DrawWireArc(brain.transform.position, new Vector3(0, 0, 1), Vector2.right, 360, brain.instantDetectionRadius);
 
