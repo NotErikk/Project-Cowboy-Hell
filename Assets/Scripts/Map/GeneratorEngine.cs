@@ -23,7 +23,7 @@ public class GeneratorEngine : MonoBehaviour
         if (Counter < TotalRooms)
         {
             GameObject UseThisSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-
+            
             string SpawnType = UseThisSpawnPoint.name;
 
             GameObject RandomRoom = null;
@@ -63,13 +63,14 @@ public class GeneratorEngine : MonoBehaviour
             if (EndRoomLocations.Count <= 0)
             {
                 ResetRoomGeneration();
+                return;
             }
             GameObject UseThisSpawnPoint = EndRoomLocations[Random.Range(0, EndRoomLocations.Count)];
 
             Instantiate(RoomsAvailable.EndRooms[Random.Range(0, RoomsAvailable.EndRooms.Length)], new Vector3(UseThisSpawnPoint.transform.position.x, UseThisSpawnPoint.transform.position.y, 0), Quaternion.identity);
             playerMovementScript.GetBridgeList();
 
-            spawnPoints.Clear();
+            
             foreach (GameObject spawnPoint in GameObject.FindGameObjectsWithTag("SpawnPoint"))
             {
                 Destroy(spawnPoint);
@@ -83,13 +84,14 @@ public class GeneratorEngine : MonoBehaviour
 
     void ResetRoomGeneration()
     {
+        spawnPoints.Clear();
         GameObject[] allRooms = GameObject.FindGameObjectsWithTag("GeneratedRoom");
 
         foreach (GameObject room in allRooms)
         {
             Destroy(room);
         }
-        Counter = 0;
+        Counter = 1;
 
         GameObject StartingRoom = RoomsAvailable.SpawnRooms[Random.Range(0, RoomsAvailable.SpawnRooms.Length)];
         Instantiate(StartingRoom, new Vector3(StartingPoint.transform.position.x, StartingPoint.transform.position.y, 0), Quaternion.identity);

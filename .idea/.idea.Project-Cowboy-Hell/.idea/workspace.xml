@@ -1,23 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/AiEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/AiEditor.cs" afterDir="false" />
+    <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="test 2">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Options.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Options.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/OptionsMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/OptionsMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/GeneratorEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/GeneratorEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MiniMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MiniMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scripts/Ai/MovementAndSensesBrain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scripts/Ai/MovementAndSensesBrain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scripts/Editor/AiEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scripts/Ai/MovementAndSensesBrain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scenes/Level.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Erik/Documents/GitHub/Project-Cowboy-Hell/Assets/Scripts/Ai/MovementAndSensesBrain.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26HgglxWb3uredx91wPhgeKdhyF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -63,8 +85,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647086042539</updated>
-      <workItem from="1647086057053" duration="316000" />
+      <workItem from="1647086057053" duration="5049000" />
     </task>
+    <task id="LOCAL-00001" summary="test commit">
+      <created>1647086421737</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647086421737</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test 2">
+      <created>1647086546985</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647086546985</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +122,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="test commit" />
+    <MESSAGE value="test 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 2" />
   </component>
 </project>

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuCanvas;
+    [SerializeField] GameObject optionsMenuPrefab;
     [SerializeField] MiniMap miniMapScript;
 
     WeaponController weaponController;
@@ -83,7 +84,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OptionsButtonPressed()
     {
-
+        optionsMenuPrefab.SetActive(!optionsMenuPrefab.active);
     }
 
     public void QuitToMenu()

@@ -15,6 +15,7 @@ public class MiniMap : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float zoomSens;
     [SerializeField] float highestZoomRange;
+    [SerializeField] float lowestZoomRange;
     Camera cameraBigMapCamera;
     [HideInInspector] public bool allowedToUse;
 
@@ -35,7 +36,7 @@ public class MiniMap : MonoBehaviour
 
             float x = Input.GetAxisRaw("MouseScollWheel");
 
-            float clamped = Mathf.Clamp(cameraBigMapCamera.orthographicSize -= x * zoomSens, 1, highestZoomRange);
+            float clamped = Mathf.Clamp(cameraBigMapCamera.orthographicSize -= x * zoomSens, lowestZoomRange, highestZoomRange);
 
             cameraBigMapCamera.orthographicSize = clamped;
 
