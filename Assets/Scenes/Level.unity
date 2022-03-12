@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debd7805331395f459599b20c0a7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalRooms: 300
+  TotalRooms: 5
   RoomsAvailable: {fileID: 11400000, guid: 2e9c36427978b7b489880d3f76d60843, type: 2}
   StartingPoint: {fileID: 312273355}
 --- !u!4 &1481397843
@@ -2727,7 +2727,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3943965, y: 1}
+    m_SensorSize: {x: 2.2535498, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

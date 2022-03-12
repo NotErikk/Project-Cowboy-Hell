@@ -21,7 +21,7 @@ public class MovementAndSensesBrain : MonoBehaviour
     public float instantDetectionRadius;
 
     public float wonderMovementSpeed;
-
+    
     public float combatMovementSpeed;
 
     [Tooltip("How close does the ai need to be next to cover to be considered 'in cover'")]
