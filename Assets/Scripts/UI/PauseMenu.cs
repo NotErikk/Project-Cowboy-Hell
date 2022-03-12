@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour
         movementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>();
         weaponAiming = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<WeaponAiming>();
         cursorIcon = GameObject.FindGameObjectWithTag("PlayerMouse").GetComponent<CursorIcon>();
+        optionsMenuPrefab.SetActive(false);
         PauseGame();
     }
 
