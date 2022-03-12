@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Bridge
+  - InteractableWeapon
+  - InteractableItem
+  - Cover
+  - SpawnPoint
+  - RoomTrigger
+  - Projectile
+  - PlayerMouse
+  - GeneratedRoom
+  - LevelGenerator
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - MiniMap
+  - Water
+  - UI
+  - MainCamera
+  - Player
+  - Ground
+  - Projectiles
+  - Spent Casing
+  - InteractableWeaponCollider
+  - Ai
+  - Cover
+  - RoomCollider
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Cursor
+    uniqueID: 139926699
+    locked: 0
+  - name: Player
+    uniqueID: 2050358103
+    locked: 0
+  - name: UI
+    uniqueID: 3997098919
+    locked: 0

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680ab862df697c44c8df1d8f7d11fa49, type: 3}
+  m_Name: Colt Single Action Army
+  m_EditorClassIdentifier: 
+  GunSprite: {fileID: 21300000, guid: 69782248f3bf88c4095269984f190f17, type: 3}
+  BulletSprite: {fileID: 0}
+  CasingSprite: {fileID: 21300000, guid: 4c7d89adaff21664e943e4c62a449f16, type: 3}
+  ProjectileSprite: {fileID: 21300000, guid: 574bb10cf5221f54c8e74eaca0868a46, type: 3}
+  ShootingSounds: []
+  ReloadingSounds: []
+  DisplayName: Single Action Revolver
+  firearmType: 0
+  myTier: 2
+  damage: 50
+  BulletCapacity: 6
+  ProjectilesOnFire: 1
+  ProjectileSpeed: 20
+  BaseAccuracy: 10
+  Firerate: 0.4
+  HoldBulletInChamber: 0
+  AutoEjectingOnBreach: 0
+  EjectingCartridgesOnFire: 0
+  GunSmokeOnFire: 1
+  GunFlashOnFire: 0
+  ShotgunSpread: 0
+  TwoHanded: 0
+  WeaponReloadAngle: -20
+  myShootType: 0
+  ShootingHandHoldingPoint: {x: -0.156, y: -0.095}
+  GetAmmoHoldingPoint: {x: 0, y: 0}
+  FirePointCords: {x: 0.174, y: 0.052}
+  OtherHandHoldingPoint: {x: -0.712, y: -0.4}
+  LoadBulletsPoint: {x: -0.094, y: 0.059}
+  CockingPointNeutral: {x: -0.16, y: 0.122}
+  CockingPulledBack: {x: 0, y: 0}
+  BulletReleaseKey: {x: 0.108, y: 0.008}
+  RevolverCylinderLocation: {x: -0.063, y: 0.031}
+  ProjectileGO: {fileID: 4862189144455170496, guid: dea5b1cd2d5315449be79e54ae90e268, type: 3}
+  ReloadSetUpActions: 0000000001000000
+  MainReloadActions: 02000000030000000400000005000000
+  ReloadFinishedActions: 0600000007000000

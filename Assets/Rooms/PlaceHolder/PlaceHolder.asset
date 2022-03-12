@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d95611ab7e3b2d48be2783fb9655657, type: 3}
+  m_Name: PlaceHolder
+  m_EditorClassIdentifier: 
+  NRooms:
+  - {fileID: 7249591817115711215, guid: 1c353c7becd6a90458630237aa1fbf9f, type: 3}
+  - {fileID: 7249591817115711215, guid: 0f7ce90145892f54c9d8de0d1a7e38ee, type: 3}
+  - {fileID: 7249591817115711215, guid: c9acf7310f7c51340a5696cfe276168e, type: 3}
+  ERooms:
+  - {fileID: 7249591817115711215, guid: 35e7ff11f9148d749acc5c7b5665c70b, type: 3}
+  - {fileID: 7249591817115711215, guid: 0f7ce90145892f54c9d8de0d1a7e38ee, type: 3}
+  SRooms:
+  - {fileID: 7249591817115711215, guid: 0f7ce90145892f54c9d8de0d1a7e38ee, type: 3}
+  - {fileID: 7249591817115711215, guid: c9acf7310f7c51340a5696cfe276168e, type: 3}
+  WRooms:
+  - {fileID: 7249591817115711215, guid: 35e7ff11f9148d749acc5c7b5665c70b, type: 3}
+  - {fileID: 7249591817115711215, guid: 1c353c7becd6a90458630237aa1fbf9f, type: 3}
+  - {fileID: 7249591817115711215, guid: 0f7ce90145892f54c9d8de0d1a7e38ee, type: 3}
+  SpawnRooms:
+  - {fileID: 7249591817115711215, guid: cd566a43f32deab45a92d68d0eaf50e3, type: 3}
+  EndRooms:
+  - {fileID: 7249591817115711215, guid: cc3000be94d3b6949abadc4e50439610, type: 3}

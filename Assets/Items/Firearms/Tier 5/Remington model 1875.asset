@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680ab862df697c44c8df1d8f7d11fa49, type: 3}
+  m_Name: Remington model 1875
+  m_EditorClassIdentifier: 
+  GunSprite: {fileID: 21300000, guid: 845a37573e20b1947854519cc2521a90, type: 3}
+  BulletSprite: {fileID: 21300000, guid: 4c7d89adaff21664e943e4c62a449f16, type: 3}
+  CasingSprite: {fileID: 21300000, guid: 4c7d89adaff21664e943e4c62a449f16, type: 3}
+  ProjectileSprite: {fileID: 21300000, guid: 574bb10cf5221f54c8e74eaca0868a46, type: 3}
+  ShootingSounds: []
+  ReloadingSounds: []
+  DisplayName: 1875 Revolver
+  firearmType: 0
+  myTier: 4
+  damage: 0
+  BulletCapacity: 6
+  ProjectilesOnFire: 1
+  ProjectileSpeed: 25
+  BaseAccuracy: 5
+  Firerate: 0.1
+  HoldBulletInChamber: 0
+  AutoEjectingOnBreach: 0
+  EjectingCartridgesOnFire: 0
+  GunSmokeOnFire: 0
+  GunFlashOnFire: 0
+  ShotgunSpread: 0
+  TwoHanded: 0
+  WeaponReloadAngle: -45
+  myShootType: 0
+  ShootingHandHoldingPoint: {x: -0.154, y: 0.005}
+  GetAmmoHoldingPoint: {x: 0, y: 0}
+  FirePointCords: {x: 0.373, y: 0.147}
+  OtherHandHoldingPoint: {x: 0, y: 0}
+  LoadBulletsPoint: {x: -0.047, y: 0.152}
+  CockingPointNeutral: {x: -0.097, y: 0.214}
+  CockingPulledBack: {x: 0, y: 0}
+  BulletReleaseKey: {x: 0.239, y: 0.122}
+  RevolverCylinderLocation: {x: 0.015, y: 0.12}
+  ProjectileGO: {fileID: 4862189144455170496, guid: dea5b1cd2d5315449be79e54ae90e268, type: 3}
+  ReloadSetUpActions: 0000000001000000
+  MainReloadActions: 02000000030000000400000005000000
+  ReloadFinishedActions: 0600000007000000
