@@ -7,5 +7,9 @@ public class PlayerPrefsNames
     public static string resolutionSetting = "resolutionSetting";
     public static string fullscreenSetting = "fullscreenSetting";
     public static string vsyncSetting = "vsyncSetting";
-    
+
+    public static string masterVolumeSetting = "masterVolumeSetting";
+    public static  string musicVolumeSetting = "musicVolumeSetting";
+    public static string sfxVolumeSetting = "sfxVolumeSetting";
+
 }

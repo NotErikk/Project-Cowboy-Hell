@@ -10,14 +10,45 @@ public class Display : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropDown;
     [SerializeField] private TMP_Dropdown fullscreenDropDown;
     [SerializeField] private Toggle vsyncToggle;
+    
+    Resolution[] resolutions;
+    
     void Start()
     {
+        SetUpResolutionDropDown();
         DisplayCurrentValues();
     }
 
+    void SetUpResolutionDropDown()
+    {
+        resolutions = Screen.resolutions;
+        
+        resolutionDropDown.ClearOptions();
+
+        var resolutionStrings = new List<string>();
+
+        int currentValue = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            resolutionStrings.Add(resolutions[i].width + " x " + resolutions[i].height + " @" + resolutions[i].refreshRate + "Hz");
+
+            if (resolutions[i].width == Screen.currentResolution.width && //set correct inital value
+                resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentValue = i;
+                Debug.Log("current value = " + i);
+
+            }
+        }
+        
+        resolutionDropDown.AddOptions(resolutionStrings);
+        resolutionDropDown.value = currentValue;
+        resolutionDropDown.RefreshShownValue();
+        
+    }
+    
     void DisplayCurrentValues()
     {
-        resolutionDropDown.value = PlayerPrefs.GetInt(PlayerPrefsNames.resolutionSetting);
         fullscreenDropDown.value = PlayerPrefs.GetInt(PlayerPrefsNames.fullscreenSetting);
 
         vsyncToggle.isOn = PlayerPrefs.GetInt(PlayerPrefsNames.vsyncSetting) == 1;
@@ -29,7 +60,10 @@ public class Display : MonoBehaviour
     public void ResolutionChanged(TMP_Dropdown newValue)
     {
         int value = newValue.value;
-        Debug.Log(value);
+        PlayerPrefs.SetInt(PlayerPrefsNames.resolutionSetting, value);
+
+        Resolution resolution = resolutions[value];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
     public void FullScreenChanged(TMP_Dropdown newValue)
