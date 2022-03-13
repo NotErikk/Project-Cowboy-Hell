@@ -16,7 +16,7 @@ public class Sound : MonoBehaviour
     [Header("Audio Mixers")]
     [SerializeField] private AudioMixer masterMixer;
 
-    void Start()
+    void Awake()
     {
         DisplayCurrentValues();
     }
@@ -25,6 +25,7 @@ public class Sound : MonoBehaviour
     void DisplayCurrentValues()
     {
         masterSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.masterVolumeSetting);
+        Debug.Log(masterSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.masterVolumeSetting));
         musicSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.musicVolumeSetting);
         sfxSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.sfxVolumeSetting);
     }
@@ -43,8 +44,8 @@ public class Sound : MonoBehaviour
         masterMixer.SetFloat("volumeOfMusic", musicSlider.value);
         PlayerPrefs.SetFloat(PlayerPrefsNames.musicVolumeSetting, musicSlider.value);
     }
-
-    public void sfxChanged()
+    
+    public void SfxChanged()
     {
         masterMixer.SetFloat("volumeOfSFX", sfxSlider.value);
         PlayerPrefs.SetFloat(PlayerPrefsNames.sfxVolumeSetting, sfxSlider.value);

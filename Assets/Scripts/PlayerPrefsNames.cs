@@ -12,4 +12,8 @@ public class PlayerPrefsNames
     public static  string musicVolumeSetting = "musicVolumeSetting";
     public static string sfxVolumeSetting = "sfxVolumeSetting";
 
+    public static string bloomSetting = "bloomSetting";
+    public static string vignetteSetting = "vignetteSetting";
+
+    public static string idleRollDirection = "idleRollDirectionSetting";
 }

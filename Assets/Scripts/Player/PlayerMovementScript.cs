@@ -151,6 +151,8 @@ public class PlayerMovementScript : MonoBehaviour
     private float LastRollTime;
 
     private bool Rolled;
+
+    [HideInInspector] public float idleRollDirection;
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -231,6 +233,8 @@ public class PlayerMovementScript : MonoBehaviour
 
         WeapoTransform = WeaponGO.transform;
         PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+        idleRollDirection = PlayerPrefs.GetInt(PlayerPrefsNames.idleRollDirection);
+        if (idleRollDirection == 0) idleRollDirection = 1;
     }
 
     private void Start()
@@ -672,7 +676,9 @@ public class PlayerMovementScript : MonoBehaviour
         else if (IsDodge) //is player dodging
         {
             if (LastRollTime <= Time.time - RollCooldown - rollCooldownBuff)
-            PlayerState = PlayerStates.Rolling;
+            {
+                PlayerState = PlayerStates.Rolling;
+            }
         }
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //is player falling activate coyote
@@ -863,7 +869,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (Horizontal == 0)
         {
-            return transform.localScale.x;
+            return transform.localScale.x * idleRollDirection;
         }
         return Mathf.Sign(Horizontal);
 

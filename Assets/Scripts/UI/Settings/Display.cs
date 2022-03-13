@@ -13,7 +13,7 @@ public class Display : MonoBehaviour
     
     Resolution[] resolutions;
     
-    void Start()
+    void Awake()
     {
         SetUpResolutionDropDown();
         DisplayCurrentValues();
@@ -36,7 +36,6 @@ public class Display : MonoBehaviour
                 resolutions[i].height == Screen.currentResolution.height)
             {
                 currentValue = i;
-                Debug.Log("current value = " + i);
 
             }
         }
@@ -57,21 +56,18 @@ public class Display : MonoBehaviour
     
     
     //Value Changed Funcs \/
-    public void ResolutionChanged(TMP_Dropdown newValue)
+    public void ResolutionChanged()
     {
-        int value = newValue.value;
-        PlayerPrefs.SetInt(PlayerPrefsNames.resolutionSetting, value);
+        PlayerPrefs.SetInt(PlayerPrefsNames.resolutionSetting, resolutionDropDown.value);
 
-        Resolution resolution = resolutions[value];
+        Resolution resolution = resolutions[resolutionDropDown.value];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void FullScreenChanged(TMP_Dropdown newValue)
+    public void FullScreenChanged()
     {
-        
-        int value = newValue.value;
-        
-        switch (value)
+
+        switch (fullscreenDropDown.value)
         {
             case 0: //FullScreen Window
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
@@ -90,12 +86,12 @@ public class Display : MonoBehaviour
                 return;
         }
 
-        PlayerPrefs.SetInt(PlayerPrefsNames.fullscreenSetting, value);
+        PlayerPrefs.SetInt(PlayerPrefsNames.fullscreenSetting, fullscreenDropDown.value);
     }
 
-    public void VsyncChanged(Toggle newValue)
+    public void VsyncChanged()
     {
-        int value = newValue.isOn ? 1 : 0;
+        int value = vsyncToggle.isOn ? 1 : 0;
         
         PlayerPrefs.SetInt(PlayerPrefsNames.vsyncSetting, value);
         QualitySettings.vSyncCount = value;
