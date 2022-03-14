@@ -15,6 +15,7 @@ TagManager:
   - PlayerMouse
   - GeneratedRoom
   - LevelGenerator
+  - InteractableLootBox
   layers:
   - Default
   - TransparentFX
