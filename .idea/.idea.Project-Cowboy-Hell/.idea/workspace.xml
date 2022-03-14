@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Ant Farm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Ant Farm.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Devil's Mouth.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Devil's Mouth.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Open Air.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Open Air.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/The Pit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/The Pit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/AssetGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/AssetGenerator.cs" afterDir="false" />
-    </list>
+    <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +81,7 @@
       <workItem from="1647177555522" duration="6860000" />
       <workItem from="1647258255554" duration="2459000" />
       <workItem from="1647260752765" duration="6528000" />
-      <workItem from="1647268392940" duration="1056000" />
+      <workItem from="1647268392940" duration="1215000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>
