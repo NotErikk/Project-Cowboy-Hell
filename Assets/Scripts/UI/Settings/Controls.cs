@@ -13,7 +13,6 @@ public class Controls : MonoBehaviour
     void Awake()
     {
         DisplayCurrentValues();
-        Debug.Log("Roll direction:"+ PlayerPrefs.GetInt(PlayerPrefsNames.idleRollDirection));
     }
 
     void DisplayCurrentValues()

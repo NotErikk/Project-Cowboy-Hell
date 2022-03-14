@@ -25,8 +25,8 @@ public class LootBox : MonoBehaviour
     [SerializeField] private float throwObjectOnOpenForce;
     
     [Header("Assignables")]
-    [SerializeField] private GameObject iteractableWeaponPrefab;
-    [FormerlySerializedAs("iteractableItemPrefab")] [SerializeField] private GameObject interactableItemPrefab;
+    [SerializeField] private GameObject interactableItemPrefab;
+    [SerializeField] private GameObject interactableWeaponPrefab;
 
     [Header("Weapons")] 
     [SerializeField] FirearmSO[] tier1Weps;
@@ -53,7 +53,8 @@ public class LootBox : MonoBehaviour
     {
         if (myLootType == LootBoxTypes.Random)
         {
-            int randomValue = Random.Range(0, 1);
+            int randomValue = Random.Range(0, 2);
+            Debug.Log("Rand Val For Obj = " + randomValue);
             myLootType = (LootBoxTypes)randomValue;
         }
         SetTierOfLoot();
@@ -145,7 +146,7 @@ public class LootBox : MonoBehaviour
     {
         //spawn dropped wep
         var myTransform = transform;
-        GameObject droppedWeapon = Instantiate(iteractableWeaponPrefab, myTransform.position, myTransform.rotation);
+        GameObject droppedWeapon = Instantiate(interactableWeaponPrefab, myTransform.position, myTransform.rotation);
         
         //set to random wep
         var allWeps = GetAllWeaponsOfTier();

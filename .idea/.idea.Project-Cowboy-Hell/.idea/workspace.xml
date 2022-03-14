@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Hud.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Hud.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MiniMapFullScreen.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MiniMapFullScreen.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMenu.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMenu.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/LootBox.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/LootBox.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/InteractableObjectPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/InteractableObjectPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Settings/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Settings/Controls.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +88,7 @@
       <workItem from="1647086057053" duration="12265000" />
       <workItem from="1647177555522" duration="6860000" />
       <workItem from="1647258255554" duration="2459000" />
-      <workItem from="1647260752765" duration="4925000" />
+      <workItem from="1647260752765" duration="6528000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>
