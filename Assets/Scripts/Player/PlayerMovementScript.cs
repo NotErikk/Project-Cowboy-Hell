@@ -895,7 +895,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         foreach (PlatformEffector2D x in AllBridges)
         {
-            x.colliderMask = ~PlayerLayer;
+            x.colliderMask -= PlayerLayer;
         }
     }
 

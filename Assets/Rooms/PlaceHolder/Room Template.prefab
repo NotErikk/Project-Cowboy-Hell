@@ -847,8 +847,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coverAmountToSpawn: 2
   enemiesAmountToSpawn: 2
+  spawnLootChance: 0
   coverCollection: {fileID: 7017912541670208153}
   enemyCollection: {fileID: 2586550475735751376}
+  lootCollection: {fileID: 0}
 --- !u!1 &7249591817960762148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,7 +4775,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32255
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
