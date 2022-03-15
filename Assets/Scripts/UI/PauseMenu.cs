@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     PlayerMovementScript movementScript;
     WeaponAiming weaponAiming;
     CursorIcon cursorIcon;
+    private InteractableObjectPickup interactableObjectPickup;
 
     bool isPaused;
 
@@ -21,6 +22,7 @@ public class PauseMenu : MonoBehaviour
         weaponController = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>();
         movementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>();
         weaponAiming = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<WeaponAiming>();
+        interactableObjectPickup = GameObject.FindGameObjectWithTag("Player").GetComponent<InteractableObjectPickup>();
         cursorIcon = GameObject.FindGameObjectWithTag("PlayerMouse").GetComponent<CursorIcon>();
         optionsMenuPrefab.SetActive(false);
         PauseGame();
@@ -74,6 +76,7 @@ public class PauseMenu : MonoBehaviour
         weaponController.enabled = toggle;
         weaponAiming.enabled = toggle;
         cursorIcon.enabled = toggle;
+        interactableObjectPickup.enabled = toggle;
     }
 
     //pause menu button functionality

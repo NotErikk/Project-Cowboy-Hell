@@ -49,7 +49,7 @@ public class ItemManager : MonoBehaviour
     PlayerMovementScript playerMovementScript;
     WeaponController weaponController;
     [SerializeField]WeaponAiming weaponAiming;
-
+    private PlayerHealth playerHealth;
 
 
     public void Awake()
@@ -58,7 +58,7 @@ public class ItemManager : MonoBehaviour
         interactableObjectPickup = GetComponent<InteractableObjectPickup>();
         weaponController = GetComponent<WeaponController>();
         playerMovementScript = GetComponent<PlayerMovementScript>();
-        
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     public void Update()
@@ -169,7 +169,7 @@ public class ItemManager : MonoBehaviour
         //shop discount
         //damage resitstance
         //dodge chance
-        //extra lives to give
+        playerHealth.UpdateExtraLives((int)extraLives);
         //increase max health
     }
 }

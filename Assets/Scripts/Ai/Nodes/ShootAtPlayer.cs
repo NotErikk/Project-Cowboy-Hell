@@ -17,8 +17,6 @@ public class ShootAtPlayer : Node
 
     public override NodeState Evaluate()
     {
-        Debug.Log("bang" + brain.timeSinceLastShot);
-
         switch (currentFirearm.myShootType)
             {
                 case FirearmSO.ShootTypes.Normal:

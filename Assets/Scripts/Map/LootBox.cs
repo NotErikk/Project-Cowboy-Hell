@@ -52,12 +52,15 @@ public class LootBox : MonoBehaviour
     
     private void Awake()
     {
-        currentLevel = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentLevel();
-        currentLevel++;
+        if (GameObject.FindGameObjectWithTag("LevelManager") != null)
+        {
+            currentLevel = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentLevel();
+            currentLevel++;
+        }
+        
         if (myLootType == LootBoxTypes.Random)
         {
             int randomValue = Random.Range(0, 2);
-            Debug.Log("Rand Val For Obj = " + randomValue);
             myLootType = (LootBoxTypes)randomValue;
         }
         SetTierOfLoot();

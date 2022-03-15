@@ -5,9 +5,6 @@ using UnityEngine;
 public class projectileScript : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask Player;
-
-    [SerializeField]
     private GameObject DestroyParticle;
 
     public float damage;
