@@ -49,8 +49,11 @@ public class LootBox : MonoBehaviour
     [SerializeField] private float[] level4Odds;
     [SerializeField] private float[] level5Odds;
     [SerializeField] private float[] level6Odds;
+    
     private void Awake()
     {
+        currentLevel = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentLevel();
+        currentLevel++;
         if (myLootType == LootBoxTypes.Random)
         {
             int randomValue = Random.Range(0, 2);
@@ -59,6 +62,8 @@ public class LootBox : MonoBehaviour
         }
         SetTierOfLoot();
     }
+    
+    
 
     [ContextMenu("Re-Roll Tier")]
     void SetTierOfLoot()
@@ -97,7 +102,6 @@ public class LootBox : MonoBehaviour
     }
     Tiers.tier GetTierFromOddsAndRoll(float Roll, float[] Odds)
     {
-        Debug.Log("Rolled a " + Roll);
         if (Roll <= Odds[0])
         {
             return Tiers.tier.tier1;

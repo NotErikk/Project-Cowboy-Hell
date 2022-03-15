@@ -1,19 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GeneratorEngine : MonoBehaviour
 {
-    public int TotalRooms;
+    [HideInInspector] public int TotalRooms;
     List<GameObject> spawnPoints = new List<GameObject>(); //list to hold all spawnpoints
-    public RoomsSO RoomsAvailable;
+    [HideInInspector] public RoomsSO RoomsAvailable;
     public GameObject StartingPoint;
     int Counter = 0;
     PlayerMovementScript playerMovementScript;
 
-    public void Awake()
-    {   
+
+    private void Awake()
+    {
         playerMovementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>();
+    }
+
+    public void Start()
+    {
         GameObject StartingRoom = RoomsAvailable.SpawnRooms[Random.Range(0, RoomsAvailable.SpawnRooms.Length)];
         Instantiate(StartingRoom, new Vector3(StartingPoint.transform.position.x, StartingPoint.transform.position.y, 0), Quaternion.identity);
     }
