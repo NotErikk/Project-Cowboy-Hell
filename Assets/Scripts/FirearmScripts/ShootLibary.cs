@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootLibary
 {
 
-    public void NormalProjectile(Sprite BulletSprite, Sprite ProjectileSprite, float ProjectileSpeed, float BaseAccuracy, bool GunSmokeOnFire, bool GunFlashOnFire, GameObject ProjecticleGO, GameObject ShootingPoint, float AccuracyMultiplier, float damage)
+    public void NormalProjectile(Sprite BulletSprite, Sprite ProjectileSprite, float ProjectileSpeed, float BaseAccuracy, bool GunSmokeOnFire, bool GunFlashOnFire, GameObject ProjecticleGO, Transform ShootingPoint, float AccuracyMultiplier, float damage, int layer)
     {
         var mousePosition = GetMousePosition();
         float myAngle = ShootingPoint.transform.eulerAngles.z;
@@ -14,26 +14,27 @@ public class ShootLibary
         myAngle += Random.Range(-BaseAccuracy / 2, BaseAccuracy / 2);
 
 
-        GameObject instancedObj = GameObject.Instantiate(ProjecticleGO, ShootingPoint.transform.position, Quaternion.Euler(0f, 0f, myAngle)) as GameObject;
+        GameObject instancedObj = GameObject.Instantiate(ProjecticleGO, ShootingPoint.position, Quaternion.Euler(0f, 0f, myAngle)) as GameObject;
         instancedObj.GetComponent<SpriteRenderer>().sprite = ProjectileSprite;
-
-        Debug.DrawRay(ShootingPoint.transform.position, instancedObj.transform.right * 15f, Color.green, 3f);
+        instancedObj.layer = layer;
+        
+        Debug.DrawRay(ShootingPoint.position, instancedObj.transform.right * 15f, Color.green, 3f);
 
         instancedObj.GetComponent<Rigidbody2D>().velocity = instancedObj.transform.right * ProjectileSpeed;
         instancedObj.GetComponent<projectileScript>().damage = damage;
 
     }
 
-    public void ShotgunShot(Sprite BulletSprite, Sprite ProjectileSprite, int ProjectilesOnFire, float ProjectileSpeed, float BaseAccuracy, bool GunSmokeOnFire, bool GunFlashOnFire, GameObject ProjecticleGO, GameObject ShootingPoint, float Spread, float AccuracyMultiplier, float damage)
+    public void ShotgunShot(Sprite BulletSprite, Sprite ProjectileSprite, int ProjectilesOnFire, float ProjectileSpeed, float BaseAccuracy, bool GunSmokeOnFire, bool GunFlashOnFire, GameObject ProjecticleGO, Transform ShootingPoint, float Spread, float AccuracyMultiplier, float damage, int layer)
     {
         var mousePosition = GetMousePosition();
-        float myAngle = ShootingPoint.transform.eulerAngles.z;
+        float myAngle = ShootingPoint.eulerAngles.z;
 
         BaseAccuracy *= AccuracyMultiplier;
         float aimingPoint = myAngle + Random.Range(-BaseAccuracy / 2, BaseAccuracy / 2);
 
 
-        Debug.DrawRay(ShootingPoint.transform.position, (mousePosition - ShootingPoint.transform.position).normalized * 15, Color.red, 3f);
+        Debug.DrawRay(ShootingPoint.position, (mousePosition - ShootingPoint.position).normalized * 15, Color.red, 3f);
 
         for (int i = 0; i < ProjectilesOnFire; i++)
         {
@@ -41,8 +42,9 @@ public class ShootLibary
 
             GameObject instancedObj = GameObject.Instantiate(ProjecticleGO, ShootingPoint.transform.position, Quaternion.Euler(0f, 0f, myAngle)) as GameObject;
             instancedObj.GetComponent<SpriteRenderer>().sprite = ProjectileSprite;
-
-            Debug.DrawRay(ShootingPoint.transform.position, instancedObj.transform.right * 15f, Color.green, 3f);
+            instancedObj.layer = layer;
+            
+            Debug.DrawRay(ShootingPoint.position, instancedObj.transform.right * 15f, Color.green, 3f);
 
             instancedObj.GetComponent<Rigidbody2D>().velocity = instancedObj.transform.right * ProjectileSpeed;
             instancedObj.GetComponent<projectileScript>().damage = damage;

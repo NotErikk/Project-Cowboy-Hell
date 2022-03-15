@@ -397,11 +397,11 @@ public class WeaponController : MonoBehaviour
             switch (CurrentFirearm.myShootType)
             {
                 case FirearmSO.ShootTypes.Normal:
-                    shootLibary.NormalProjectile(CurrentFirearm.BulletSprite, CurrentFirearm.ProjectileSprite, CurrentFirearm.ProjectileSpeed, CurrentFirearm.BaseAccuracy, CurrentFirearm.GunSmokeOnFire, CurrentFirearm.GunFlashOnFire, CurrentFirearm.ProjectileGO, FirePoint, currentAccuracy, currentDamageToDeal);
+                    shootLibary.NormalProjectile(CurrentFirearm.BulletSprite, CurrentFirearm.ProjectileSprite, CurrentFirearm.ProjectileSpeed, CurrentFirearm.BaseAccuracy, CurrentFirearm.GunSmokeOnFire, CurrentFirearm.GunFlashOnFire, CurrentFirearm.ProjectileGO, FirePoint.transform, currentAccuracy, currentDamageToDeal, 18);
                     break;
 
                 case FirearmSO.ShootTypes.Shotgun:
-                    shootLibary.ShotgunShot(CurrentFirearm.BulletSprite, CurrentFirearm.ProjectileSprite,CurrentFirearm.ProjectilesOnFire, CurrentFirearm.ProjectileSpeed, CurrentFirearm.BaseAccuracy, CurrentFirearm.GunSmokeOnFire, CurrentFirearm.GunFlashOnFire, CurrentFirearm.ProjectileGO, FirePoint,CurrentFirearm.ShotgunSpread, currentAccuracy, currentDamageToDeal);
+                    shootLibary.ShotgunShot(CurrentFirearm.BulletSprite, CurrentFirearm.ProjectileSprite,CurrentFirearm.ProjectilesOnFire, CurrentFirearm.ProjectileSpeed, CurrentFirearm.BaseAccuracy, CurrentFirearm.GunSmokeOnFire, CurrentFirearm.GunFlashOnFire, CurrentFirearm.ProjectileGO, FirePoint.transform,CurrentFirearm.ShotgunSpread, currentAccuracy, currentDamageToDeal, 18);
                     break;
 
                 default:

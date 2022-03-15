@@ -27,16 +27,16 @@ TagManager:
   - MainCamera
   - Player
   - Ground
-  - Projectiles
+  - 
   - Spent Casing
   - InteractableWeaponCollider
   - Ai
   - Cover
   - RoomCollider
-  - 
-  - 
-  - 
-  - 
+  - PlayerHitBox
+  - EnemyHitBox
+  - EnemyProjectile
+  - PlayerProjectile
   - 
   - 
   - 

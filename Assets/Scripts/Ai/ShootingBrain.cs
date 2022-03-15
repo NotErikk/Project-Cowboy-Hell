@@ -13,25 +13,25 @@ public class ShootingBrain : MonoBehaviour
     MovementAndSensesBrain movementBrain;
     [HideInInspector] public float firerate;
     [HideInInspector] public float timeSinceLastShot;
+    public Transform firePoint;
     
 
     public void Awake()
     {
-
-
         if (myWeapon == null)
         {
             int randomWepId = Random.Range(0, allAvailableWeps.Length);
             myWeapon = allAvailableWeps[randomWepId];
         }
-
+        firePoint.localPosition = myWeapon.FirePointCords;
+        
         sprite.sprite = myWeapon.GunSprite;
 
         movementBrain = GetComponent<MovementAndSensesBrain>();
         player = GameObject.FindGameObjectWithTag("Player");
 
         firerate = myWeapon.Firerate;
-        timeSinceLastShot = 0;
+        timeSinceLastShot = Time.time;
     }
 
     public void Start()
@@ -45,7 +45,7 @@ public class ShootingBrain : MonoBehaviour
         CanMovementBrainSeePlayer canISeePlayer = new CanMovementBrainSeePlayer(movementBrain);
         AimAtPlayer aimAtPlayer = new AimAtPlayer(player, gun);
         FirerateCheck firerateCheck = new FirerateCheck(this);
-        ShootAtPlayer shootAtPlayer = new ShootAtPlayer(this);
+        ShootAtPlayer shootAtPlayer = new ShootAtPlayer(this, myWeapon);
 
         //composite nodes
         Sequence engagePlayer = new Sequence(new List<Node> { canISeePlayer, aimAtPlayer, firerateCheck, shootAtPlayer });
