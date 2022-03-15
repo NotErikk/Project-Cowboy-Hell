@@ -12,6 +12,7 @@ public class GeneratorEngine : MonoBehaviour
     public GameObject StartingPoint;
     int Counter = 0;
     PlayerMovementScript playerMovementScript;
+    [SerializeField] private LoadingScreenShowHide loadingScreen;
 
 
     private void Awake()
@@ -114,5 +115,9 @@ public class GeneratorEngine : MonoBehaviour
     {
         spawnPoints.Remove(spawnPoint);
     }
-    
+
+    private void OnDestroy()
+    {
+        loadingScreen.FinishLoading();
+    }
 }

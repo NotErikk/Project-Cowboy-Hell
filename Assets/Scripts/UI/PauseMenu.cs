@@ -96,6 +96,10 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-
+    public void setPause(bool toggle)
+    {
+        isPaused = toggle;
+        PauseGame();
+    }
 
 }
