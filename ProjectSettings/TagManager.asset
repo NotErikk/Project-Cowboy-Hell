@@ -17,6 +17,7 @@ TagManager:
   - LevelGenerator
   - InteractableLootBox
   - LevelManager
+  - TabMenuItem
   layers:
   - Default
   - TransparentFX

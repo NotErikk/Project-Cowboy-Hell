@@ -54,7 +54,6 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateExtraLives(int extraLives)
     {
         lives = extraLives;
-        Debug.Log("Gained a life!");
     }
     
 }

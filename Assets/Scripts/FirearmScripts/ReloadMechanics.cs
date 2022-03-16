@@ -88,7 +88,6 @@ public class ReloadMechanics
             ratio = ElapsedTime / duration;
             WeaponTransform.position = Vector3.Slerp(StartingPosition.position, ReloadPosition.position, ratio);
         }
-        Debug.Log("BringGunClose");
         yield return null;
     }
 
@@ -107,8 +106,7 @@ public class ReloadMechanics
             SecondArmTransform.localPosition = Vector3.Lerp(StartingTransform.localPosition, CurrentFirearm.LoadBulletsPoint, ratio);
             yield return null;
         }
-
-        Debug.Log("OpenLoadGate");
+        
         yield return null;
     }
 
@@ -127,8 +125,7 @@ public class ReloadMechanics
             SecondArmTransform.localPosition = Vector3.Lerp(StartingPosition.localPosition, CurrentFirearm.CockingPointNeutral, ratio);
             yield return null;
         }
-
-        Debug.Log("BringHammerToHalfCock");
+        
         yield return null;
     }
 
@@ -136,7 +133,6 @@ public class ReloadMechanics
     {
         for (int i = 0; i < Spins; i++)
         {
-            Debug.Log("SpinCylinder");
 
             float ElapsedTime = 0;
             float duration = (1 * ReloadSpeedBuff) / 2;
@@ -185,8 +181,7 @@ public class ReloadMechanics
         Vector2 SpawnPosition = Self.TransformPoint(CurrentFirearm.LoadBulletsPoint);
         GameObject SpentCasing = GameObject.Instantiate(SpentCasingPrefab, SpawnPosition, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360))) as GameObject;
         SpentCasing.GetComponent<SpriteRenderer>().sprite = CurrentFirearm.CasingSprite;
-
-        Debug.Log("EjectSpentCasing");
+        
         yield return null;
     }
 
@@ -205,8 +200,7 @@ public class ReloadMechanics
             SecondArmTransform.position = Vector3.Lerp(StartingPosition.position, PlayerPocket.position, ratio);
             yield return null;
         }
-
-        Debug.Log("GoToPocket");
+        
         yield return null;
     }
 
@@ -231,7 +225,6 @@ public class ReloadMechanics
         
         
         WepController.CurrentFirearmAmmoCount++;
-        Debug.Log("insertNewBullet");
         yield return null;
     }
 
@@ -250,8 +243,7 @@ public class ReloadMechanics
             SecondArmTransform.localPosition = Vector3.Lerp(StartingPosition.localPosition, CurrentFirearm.LoadBulletsPoint, ratio);
             yield return null;
         }
-
-        Debug.Log("CloseLoadingGate");
+        
         yield return null;
     }
 
@@ -270,14 +262,12 @@ public class ReloadMechanics
             SecondArmTransform.localPosition = Vector3.Lerp(StartingPosition.localPosition, CurrentFirearm.CockingPointNeutral, ratio);
             yield return null;
         }
-
-        Debug.Log("BringHammerToFullCock");
+        
         yield return null;
     }
 
     public IEnumerator ReturnToShootingPosition()
     {
-        Debug.Log("put gun back to shooting position");
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos = mousePos + (Camera.main.transform.forward * 10.0f);
         mousePos = mousePos - Self.position;

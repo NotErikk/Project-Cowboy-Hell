@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] List<ItemSO> itemList;
+    public List<ItemSO> itemList;
 
     //CURRENT MODIFIERS
 
@@ -50,6 +50,7 @@ public class ItemManager : MonoBehaviour
     WeaponController weaponController;
     [SerializeField]WeaponAiming weaponAiming;
     private PlayerHealth playerHealth;
+    private TabMenuInventory tabMenu;
 
 
     public void Awake()
@@ -59,6 +60,7 @@ public class ItemManager : MonoBehaviour
         weaponController = GetComponent<WeaponController>();
         playerMovementScript = GetComponent<PlayerMovementScript>();
         playerHealth = GetComponent<PlayerHealth>();
+        tabMenu = GameObject.FindGameObjectWithTag("TabMenuItem").GetComponent<TabMenuInventory>();
     }
 
     public void Update()
@@ -157,6 +159,8 @@ public class ItemManager : MonoBehaviour
     [ContextMenu("UpdateBuffs")]
     private void UpdateBuffs()
     {
+        tabMenu.UpdateItems();
+        
         weaponController.UpdateDamageModifier();
         weaponController.UpdateReloadModifier();
         weaponController.UpdateFirerateModifier();
