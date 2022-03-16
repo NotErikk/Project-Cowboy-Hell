@@ -220,9 +220,10 @@ public class PlayerMovementScript : MonoBehaviour
     bool IsDodge;
 
     ItemManager itemManager;
-    
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    private HitboxSizeManager hitboxManager;
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
 
     public void Awake()
     {
@@ -235,6 +236,8 @@ public class PlayerMovementScript : MonoBehaviour
         PlayerRigidbody2D = GetComponent<Rigidbody2D>();
         idleRollDirection = PlayerPrefs.GetInt(PlayerPrefsNames.idleRollDirection);
         if (idleRollDirection == 0) idleRollDirection = 1;
+
+        hitboxManager = GetComponentInChildren<HitboxSizeManager>();
     }
 
     private void Start()
@@ -323,9 +326,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Slide() //legal tranitions: jump, crouch. crouchwalking. crouchwalkingbackwards, idle, walking, walkingbackwards
     {
-        //Physics2D.gravity = new Vector2(0 * GravityRampMultiplier, -9.8f);
-        //PlayerRigidbody2D.AddForce(new Vector2(0, -9.8f));
-
         if (!Sliding) //get sliding direction
         {
             Sliding = true;
@@ -335,11 +335,15 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (IsGrounded()) //if still grounded decellerate and give option to jump
         {
-            PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - SlideDecelleration * SlideDirection, PlayerRigidbody2D.velocity.y);
+            var velocity = PlayerRigidbody2D.velocity;
+            velocity = new Vector2(velocity.x - SlideDecelleration * SlideDirection, velocity.y);
+            
+            PlayerRigidbody2D.velocity = velocity;
 
             if (IsJumping) //check jump
             {
                 Sliding = false;
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.Jumping;
                 return;
             }
@@ -351,16 +355,19 @@ public class PlayerMovementScript : MonoBehaviour
             Sliding = false;
             if (Horizontal == 0)
             {
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.Idle; //check idle
                 return;
             }
             else if (Horizontal == transform.localScale.x)
             {
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.Walking; //check walking
                 return;
             }
             else if (Horizontal != transform.localScale.x)
             {
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.WalkingBackwards;  //check walkingbackwards
                 return;
             }
@@ -373,6 +380,8 @@ public class PlayerMovementScript : MonoBehaviour
             Sliding = false;
             if (IsCrouching)
             {
+                hitboxManager.CrouchHitbox();
+                
                 if (Horizontal == 0)
                 {
                     PlayerState = PlayerStates.Crouching; //check crouching
@@ -407,22 +416,27 @@ public class PlayerMovementScript : MonoBehaviour
         else if (Time.time >= CoyoteTimeEndTime)
         {
             CoyoteTimeStarted = false;
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Falling;
         }
         else if (IsJumping) //check jumping
         {
             CoyoteTimeStarted = false;
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
         else if (IsDodge) //check dodge
         {
             if (LastRollTime <= Time.time - RollCooldown - rollCooldownBuff)
+            {
                 PlayerState = PlayerStates.Rolling;
+            }
         }
 
 
         else if (IsGrounded()) //IF the players hits the floor
         {
+            hitboxManager.DefaultHitbox();
             CoyoteTimeStarted = false;
             if (Horizontal != 0) //is the player trying to walk?
             {
@@ -449,6 +463,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else if (IsGrounded())
         {
+            hitboxManager.DefaultHitbox();
             if (Horizontal != 0) //is the player trying to walk?
             {
                 if (Horizontal == transform.localScale.x)
@@ -479,6 +494,7 @@ public class PlayerMovementScript : MonoBehaviour
 
             if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check falling
             {
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.Falling;
             }
 
@@ -490,8 +506,10 @@ public class PlayerMovementScript : MonoBehaviour
                 {
                     if (Horizontal == transform.localScale.x) //check walking
                     {
+                        hitboxManager.DefaultHitbox();
                         PlayerState = PlayerStates.Walking;
-                    }                   
+                    }               
+                    hitboxManager.DefaultHitbox();
                     PlayerState = PlayerStates.WalkingBackwards; //check walking backwards
                     
                 }
@@ -499,8 +517,10 @@ public class PlayerMovementScript : MonoBehaviour
                 {
                     if (Horizontal == transform.localScale.x) //check crouchwalking
                     {
+                        hitboxManager.CrouchHitbox();
                         PlayerState = PlayerStates.CrouchWalking;
                     }
+                    hitboxManager.CrouchHitbox();
                     PlayerState = PlayerStates.CrouchWalkingBackwards; //check crouch walking back
                 }
             }
@@ -510,8 +530,10 @@ public class PlayerMovementScript : MonoBehaviour
             {
                 if (Input.GetButton("Crouch")) //check crouch idle
                 {
+                    hitboxManager.CrouchHitbox();
                     PlayerState = PlayerStates.Crouching;
                 }
+                hitboxManager.DefaultHitbox();
                 PlayerState = PlayerStates.Idle; //check idle
 
             }
@@ -520,6 +542,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private IEnumerator DoARollUPDATED() //initiates a roll.  is called when a roll starts but code for physically moving the player is in fixed update.
     {
+        hitboxManager.ToggleHitbox(false);
         ToggleHideArmsAndWeapon(false); //hide weps and arms
         RollingDirection = GetPlayerDirection();
         transform.localScale = new Vector3(RollingDirection, 1, 1);
@@ -528,6 +551,7 @@ public class PlayerMovementScript : MonoBehaviour
         ToggleHideArmsAndWeapon(true);
         Rolling = false;
         Rolled = true;
+        hitboxManager.ToggleHitbox(true);
     }
 
     void CrouchWalkingBackwards() //legal transitions: crouching, crouchwalking, jumping, dodge, coyotetime, walking
@@ -538,14 +562,17 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Horizontal == 0)
         {
+            hitboxManager.CrouchHitbox();
             PlayerState = PlayerStates.Crouching; //check crouching
         }
         else if (Horizontal == transform.localScale.x) //go to crouching or crouchwalking backwards
-        {        
+        {   
+            hitboxManager.CrouchHitbox();
             PlayerState = PlayerStates.CrouchWalking; //check crouchingwalkingbackwards
         }
         else if (IsJumping) //check jumping
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
@@ -557,6 +584,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (!IsCrouching) //check no longer holding crouch
         {
+            hitboxManager.DefaultHitbox();
             if (Horizontal == 0)                //check Idle
             {
                 PlayerState = PlayerStates.Idle;
@@ -565,6 +593,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check falling and activate coyote
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
     }
@@ -581,18 +610,22 @@ public class PlayerMovementScript : MonoBehaviour
         {
             if (Horizontal == 0)
             {
+                hitboxManager.CrouchHitbox();
                 PlayerState = PlayerStates.Crouching; //check crouching
             }
+            hitboxManager.CrouchHitbox();
             PlayerState = PlayerStates.CrouchWalkingBackwards; //check crouchingwalkingbackwards
         }
 
         else if (IsJumping) //check jumping
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
         else if (!IsCrouching) //check no longer holding crouch
         {
+            hitboxManager.DefaultHitbox();
             if (Horizontal == 0)                //check Idle
             {
                 PlayerState = PlayerStates.Idle;
@@ -608,6 +641,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check falling and activate coyote
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
     }
@@ -619,11 +653,13 @@ public class PlayerMovementScript : MonoBehaviour
         PlayerRigidbody2D.velocity = new Vector2(0, PlayerRigidbody2D.velocity.y);
         if (!IsCrouching) //check for idle
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Idle;
         }
 
         else if (Horizontal != 0) //is the player trying to walk?
         {
+            hitboxManager.CrouchHitbox();
             if (Horizontal == transform.localScale.x) //check crouch walking
             {
                 PlayerState = PlayerStates.CrouchWalking;
@@ -634,6 +670,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (IsJumping) //check jumping
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
@@ -645,6 +682,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check fallking activated coyotoe time
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
     }
@@ -656,20 +694,24 @@ public class PlayerMovementScript : MonoBehaviour
         PlayerRigidbody2D.velocity = new Vector2(0, PlayerRigidbody2D.velocity.y);
         if (Horizontal != 0) //is the player trying to walk?
         {
+            hitboxManager.DefaultHitbox();
             if (Horizontal == transform.localScale.x)
             {
+                
                 PlayerState = PlayerStates.Walking; //check walking
             }                      
-                PlayerState = PlayerStates.WalkingBackwards;       //check walkingbackwards    
+            PlayerState = PlayerStates.WalkingBackwards;       //check walkingbackwards    
         }
 
         else if(IsCrouching) //is the player crouching?
         {
+            hitboxManager.CrouchHitbox();
             PlayerState = PlayerStates.Crouching;
         }
 
         else if (IsJumping) //is the player jumping
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
@@ -683,6 +725,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //is player falling activate coyote
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
 
@@ -696,15 +739,18 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Horizontal == 0) //check idle
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Idle;
         }
         else if (Horizontal == transform.localScale.x) //go to idle or walking backwards
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Walking;
         }
 
         else if (IsJumping) //check jump
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
@@ -716,11 +762,13 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (IsCrouching) //check Sliding
         {
+            hitboxManager.SlideHitbox();
             PlayerState = PlayerStates.Sliding;
         }
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check if falling and activate coyote
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
     }
@@ -736,6 +784,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Horizontal != transform.localScale.x) //go to idle or walking backwards
         {
+            hitboxManager.DefaultHitbox();
             if (Horizontal == 0)
             {
                 PlayerState = PlayerStates.Idle;
@@ -745,6 +794,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (IsJumping) //check jumping
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.Jumping;
         }
 
@@ -756,11 +806,13 @@ public class PlayerMovementScript : MonoBehaviour
 
         else if (IsCrouching) //check Sliding
         {
+            hitboxManager.SlideHitbox();
             PlayerState = PlayerStates.Sliding;
         }
 
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1 && !IsGrounded()) //check falling and activate coyote
         {
+            hitboxManager.DefaultHitbox();
             PlayerState = PlayerStates.InCoyoteTime;
         }
 
@@ -773,6 +825,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (!Jumping) //Jump force
         {
+            hitboxManager.DefaultHitbox();
             Jumping = true;
             SetGravityAir();
             PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x, JumpForce * jumpForceBuff);
@@ -789,11 +842,13 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else if (Mathf.Sign(PlayerRigidbody2D.velocity.y) == -1)
         {
+            hitboxManager.DefaultHitbox();
             Jumping = false;
             PlayerState = PlayerStates.Falling;
         }
         else if (IsGrounded())
         {
+            hitboxManager.DefaultHitbox();
             Jumping = false;
             PlayerState = PlayerStates.Idle;
         }

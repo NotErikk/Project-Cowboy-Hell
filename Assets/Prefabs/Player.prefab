@@ -1594,6 +1594,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468430219483461605}
+  - component: {fileID: 1519458847}
+  - component: {fileID: 1148552163179603946}
   - component: {fileID: 3005420337158107438}
   - component: {fileID: 7483065846521769794}
   - component: {fileID: 5945573719275425906}
@@ -1618,6 +1620,35 @@ Transform:
   m_Father: {fileID: 1493863779310972760}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519458847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414328453784342140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e200bd868bf46ac43b04e360f138988d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1148552163179603946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414328453784342140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3a580e38b4fc3498837fb23c3ba069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headCollider: {fileID: 3005420337158107438}
+  bodyCollider: {fileID: 5945573719275425906}
+  legsCollider: {fileID: 7483065846521769794}
+  distanceToMoveDownOnCrouch: 1
+  distanceToMoveDownOnSlide: 2
 --- !u!61 &3005420337158107438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2001,8 +2032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a5b5c03232adc4ea04c774cc01e94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 0
-  maximumHealth: 0
+  startingHealth: 100
+  maximumHealth: 100
 --- !u!114 &1493863779310972742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,7 +2204,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.5466242
+  m_Mass: 1.5466243
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 15
