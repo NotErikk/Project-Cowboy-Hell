@@ -154,7 +154,7 @@ public class ItemManager : MonoBehaviour
     }
 
 
-
+    [ContextMenu("UpdateBuffs")]
     private void UpdateBuffs()
     {
         weaponController.UpdateDamageModifier();

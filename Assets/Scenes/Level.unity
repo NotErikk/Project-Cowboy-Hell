@@ -577,6 +577,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148552163179603946, guid: ba5e5412d62d82e47a00f0a540fd6bfe, type: 3}
+      propertyPath: distanceToMoveDownOnSlide
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148552163179603946, guid: ba5e5412d62d82e47a00f0a540fd6bfe, type: 3}
+      propertyPath: distanceToMoveDownOnCrouch
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1493863779149708583, guid: ba5e5412d62d82e47a00f0a540fd6bfe, type: 3}
       propertyPath: Cursor
       value: 
@@ -1163,7 +1171,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.0294118, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

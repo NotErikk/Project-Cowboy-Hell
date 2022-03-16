@@ -337,7 +337,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             var velocity = PlayerRigidbody2D.velocity;
             velocity = new Vector2(velocity.x - SlideDecelleration * SlideDirection, velocity.y);
-            
+
             PlayerRigidbody2D.velocity = velocity;
 
             if (IsJumping) //check jump
@@ -374,7 +374,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
 
 
-
+        
         if (PlayerRigidbody2D.velocity.x < 1 && PlayerRigidbody2D.velocity.x > -1) //if velocity between -1 : 1 then stop sliding
         {
             Sliding = false;
@@ -909,7 +909,8 @@ public class PlayerMovementScript : MonoBehaviour
         GravityMultiplier = new Vector2(-GradientRay.normal.x * GravityRampMultiplier * 9.8f, -9.8f);
         PlayerRigidbody2D.AddForce(GravityMultiplier);
     }
-
+    
+    [ContextMenu("Update bridge list")]
     public void GetBridgeList() //fills a list of all bridges in the scene
     {
         AllBridges = new List<PlatformEffector2D>();
@@ -982,8 +983,7 @@ public class PlayerMovementScript : MonoBehaviour
             }
         }
     }
-
-
+    
     public void UpdateMovementSpeedBuff()
     {
         movementSpeedBuff = 1 + (float)itemManager.movementSpeedBuff;
@@ -993,7 +993,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         jumpForceBuff = 1 + (float)itemManager.jumpForceBuff;
     }
-
+    
     public void UpdateRollCooldownBuff()
     {
         rollCooldownBuff = RollCooldown - RollCooldown * (1 + itemManager.rollCooldownBuff);
