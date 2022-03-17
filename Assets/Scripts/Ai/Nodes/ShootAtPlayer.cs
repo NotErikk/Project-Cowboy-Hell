@@ -20,11 +20,11 @@ public class ShootAtPlayer : Node
         switch (currentFirearm.myShootType)
             {
                 case FirearmSO.ShootTypes.Normal:
-                    shootLibary.NormalProjectile(currentFirearm.BulletSprite, currentFirearm.ProjectileSprite, currentFirearm.ProjectileSpeed, currentFirearm.BaseAccuracy, currentFirearm.GunSmokeOnFire, currentFirearm.GunFlashOnFire, currentFirearm.ProjectileGO, brain.firePoint, 1, 1, 17);
+                    shootLibary.NormalProjectile(currentFirearm.BulletSprite, currentFirearm.ProjectileSprite, currentFirearm.ProjectileSpeed, currentFirearm.BaseAccuracy, currentFirearm.GunSmokeOnFire, currentFirearm.GunFlashOnFire, currentFirearm.ProjectileGO, brain.firePoint, 1, 20, 17);
                     break;
 
                 case FirearmSO.ShootTypes.Shotgun:
-                    shootLibary.ShotgunShot(currentFirearm.BulletSprite, currentFirearm.ProjectileSprite,currentFirearm.ProjectilesOnFire, currentFirearm.ProjectileSpeed, currentFirearm.BaseAccuracy, currentFirearm.GunSmokeOnFire, currentFirearm.GunFlashOnFire, currentFirearm.ProjectileGO, brain.firePoint,currentFirearm.ShotgunSpread, 1, 1, 17);
+                    shootLibary.ShotgunShot(currentFirearm.BulletSprite, currentFirearm.ProjectileSprite,currentFirearm.ProjectilesOnFire, currentFirearm.ProjectileSpeed, currentFirearm.BaseAccuracy, currentFirearm.GunSmokeOnFire, currentFirearm.GunFlashOnFire, currentFirearm.ProjectileGO, brain.firePoint,currentFirearm.ShotgunSpread, 1, 20/currentFirearm.ProjectilesOnFire, 17);
                     break;
 
                 default:

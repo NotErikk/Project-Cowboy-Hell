@@ -11,11 +11,15 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
     int lives;
     private ItemManager itemManager;
+
+    private GameObject deathScreenUi;
     
     private void Awake()
     {
         currentHealth = startingHealth;
         itemManager = GetComponent<ItemManager>();
+        deathScreenUi = GameObject.FindGameObjectWithTag("DeathScreen");
+        deathScreenUi.SetActive(false);
     }
 
     public void TakeDamage(float damage)
@@ -45,6 +49,8 @@ public class PlayerHealth : MonoBehaviour
     void KillPlayer()
     {
         Debug.Log("kill Player");
+        deathScreenUi.SetActive(true);
+
     }
     public void Heal(float healAmount)
     {

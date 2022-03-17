@@ -18,6 +18,7 @@ TagManager:
   - InteractableLootBox
   - LevelManager
   - TabMenuItem
+  - DeathScreen
   layers:
   - Default
   - TransparentFX
