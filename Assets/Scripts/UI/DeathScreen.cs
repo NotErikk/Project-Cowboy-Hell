@@ -45,7 +45,7 @@ public class DeathScreen : MonoBehaviour
     
     public void RetryButtonPressed()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitButtonPressed()
