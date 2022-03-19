@@ -50,6 +50,6 @@ public class DeathScreen : MonoBehaviour
 
     public void QuitButtonPressed()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }

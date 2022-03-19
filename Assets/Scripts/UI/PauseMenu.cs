@@ -93,7 +93,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMenu()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void setPause(bool toggle)
