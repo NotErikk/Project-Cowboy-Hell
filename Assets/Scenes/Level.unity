@@ -1939,6 +1939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TabMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3211879975034183308, guid: cbf858a2c94e8fb41b6d51a471b7a985, type: 3}
+      propertyPath: m_TagString
+      value: tabMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3211879975034183309, guid: cbf858a2c94e8fb41b6d51a471b7a985, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2428,6 +2432,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335051, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
+      propertyPath: forceCurrentLevel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}

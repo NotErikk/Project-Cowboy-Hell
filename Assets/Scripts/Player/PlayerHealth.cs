@@ -46,10 +46,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maximumHealth;
         Debug.Log("Revive Player");
     }
+    [ContextMenu("Kill Player")]
     void KillPlayer()
     {
-        Debug.Log("kill Player");
         deathScreenUi.SetActive(true);
+        deathScreenUi.GetComponent<DeathScreen>().DeathScreenSequence();
 
     }
     public void Heal(float healAmount)

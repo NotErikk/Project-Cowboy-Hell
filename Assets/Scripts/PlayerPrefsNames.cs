@@ -16,4 +16,6 @@ public class PlayerPrefsNames
     public static string vignetteSetting = "vignetteSetting";
 
     public static string idleRollDirection = "idleRollDirectionSetting";
+
+    public static string currentLevel = "currentLevel";
 }

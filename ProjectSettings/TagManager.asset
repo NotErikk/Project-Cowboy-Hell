@@ -19,6 +19,9 @@ TagManager:
   - LevelManager
   - TabMenuItem
   - DeathScreen
+  - PauseMenu
+  - tabMenu
+  - ai
   layers:
   - Default
   - TransparentFX

@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 3211879975034183310}
   m_Layer: 0
   m_Name: TabMenu
-  m_TagString: Untagged
+  m_TagString: tabMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

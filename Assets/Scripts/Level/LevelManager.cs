@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 {
     [Range(1,6)]
     [SerializeField] private int currentLevel;
+
+    [SerializeField] private bool forceCurrentLevel;
     
     [Tooltip("Min value, 1")]
     [SerializeField] private int roomsPerLevelLowerRange;
@@ -20,7 +22,11 @@ public class LevelManager : MonoBehaviour
     private GeneratorEngine generatorEngine;
     private void Awake()
     {
-        currentLevel--;
+        if (!forceCurrentLevel)
+        {
+            currentLevel = PlayerPrefs.GetInt(PlayerPrefsNames.currentLevel);
+        }
+        if (currentLevel != 0) currentLevel--;     
         
         if (roomsPerLevelLowerRange < 1) roomsPerLevelLowerRange = 1;
         if (roomsPerLevelUpperRange < 1) roomsPerLevelUpperRange = 1;
