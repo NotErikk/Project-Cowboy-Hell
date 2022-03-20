@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
