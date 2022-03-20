@@ -55,8 +55,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Button_Quit()
     {
-        bool toggle = !quitCanvas.activeSelf;
         HideAllCanvases();
-        quitCanvas.SetActive(toggle);
+        quitCanvas.SetActive(true);
     }
 }
