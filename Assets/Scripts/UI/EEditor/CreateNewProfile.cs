@@ -55,7 +55,7 @@ public class CreateNewProfile : MonoBehaviour
             databaseManager.CreateNewProfile(profileNameInput.text, profileDescriptionInput.text, imageID);
             gameObject.SetActive(false);
             editProfileTab.SetActive(true);
-            editProfile.RefershAll(databaseManager.GetLatestProfileId());
+            editProfile.RefreshAll(databaseManager.GetLatestProfileId());
         }
     }
 }

@@ -13,7 +13,7 @@ public class DatabaseManager : MonoBehaviour
     private SqliteConnection connection;
     
 
-    private void Start()
+    private void Awake()
     {
         dbName = "URI=file:" + Application.persistentDataPath + "/PCHDB";
         connection = new SqliteConnection(dbName);
@@ -121,7 +121,7 @@ public class DatabaseManager : MonoBehaviour
         return returningProfileName;
     }
     
-     List<ProfileInfoForList> GetInfoTest()
+     public List<ProfileInfoForList> GetListOfProfileBasicInfo()
     {
         var infoList = new List<ProfileInfoForList>();
         using (connection)
@@ -130,12 +130,12 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT profileName, profileDescription FROM gameProfiles";
+                command.CommandText = "SELECT profileName, profileDescription, pictureID FROM gameProfiles";
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        infoList.Add(new ProfileInfoForList((string)reader["profileName"], (string)reader["profileDescription"]));
+                        infoList.Add(new ProfileInfoForList((string)reader["profileName"], (string)reader["profileDescription"], Convert.ToInt32(reader["pictureID"])));
                     }
                     reader.Close();
                 }

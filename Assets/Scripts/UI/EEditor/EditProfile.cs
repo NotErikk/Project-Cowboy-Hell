@@ -16,7 +16,7 @@ public class EditProfile : MonoBehaviour
         databasemanager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
     }
 
-    public void RefershAll(int editingProfileID)
+    public void RefreshAll(int editingProfileID)
     {
         this.editingProfileID = editingProfileID;
 

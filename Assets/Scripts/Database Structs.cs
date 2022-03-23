@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace ProfileSelectInfoStruct
 {
-    struct ProfileInfoForList
+    public struct ProfileInfoForList
         {
             public string profileName;
             public string profileDescription;
-            public Sprite profileImage;
+            public int profileImageID;
 
-            public ProfileInfoForList(string profileName, string profileDescription)
+            public ProfileInfoForList(string profileName, string profileDescription, int profileImageID)
             {
                 this.profileName = profileName;
                 this.profileDescription = profileDescription;
-                this.profileImage = null;
+                this.profileImageID = profileImageID;
             }
         }
 }
