@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileListObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileListObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileSelect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1647852590633" duration="3264000" />
       <workItem from="1647856689677" duration="2181000" />
       <workItem from="1648031927034" duration="235000" />
-      <workItem from="1648032192818" duration="19515000" />
+      <workItem from="1648032192818" duration="20137000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>
