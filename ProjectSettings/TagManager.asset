@@ -22,6 +22,7 @@ TagManager:
   - PauseMenu
   - tabMenu
   - ai
+  - DatabaseManager
   layers:
   - Default
   - TransparentFX
