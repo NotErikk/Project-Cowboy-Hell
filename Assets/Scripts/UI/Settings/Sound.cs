@@ -25,7 +25,6 @@ public class Sound : MonoBehaviour
     void DisplayCurrentValues()
     {
         masterSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.masterVolumeSetting);
-        Debug.Log(masterSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.masterVolumeSetting));
         musicSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.musicVolumeSetting);
         sfxSlider.value = PlayerPrefs.GetFloat(PlayerPrefsNames.sfxVolumeSetting);
     }

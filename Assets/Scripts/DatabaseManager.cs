@@ -52,9 +52,8 @@ public class DatabaseManager : MonoBehaviour
             connection.Close();
         }
     }
-
-    [ContextMenu("Create puppet profile")]
-    void CreatePuppetProfile()
+    
+    public void CreateNewProfile(string newProfileName, string newProfileDescription, int newImageID)
     {
         using (connection)
         {
@@ -62,8 +61,7 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                string test = "testProfile";
-                command.CommandText = "INSERT INTO gameProfiles (profileName, profileDescription) VALUES ('test', 'test Description');";
+                command.CommandText = "INSERT INTO gameProfiles (profileName, profileDescription, pictureID) VALUES (' "+newProfileName+" ', '"+newProfileDescription+"', '"+newImageID+"');";
                 command.ExecuteNonQuery();
             }
             connection.Close();
