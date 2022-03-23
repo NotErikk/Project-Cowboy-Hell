@@ -68,8 +68,59 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public int GetLatestProfileId()
+    {
+        int profileID = 0;
+        using (connection)
+        {
+            connection.Open();
 
-    [ContextMenu("test read")]
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT profileID FROM gameProfiles WHERE profileID = (SELECT MAX(profileID) FROM gameProfiles)";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        profileID = Convert.ToInt32(reader["profileID"]);
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return profileID;
+    }
+
+    public string GetProfileNameFromID(int id)
+    {
+        string returningProfileName = "";
+        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT profileName FROM gameProfiles WHERE profileID="+id+";";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        returningProfileName = (string)reader["profileName"];
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return returningProfileName;
+    }
+    
      List<ProfileInfoForList> GetInfoTest()
     {
         var infoList = new List<ProfileInfoForList>();

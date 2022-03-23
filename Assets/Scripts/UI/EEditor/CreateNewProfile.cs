@@ -10,6 +10,8 @@ public class CreateNewProfile : MonoBehaviour
 {
     [SerializeField] private GameObject profileSelectTab;
     [SerializeField] private GameObject pictureSelectTab;
+    [SerializeField] private GameObject editProfileTab;
+    private EditProfile editProfile;
 
     [Header("Info Boxes")] 
     [SerializeField] private TMP_InputField profileNameInput;
@@ -22,6 +24,7 @@ public class CreateNewProfile : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        editProfile = editProfileTab.GetComponent<EditProfile>();
     }
 
     public void Button_ImageSelected(int imageID)
@@ -50,6 +53,9 @@ public class CreateNewProfile : MonoBehaviour
         if (newName != "" && newDescription != "")
         {
             databaseManager.CreateNewProfile(profileNameInput.text, profileDescriptionInput.text, imageID);
+            gameObject.SetActive(false);
+            editProfileTab.SetActive(true);
+            editProfile.RefershAll(databaseManager.GetLatestProfileId());
         }
     }
 }
