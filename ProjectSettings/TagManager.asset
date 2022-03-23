@@ -23,6 +23,7 @@ TagManager:
   - tabMenu
   - ai
   - DatabaseManager
+  - ProfileSelect
   layers:
   - Default
   - TransparentFX

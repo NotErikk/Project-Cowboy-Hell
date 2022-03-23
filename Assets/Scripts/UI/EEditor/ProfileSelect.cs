@@ -43,6 +43,7 @@ public class ProfileSelect : MonoBehaviour
             newListItem.transform.SetSiblingIndex(0);
             newListItem.GetComponent<ProfileListObject>().SetUp(profile);
         }
+        UpdateSelectedProfile(profilesList[profilesList.Count - 1]);
     }
 
     public void AddToProfileList(ProfileBasicInfo profileBasic)
@@ -53,6 +54,14 @@ public class ProfileSelect : MonoBehaviour
         newListItem.transform.SetSiblingIndex(0);
         newListItem.GetComponent<ProfileListObject>().SetUp(profileBasic);
     }
+
+    public void UpdateSelectedProfile(ProfileBasicInfo info)
+    {
+        selectedTitle.text = info.profileName;
+        descriptionText.text = info.profileDescription;
+    }
+    
+    
     public void Button_CreateNewProfile()
     {
         gameObject.SetActive(false);
