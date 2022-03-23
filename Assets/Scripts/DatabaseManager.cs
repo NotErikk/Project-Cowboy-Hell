@@ -5,7 +5,7 @@ using System.Data;
 using UnityEngine;
 using ProfileSelectInfoStruct;
 using Mono.Data.Sqlite;
-using UnityEditorInternal;
+
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -121,21 +121,21 @@ public class DatabaseManager : MonoBehaviour
         return returningProfileName;
     }
     
-     public List<ProfileInfoForList> GetListOfProfileBasicInfo()
+     public List<ProfileBasicInfo> GetListOfProfileBasicInfo()
     {
-        var infoList = new List<ProfileInfoForList>();
+        var infoList = new List<ProfileBasicInfo>();
         using (connection)
         {
             connection.Open();
 
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT profileName, profileDescription, pictureID FROM gameProfiles";
+                command.CommandText = "SELECT profileID, profileName, profileDescription, pictureID FROM gameProfiles";
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        infoList.Add(new ProfileInfoForList((string)reader["profileName"], (string)reader["profileDescription"], Convert.ToInt32(reader["pictureID"])));
+                        infoList.Add(new ProfileBasicInfo(Convert.ToInt32(reader["profileID"]), (string)reader["profileName"], (string)reader["profileDescription"], Convert.ToInt32(reader["pictureID"])));
                     }
                     reader.Close();
                 }
@@ -144,5 +144,30 @@ public class DatabaseManager : MonoBehaviour
         }
         return infoList;
     }
+
+     public ProfileBasicInfo GetProfileBasicInfoFromID(int myProfileID)
+     {
+         ProfileBasicInfo returnInfo = default;
+         using (connection)
+         {
+             connection.Open();
+
+             using (var command = connection.CreateCommand())
+             {
+                 command.CommandText = "SELECT profileName, profileDescription, pictureID FROM gameProfiles";
+                 using (IDataReader reader = command.ExecuteReader())
+                 {
+                     while (reader.Read())
+                     {
+                         returnInfo = new ProfileBasicInfo(myProfileID, (string)reader["profileName"], (string)reader["profileDescription"], Convert.ToInt32(reader["pictureID"]));
+                     }
+                     reader.Close();
+                 }
+             }
+             connection.Close();
+         }
+         
+         return returnInfo;
+     }
 
 }

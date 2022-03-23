@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ProfileSelectInfoStruct;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class CreateNewProfile : MonoBehaviour
     [SerializeField] private GameObject profileSelectTab;
     [SerializeField] private GameObject pictureSelectTab;
     [SerializeField] private GameObject editProfileTab;
+    
     private EditProfile editProfile;
+    private ProfileSelect profileSelect;
 
     [Header("Info Boxes")] 
     [SerializeField] private TMP_InputField profileNameInput;
@@ -24,7 +27,9 @@ public class CreateNewProfile : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        
         editProfile = editProfileTab.GetComponent<EditProfile>();
+        profileSelect = profileSelectTab.GetComponent<ProfileSelect>();
     }
 
     public void Button_ImageSelected(int imageID)
@@ -55,7 +60,10 @@ public class CreateNewProfile : MonoBehaviour
             databaseManager.CreateNewProfile(profileNameInput.text, profileDescriptionInput.text, imageID);
             gameObject.SetActive(false);
             editProfileTab.SetActive(true);
-            editProfile.RefreshAll(databaseManager.GetLatestProfileId());
+            
+            int profileID = databaseManager.GetLatestProfileId();
+            editProfile.RefreshAll(profileID);
+            profileSelect.AddToProfileList(databaseManager.GetProfileBasicInfoFromID(profileID));
         }
     }
 }

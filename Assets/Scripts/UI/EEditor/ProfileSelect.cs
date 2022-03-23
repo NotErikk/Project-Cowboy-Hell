@@ -35,7 +35,7 @@ public class ProfileSelect : MonoBehaviour
     {
         var profilesList = databaseManager.GetListOfProfileBasicInfo();
 
-        foreach (ProfileInfoForList profile in profilesList)
+        foreach (ProfileBasicInfo profile in profilesList)
         {
             GameObject newListItem = Instantiate(profileListItemPrefab);
             
@@ -43,6 +43,15 @@ public class ProfileSelect : MonoBehaviour
             newListItem.transform.SetSiblingIndex(0);
             newListItem.GetComponent<ProfileListObject>().SetUp(profile);
         }
+    }
+
+    public void AddToProfileList(ProfileBasicInfo profileBasic)
+    {
+        GameObject newListItem = Instantiate(profileListItemPrefab);
+            
+        newListItem.transform.parent = profileListGO.transform;
+        newListItem.transform.SetSiblingIndex(0);
+        newListItem.GetComponent<ProfileListObject>().SetUp(profileBasic);
     }
     public void Button_CreateNewProfile()
     {

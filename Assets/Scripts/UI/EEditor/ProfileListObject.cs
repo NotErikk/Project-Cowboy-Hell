@@ -7,10 +7,12 @@ using TMPro;
 public class ProfileListObject : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI myTitle;
-
-    public void SetUp(ProfileInfoForList myInfo)
+    private ProfileBasicInfo myBasicInfo;
+    
+    public void SetUp(ProfileBasicInfo myBasicInfo)
     {
-        myTitle.text = myInfo.profileName;
+        myTitle.text = myBasicInfo.profileName;
+        this.myBasicInfo = myBasicInfo;
     }
 
 }

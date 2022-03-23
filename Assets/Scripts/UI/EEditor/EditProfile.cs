@@ -8,7 +8,8 @@ public class EditProfile : MonoBehaviour
 {
     private int editingProfileID;
     [SerializeField] private TextMeshProUGUI title;
-    
+
+    [SerializeField] private GameObject profileSelect;
     DatabaseManager databasemanager;
 
     private void Awake()
@@ -19,7 +20,13 @@ public class EditProfile : MonoBehaviour
     public void RefreshAll(int editingProfileID)
     {
         this.editingProfileID = editingProfileID;
-
         title.text = "Editing " + databasemanager.GetProfileNameFromID(editingProfileID);
+    }
+
+
+    public void Button_Back()
+    {
+        gameObject.SetActive(false);
+        profileSelect.SetActive(true);
     }
 }
