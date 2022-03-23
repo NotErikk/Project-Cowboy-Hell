@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/Mono.Data.Sqlite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/Mono.Data.Sqlite.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/sqlite3.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/sqlite3.def.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/sqlite3.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/SQLite/sqlite3.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCHDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/dataSources/0a2d2142-37ab-4987-a974-7ca130b38da8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/dataSources/0a2d2142-37ab-4987-a974-7ca130b38da8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCHDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/PCHDB.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +101,8 @@
       <workItem from="1647776095615" duration="1105000" />
       <workItem from="1647852590633" duration="3264000" />
       <workItem from="1647856689677" duration="2181000" />
+      <workItem from="1648031927034" duration="235000" />
+      <workItem from="1648032192818" duration="2337000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>
