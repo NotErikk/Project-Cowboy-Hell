@@ -49,7 +49,7 @@ public class ProfileSelect : MonoBehaviour
     public void AddToProfileList(ProfileBasicInfo profileBasic)
     {
         GameObject newListItem = Instantiate(profileListItemPrefab);
-            
+        
         newListItem.transform.parent = profileListGO.transform;
         newListItem.transform.SetSiblingIndex(0);
         newListItem.GetComponent<ProfileListObject>().SetUp(profileBasic);

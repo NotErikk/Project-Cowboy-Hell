@@ -11,7 +11,6 @@ public class DatabaseManager : MonoBehaviour
 {
     private static string dbName;
     private SqliteConnection connection;
-    
 
     private void Awake()
     {
