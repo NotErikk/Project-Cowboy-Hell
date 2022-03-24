@@ -17,13 +17,19 @@ public class ProfileSelect : MonoBehaviour
     [SerializeField] private TextMeshProUGUI selectedTitle;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image selectedImage;
-    
+
+    private ProfileBasicInfo selectedProfile;
+
+    [Header("Edit Profile")] [SerializeField]
+    private GameObject editProfileGO;
+    private EditProfile editProfile;
     
     private DatabaseManager databaseManager;
 
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        editProfile = editProfileGO.GetComponent<EditProfile>();
     }
 
     private void Start()
@@ -44,6 +50,7 @@ public class ProfileSelect : MonoBehaviour
             newListItem.GetComponent<ProfileListObject>().SetUp(profile);
         }
         UpdateSelectedProfile(profilesList[profilesList.Count - 1]);
+        selectedProfile = databaseManager.GetProfileBasicInfoFromID(profilesList.Count - 1);
     }
 
     public void AddToProfileList(ProfileBasicInfo profileBasic)
@@ -57,6 +64,7 @@ public class ProfileSelect : MonoBehaviour
 
     public void UpdateSelectedProfile(ProfileBasicInfo info)
     {
+        selectedProfile = info;
         selectedTitle.text = info.profileName;
         descriptionText.text = info.profileDescription;
     }
@@ -75,6 +83,9 @@ public class ProfileSelect : MonoBehaviour
 
     public void Button_EditProfile()
     {
+        editProfileGO.SetActive(true);
+        gameObject.SetActive(false);
         
+        editProfile.RefreshAll(selectedProfile.profileID);
     }
 }
