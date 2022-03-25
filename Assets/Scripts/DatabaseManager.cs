@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using UnityEngine;
 using ProfileSelectInfoStruct;
 using Mono.Data.Sqlite;
@@ -60,7 +61,22 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "INSERT INTO gameProfiles (profileName, profileDescription, pictureID) VALUES (' "+newProfileName+" ', '"+newProfileDescription+"', '"+newImageID+"');";
+                command.CommandText = "INSERT INTO gameProfiles (profileName, pictureID, profileDescription, playerHealth, playerMovementSpeed, playerJumpForce, playerCrouchMovementSpeed, playerCoyoteTime, playerRollLength, playerRollSpeed, playerRollCooldown, playerSlideDeceleration) VALUES (' "+newProfileName+" ', '"+newImageID+"', '"+newProfileDescription+"', 100, 10, 23, 5, 0.2, 0.5, 11, 0.7, 0.3);";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void CreateNewWeapon(string weaponName, Texture2D weaponSprite)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                //command.CommandText = "INSERT INTO weapons (profileName, pictureID, profileDescription, playerHealth, playerMovementSpeed, playerJumpForce, playerCrouchMovementSpeed, playerCoyoteTime, playerRollLength, playerRollSpeed, playerRollCooldown, playerSlideDeceleration) VALUES (' "+newProfileName+" ', '"+newImageID+"', '"+newProfileDescription+"', 100, 10, 23, 5, 0.2, 0.5, 11, 0.7, 0.3);";
                 command.ExecuteNonQuery();
             }
             connection.Close();
