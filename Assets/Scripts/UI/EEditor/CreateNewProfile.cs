@@ -47,6 +47,8 @@ public class CreateNewProfile : MonoBehaviour
     }
     public void Button_Back()
     {
+        ClearInputBoxes();
+        
         gameObject.SetActive(false);
         profileSelectTab.SetActive(true);
     }
@@ -58,6 +60,8 @@ public class CreateNewProfile : MonoBehaviour
         if (newName != "" && newDescription != "")
         {
             databaseManager.CreateNewProfile(profileNameInput.text, profileDescriptionInput.text, imageID);
+            
+            ClearInputBoxes();
             gameObject.SetActive(false);
             editProfileTab.SetActive(true);
             
@@ -68,5 +72,12 @@ public class CreateNewProfile : MonoBehaviour
             profileSelect.AddToProfileList(databaseManager.GetProfileBasicInfoFromID(profileID));
             profileSelectTab.SetActive(false);
         }
+    }
+
+
+    private void ClearInputBoxes()
+    {
+        profileNameInput.text = "";
+        profileDescriptionInput.text = "";
     }
 }
