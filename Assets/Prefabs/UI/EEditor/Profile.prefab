@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2330065331251837448}
   m_Layer: 5
   m_Name: Profile
-  m_TagString: Untagged
+  m_TagString: ProfileUiItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

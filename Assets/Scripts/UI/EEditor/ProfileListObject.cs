@@ -9,8 +9,11 @@ public class ProfileListObject : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI myTitle;
     private ProfileBasicInfo myBasicInfo;
+    public ProfileBasicInfo GetBasicInfo() => myBasicInfo;
+    
     private ProfileSelect profileSelect;
 
+    public int GetProfileId => myBasicInfo.profileID;
     private void Awake()
     {
         profileSelect = GameObject.FindGameObjectWithTag("ProfileSelect").GetComponent<ProfileSelect>();

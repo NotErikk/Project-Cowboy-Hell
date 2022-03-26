@@ -1602,7 +1602,11 @@
       <DataType>FLOAT|0s</DataType>
       <Position>28</Position>
     </column>
-    <key id="556" parent="479">
+    <column id="556" parent="479" name="shootType">
+      <DataType>INT|0s</DataType>
+      <Position>29</Position>
+    </column>
+    <key id="557" parent="479">
       <ColNames>weaponID</ColNames>
       <Primary>1</Primary>
     </key>

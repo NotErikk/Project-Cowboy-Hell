@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine;
 using ProfileSelectInfoStruct;
 using Mono.Data.Sqlite;
+using UnityEngine.UI;
 
 
 public class DatabaseManager : MonoBehaviour
@@ -33,7 +34,7 @@ public class DatabaseManager : MonoBehaviour
                 command.ExecuteNonQuery();
                 
                 //weapons
-                command.CommandText = "CREATE TABLE IF NOT EXISTS weapons (weaponID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,weaponSprite BLOB, bulletSprite BLOB, casingSprite BLOB, projectileSprite BLOB,displayName VARCHAR(20), firearmClass INT, bulletCapacity INT, projectilesWhenFired INT, projectileSpeed DOUBLE, baseAccuracy DOUBLE, fireRate DOUBLE, ejectCartridgeOnFire INT, gunSmokeOnFire INT, twoHanded INT, reloadAngle DOUBLE, shootingHandHoldingX FLOAT, shootingHandHoldingY FLOAT, firePointX FLOAT, firePointY FLOAT, otherHandHoldingX FLOAT, otherHandHoldingY FLOAT, loadBulletsPointX FLOAT, loadBulletsPointY FLOAT, bulletReleaseKeyX FLOAT, bulletReleaseKeyY FLOAT, cylinderLocationX FLOAT, cylinderLocationY FLOAT);";
+                command.CommandText = "CREATE TABLE IF NOT EXISTS weapons (weaponID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,weaponSprite BLOB, bulletSprite BLOB, casingSprite BLOB, projectileSprite BLOB,displayName VARCHAR(20), firearmClass INT, bulletCapacity INT, projectilesWhenFired INT, projectileSpeed DOUBLE, baseAccuracy DOUBLE, fireRate DOUBLE, ejectCartridgeOnFire INT, gunSmokeOnFire INT, twoHanded INT, reloadAngle DOUBLE, shootingHandHoldingX FLOAT, shootingHandHoldingY FLOAT, firePointX FLOAT, firePointY FLOAT, otherHandHoldingX FLOAT, otherHandHoldingY FLOAT, loadBulletsPointX FLOAT, loadBulletsPointY FLOAT, bulletReleaseKeyX FLOAT, bulletReleaseKeyY FLOAT, cylinderLocationX FLOAT, cylinderLocationY FLOAT, shootType INT);";
                 command.ExecuteNonQuery();
                 
                 //items
@@ -76,11 +77,28 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                //command.CommandText = "INSERT INTO weapons (profileName, pictureID, profileDescription, playerHealth, playerMovementSpeed, playerJumpForce, playerCrouchMovementSpeed, playerCoyoteTime, playerRollLength, playerRollSpeed, playerRollCooldown, playerSlideDeceleration) VALUES (' "+newProfileName+" ', '"+newImageID+"', '"+newProfileDescription+"', 100, 10, 23, 5, 0.2, 0.5, 11, 0.7, 0.3);";
+                command.CommandText = "INSERT INTO weapons (weaponSprite, bulletSprite, casingSprite, projectileSprite, displayName, firearmClass, bulletCapacity, projectilesWhenFired, projectileSpeed, baseAccuracy, fireRate, ejectCartridgeOnFire, gunSmokeOnFire, twoHanded, reloadAngle, shootingHandHoldingX, shootingHandHoldingY, firePointX, firePointY, otherHandHoldingX, otherHandHoldingY, loadBulletsPointX, loadBulletsPointY, bulletReleaseKeyX, bulletReleaseKeyY, cylinderLocationX, cylinderLocationY, shootPoint) VALUES (+weaponSprite , bulletSprite, castingSprite,projectileSprite, '"+weaponName+"', firearmClass, bulletCapacity, projectilesWhenFired, projectileSpeed, baseAccuracy, fireRate, ejectCartridgesOnFire, gunSmokeOnFire, twoHanded, reloadAngle, shootingHandHoldingX, shootingHandHoldingY, firePointX, firePointY, otherHandHoldingX, otherHandHoldingY, loadBulletPointX, loadBulletsPointY, bulletReleaseKeyX, bulletReleaseKeyY, cylinderLocationX, cylinderLocation Y, shootType);";
                 command.ExecuteNonQuery();
             }
             connection.Close();
         }
+    }
+
+    public void DeleteProfile(int id)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM gameProfiles WHERE profileID= '"+id+"';";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        
+        
     }
 
     public int GetLatestProfileId()

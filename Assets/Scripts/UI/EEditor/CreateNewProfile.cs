@@ -69,7 +69,10 @@ public class CreateNewProfile : MonoBehaviour
             editProfile.RefreshAll(profileID);
             
             profileSelectTab.SetActive(true);
-            profileSelect.AddToProfileList(databaseManager.GetProfileBasicInfoFromID(profileID));
+            ProfileBasicInfo newProfileInfo = databaseManager.GetProfileBasicInfoFromID(profileID);
+            
+            profileSelect.UpdateSelectedProfile(newProfileInfo);
+            profileSelect.AddToProfileList(newProfileInfo);
             profileSelectTab.SetActive(false);
         }
     }

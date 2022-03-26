@@ -24,6 +24,7 @@ TagManager:
   - ai
   - DatabaseManager
   - ProfileSelect
+  - ProfileUiItem
   layers:
   - Default
   - TransparentFX

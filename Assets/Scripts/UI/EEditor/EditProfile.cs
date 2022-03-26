@@ -24,6 +24,16 @@ public class EditProfile : MonoBehaviour
     }
 
 
+    public void Button_Weapons()
+    {
+        
+    }
+
+    public void Button_Enemies()
+    {
+        
+    }
+    
     public void Button_Back()
     {
         gameObject.SetActive(false);
