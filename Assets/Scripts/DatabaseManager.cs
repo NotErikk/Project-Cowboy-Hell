@@ -84,6 +84,33 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public List<WeaponBasicInfo> GetListOfAllWeapons()
+    {
+        var wepList = new List<WeaponBasicInfo>();
+        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT weaponID, displayName FROM weapons";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        wepList.Add(new WeaponBasicInfo((string)reader["displayName"],Convert.ToInt32(reader["weaponID"])));
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return wepList;
+    }
+    
     public void DeleteProfile(int id)
     {
         using (connection)

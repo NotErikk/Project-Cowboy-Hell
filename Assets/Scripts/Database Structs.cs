@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ProfileSelectInfoStruct
 {
     public struct ProfileBasicInfo
-        {
+    {
             public string profileName;
             public int profileID;
             public string profileDescription;
@@ -18,5 +18,19 @@ namespace ProfileSelectInfoStruct
                 this.profileDescription = profileDescription;
                 this.profileImageID = profileImageID;
             }
+    }
+
+    public struct WeaponBasicInfo
+    {
+        public string weaponName;
+        public int weaponID;
+        public Texture2D sprite;
+
+        public WeaponBasicInfo(string weaponName, int weaponID)
+        {
+            this.weaponName = weaponName;
+            this.weaponID = weaponID;
+            this.sprite = null;
         }
+    }
 }

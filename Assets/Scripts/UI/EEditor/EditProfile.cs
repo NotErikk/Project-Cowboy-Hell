@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ProfileSelectInfoStruct;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ public class EditProfile : MonoBehaviour
 
     [SerializeField] private GameObject profileSelect;
     DatabaseManager databasemanager;
+
+    [SerializeField] private GameObject buttonListObject;
+    
+    [Header("Button Prefabs")] 
+    [SerializeField] private GameObject weaponButtonPrefab;
 
     private void Awake()
     {
@@ -26,10 +32,31 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Weapons()
     {
-        
+        foreach (WeaponBasicInfo wepInfo in databasemanager.GetListOfAllWeapons())
+        {
+            GameObject wep = Instantiate(weaponButtonPrefab, buttonListObject.transform, true);
+
+            wep.GetComponentInChildren<TextMeshProUGUI>().text = wepInfo.weaponName;
+        }
+        databasemanager.GetListOfAllWeapons();
     }
 
     public void Button_Enemies()
+    {
+        
+    }
+
+    public void Button_Items()
+    {
+        
+    }
+
+    public void Button_Gameplay()
+    {
+        
+    }
+
+    public void Button_Misc()
     {
         
     }
