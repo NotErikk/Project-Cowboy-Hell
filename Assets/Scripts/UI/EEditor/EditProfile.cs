@@ -14,8 +14,10 @@ public class EditProfile : MonoBehaviour
     DatabaseManager databasemanager;
 
     [SerializeField] private GameObject buttonListObject;
-    
+
+
     [Header("Button Prefabs")] 
+    [SerializeField] private GameObject addNewWeaponButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
 
     private void Awake()
@@ -32,10 +34,12 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Weapons()
     {
+        Instantiate(addNewWeaponButtonPrefab, buttonListObject.transform, true);
         foreach (WeaponBasicInfo wepInfo in databasemanager.GetListOfAllWeapons())
         {
             GameObject wep = Instantiate(weaponButtonPrefab, buttonListObject.transform, true);
-
+            wep.transform.SetSiblingIndex(0);
+            
             wep.GetComponentInChildren<TextMeshProUGUI>().text = wepInfo.weaponName;
         }
         databasemanager.GetListOfAllWeapons();

@@ -25,6 +25,7 @@ TagManager:
   - DatabaseManager
   - ProfileSelect
   - ProfileUiItem
+  - NewWeaponUi
   layers:
   - Default
   - TransparentFX
