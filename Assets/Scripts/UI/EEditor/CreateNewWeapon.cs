@@ -28,12 +28,21 @@ public class CreateNewWeapon : MonoBehaviour
     {
         int twoHanded = inputTwoHanded.isOn ? 1 : 0;
         databaseManager.CreateNewWeapon(inputName.text, inputClass.value, Convert.ToInt32(inputAmmoCap.text),1, Convert.ToDouble(inputProjectileSpeed.text), Convert.ToDouble(inputAccuracy.text), Convert.ToDouble(inputFireRate.text), twoHanded, inputShotType.value);
+       
+        gameObject.SetActive(false);
+        ClearInputs();
     }
 
     public void Button_Close()
     {
         gameObject.SetActive(false);
         
+        ClearInputs();
+    }
+
+
+    private void ClearInputs()
+    {
         inputName.text = "";
         inputClass.value = 0;
         inputShotType.value = 0;

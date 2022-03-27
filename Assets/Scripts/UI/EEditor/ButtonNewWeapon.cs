@@ -9,7 +9,7 @@ public class ButtonNewWeapon : MonoBehaviour
 
     private void Awake()
     {
-        newWeaponUi = GameObject.FindGameObjectWithTag("NewWeaponUi");
+        newWeaponUi = GameObject.FindGameObjectWithTag("editProfile").GetComponent<EditProfile>().GetNewWeaponUi();
     }
 
     public void Button_AddNewWeapon()

@@ -13,8 +13,10 @@ public class EditProfile : MonoBehaviour
     [SerializeField] private GameObject profileSelect;
     DatabaseManager databasemanager;
 
+    [SerializeField] private GameObject newWeaponUi;
+    public GameObject GetNewWeaponUi() => newWeaponUi;
+    
     [SerializeField] private GameObject buttonListObject;
-
 
     [Header("Button Prefabs")] 
     [SerializeField] private GameObject addNewWeaponButtonPrefab;
@@ -28,12 +30,25 @@ public class EditProfile : MonoBehaviour
     public void RefreshAll(int editingProfileID)
     {
         this.editingProfileID = editingProfileID;
-        title.text = "Editing " + databasemanager.GetProfileNameFromID(editingProfileID);
+        title.text = "Editing" + databasemanager.GetProfileNameFromID(editingProfileID);
+        
+        Button_Weapons();
     }
-
-
+    
+    private void ClearCurrentButtons()
+    {
+        foreach (var listItem in buttonListObject.GetComponentsInChildren<Transform>())
+        {
+            if (listItem.gameObject == buttonListObject) continue;
+            
+            Destroy(listItem.gameObject);
+        }
+    }
+    
     public void Button_Weapons()
     {
+        ClearCurrentButtons();
+        
         Instantiate(addNewWeaponButtonPrefab, buttonListObject.transform, true);
         foreach (WeaponBasicInfo wepInfo in databasemanager.GetListOfAllWeapons())
         {
@@ -47,22 +62,22 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Enemies()
     {
-        
+        ClearCurrentButtons();
     }
 
     public void Button_Items()
     {
-        
+        ClearCurrentButtons();
     }
 
     public void Button_Gameplay()
     {
-        
+        ClearCurrentButtons();
     }
 
     public void Button_Misc()
     {
-        
+        ClearCurrentButtons();
     }
     
     public void Button_Back()
