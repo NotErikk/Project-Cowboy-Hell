@@ -8,10 +8,12 @@ using UnityEngine;
 public class EditProfile : MonoBehaviour
 {
     private int editingProfileID;
+    public int getEditingProfileID => editingProfileID;
+    
     [SerializeField] private TextMeshProUGUI title;
 
     [SerializeField] private GameObject profileSelect;
-    DatabaseManager databasemanager;
+    DatabaseManager databaseManager;
 
     [SerializeField] private GameObject newWeaponUi;
     public GameObject GetNewWeaponUi() => newWeaponUi;
@@ -24,13 +26,13 @@ public class EditProfile : MonoBehaviour
 
     private void Awake()
     {
-        databasemanager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
     }
 
     public void RefreshAll(int editingProfileID)
     {
         this.editingProfileID = editingProfileID;
-        title.text = "Editing" + databasemanager.GetProfileNameFromID(editingProfileID);
+        title.text = "Editing" + databaseManager.GetProfileNameFromID(editingProfileID);
         
         Button_Weapons();
     }
@@ -50,7 +52,7 @@ public class EditProfile : MonoBehaviour
         ClearCurrentButtons();
         
         Instantiate(addNewWeaponButtonPrefab, buttonListObject.transform, true);
-        foreach (WeaponBasicInfo wepInfo in databasemanager.GetListOfAllWeapons())
+        foreach (WeaponBasicInfo wepInfo in databaseManager.GetListOfAllWeapons())
         {
             GameObject wep = Instantiate(weaponButtonPrefab, buttonListObject.transform, true);
             

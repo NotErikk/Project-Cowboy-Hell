@@ -256,4 +256,13 @@ public class DatabaseManager : MonoBehaviour
          return returnInfo;
      }
 
+     public void EnableDisableAWeapon(int profileId, int weaponId, bool toggle)
+     {
+         //if turning wep on
+         if (toggle)
+         {
+             
+         }
+     }
+
 }

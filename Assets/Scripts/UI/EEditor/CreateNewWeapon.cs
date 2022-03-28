@@ -29,8 +29,17 @@ public class CreateNewWeapon : MonoBehaviour
     public void Button_CreateNewWeapon()
     {
         int twoHanded = inputTwoHanded.isOn ? 1 : 0;
-        databaseManager.CreateNewWeapon(inputName.text, inputClass.value, Convert.ToInt32(inputAmmoCap.text),1, Convert.ToDouble(inputProjectileSpeed.text), Convert.ToDouble(inputAccuracy.text), Convert.ToDouble(inputFireRate.text), twoHanded, inputShotType.value);
-       
+        try
+        {
+            databaseManager.CreateNewWeapon(inputName.text, inputClass.value, Convert.ToInt32(inputAmmoCap.text), 1,
+                Convert.ToDouble(inputProjectileSpeed.text), Convert.ToDouble(inputAccuracy.text),
+                Convert.ToDouble(inputFireRate.text), twoHanded, inputShotType.value);
+        }
+        catch
+        {
+            return;
+        }
+
         gameObject.SetActive(false);
         editProfile.Button_Weapons();
         ClearInputs();

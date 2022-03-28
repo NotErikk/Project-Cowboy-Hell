@@ -99,6 +99,6 @@ public class WeaponPanel : MonoBehaviour
         inputReloadAngle.value = (float) currentWeaponInfo.reloadAngle;
 
     }
-    
-    
+
+
 }
