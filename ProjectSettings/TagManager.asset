@@ -28,6 +28,7 @@ TagManager:
   - editProfile
   - NewWeaponUi
   - ColourManager
+  - WeaponPanel
   layers:
   - Default
   - TransparentFX

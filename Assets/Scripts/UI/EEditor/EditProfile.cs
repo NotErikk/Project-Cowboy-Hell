@@ -53,11 +53,11 @@ public class EditProfile : MonoBehaviour
         foreach (WeaponBasicInfo wepInfo in databasemanager.GetListOfAllWeapons())
         {
             GameObject wep = Instantiate(weaponButtonPrefab, buttonListObject.transform, true);
-            wep.transform.SetSiblingIndex(0);
             
+            wep.transform.SetSiblingIndex(0);
+            wep.GetComponent<WeaponButton>().SetId(wepInfo.weaponID);
             wep.GetComponentInChildren<TextMeshProUGUI>().text = wepInfo.weaponName;
         }
-        databasemanager.GetListOfAllWeapons();
     }
 
     public void Button_Enemies()

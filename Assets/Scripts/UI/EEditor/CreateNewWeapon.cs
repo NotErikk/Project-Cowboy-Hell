@@ -17,10 +17,12 @@ public class CreateNewWeapon : MonoBehaviour
     [SerializeField] private Toggle inputTwoHanded;
 
     private DatabaseManager databaseManager;
-
+    private EditProfile editProfile;
+    
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        editProfile = GetComponentInParent<EditProfile>();
     }
 
 
@@ -30,6 +32,7 @@ public class CreateNewWeapon : MonoBehaviour
         databaseManager.CreateNewWeapon(inputName.text, inputClass.value, Convert.ToInt32(inputAmmoCap.text),1, Convert.ToDouble(inputProjectileSpeed.text), Convert.ToDouble(inputAccuracy.text), Convert.ToDouble(inputFireRate.text), twoHanded, inputShotType.value);
        
         gameObject.SetActive(false);
+        editProfile.Button_Weapons();
         ClearInputs();
     }
 

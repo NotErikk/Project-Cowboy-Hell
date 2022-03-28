@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using UnityEngine;
 using ProfileSelectInfoStruct;
+using AllWeaponInfoStruct;
 using Mono.Data.Sqlite;
 using UnityEngine.UI;
 
@@ -228,6 +229,30 @@ public class DatabaseManager : MonoBehaviour
              connection.Close();
          }
          
+         return returnInfo;
+     }
+     
+     public AllWeaponInfo GetAllWeaponInfoFromID(int id)
+     {
+         AllWeaponInfo returnInfo = default;
+         using (connection)
+         {
+             connection.Open();
+
+             using (var command = connection.CreateCommand())
+             {
+                 command.CommandText = "SELECT * FROM weapons WHERE weaponID="+id+"";
+                 using (IDataReader reader = command.ExecuteReader())
+                 {
+                     bool twoHanded = (Convert.ToInt32(reader["twoHanded"]) == 1);
+                     returnInfo = new AllWeaponInfo((string)reader["displayName"], Convert.ToInt32(reader["bulletCapacity"]), (double)reader["fireRate"], twoHanded, Convert.ToInt32(reader["firearmClass"]), Convert.ToInt32(reader["shootType"]), Convert.ToInt32(reader["projectilesWhenFired"]),(double)reader["projectileSpeed"], (double)reader["baseAccuracy"], (double)reader["reloadAngle"]);
+                        
+                     reader.Close();
+                 }
+             }
+             connection.Close();
+         }
+
          return returnInfo;
      }
 
