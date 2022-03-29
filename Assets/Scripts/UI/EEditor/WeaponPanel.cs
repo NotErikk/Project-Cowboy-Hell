@@ -11,6 +11,7 @@ namespace AllWeaponInfoStruct
     public struct AllWeaponInfo
     {
         //basic
+        public int weaponId;
         public string name;
         public int bulletCapacity;
         public double fireRate;
@@ -28,8 +29,9 @@ namespace AllWeaponInfoStruct
         //reloadAngle
         public double reloadAngle;
 
-        public AllWeaponInfo(string name, int bulletCapacity, double fireRate, bool twoHanded, int weaponClass, int shotType, int projectilesWhenFired, double projectileSpeed, double accuracy, double reloadAngle)
+        public AllWeaponInfo(int weaponId, string name, int bulletCapacity, double fireRate, bool twoHanded, int weaponClass, int shotType, int projectilesWhenFired, double projectileSpeed, double accuracy, double reloadAngle)
         {
+            this.weaponId = weaponId;
             this.name = name;
             this.bulletCapacity = bulletCapacity;
             this.fireRate = fireRate;
@@ -67,6 +69,12 @@ public class WeaponPanel : MonoBehaviour
     [Header("ReloadAngle")] 
     [SerializeField] private Slider inputReloadAngle;
 
+    [Header("weapon delete")] 
+    [SerializeField] private GameObject weaponDeleteConfirmUi;
+    [SerializeField] private TMP_Text weaponDeleteConfirmText;
+
+    [SerializeField] private string deleteMsgPrecursor;
+    private DeleteWeaponConfirm deleteWepConfirm;
 
     private DatabaseManager databaseManager;
     private AllWeaponInfo currentWeaponInfo;
@@ -74,6 +82,7 @@ public class WeaponPanel : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        deleteWepConfirm = weaponDeleteConfirmUi.GetComponent<DeleteWeaponConfirm>();
     }
 
     public void ShowSettingsFromID(int id)
@@ -98,6 +107,14 @@ public class WeaponPanel : MonoBehaviour
         //reloadAngle
         inputReloadAngle.value = (float) currentWeaponInfo.reloadAngle;
 
+    }
+
+    public void Button_DeleteWeapon()
+    {
+        weaponDeleteConfirmUi.SetActive(true);
+        deleteWepConfirm.SetID(currentWeaponInfo.weaponId);
+        weaponDeleteConfirmText.text = deleteMsgPrecursor + currentWeaponInfo.name + "?";
+        
     }
 
 

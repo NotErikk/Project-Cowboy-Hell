@@ -245,7 +245,7 @@ public class DatabaseManager : MonoBehaviour
                  using (IDataReader reader = command.ExecuteReader())
                  {
                      bool twoHanded = (Convert.ToInt32(reader["twoHanded"]) == 1);
-                     returnInfo = new AllWeaponInfo((string)reader["displayName"], Convert.ToInt32(reader["bulletCapacity"]), (double)reader["fireRate"], twoHanded, Convert.ToInt32(reader["firearmClass"]), Convert.ToInt32(reader["shootType"]), Convert.ToInt32(reader["projectilesWhenFired"]),(double)reader["projectileSpeed"], (double)reader["baseAccuracy"], (double)reader["reloadAngle"]);
+                     returnInfo = new AllWeaponInfo(Convert.ToInt32(reader["weaponID"]), (string)reader["displayName"], Convert.ToInt32(reader["bulletCapacity"]), (double)reader["fireRate"], twoHanded, Convert.ToInt32(reader["firearmClass"]), Convert.ToInt32(reader["shootType"]), Convert.ToInt32(reader["projectilesWhenFired"]),(double)reader["projectileSpeed"], (double)reader["baseAccuracy"], (double)reader["reloadAngle"]);
                         
                      reader.Close();
                  }
@@ -256,6 +256,11 @@ public class DatabaseManager : MonoBehaviour
          return returnInfo;
      }
 
+     public void FullyRemoveWeapon(int id)
+     {
+         Debug.Log("removing wep " + id);
+     }
+     
      public void EnableDisableAWeapon(int profileId, int weaponId, bool toggle)
      {
          //if turning wep on
