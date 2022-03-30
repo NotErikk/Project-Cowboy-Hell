@@ -554,10 +554,398 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void AddNewItem()
+    public void AddNewItem(string itemName, int itemTier, string itemSprite, string itemBriefDescription, string itemDescription, int effectRevolvers, int effectPistols, int effectShotguns, int effectRifles, double extraDamage, double reloadSpeedBuff, double fireRateIncrease, int laserPointer, double movementSpeedBuff, double jumpPowerIncrease, double rollCooldownDecrease, double shopDiscount, double damageResistance, double dodgeChance, int extraLivesToGive, double maxHealthIncrease)
     {
-        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO items (itemName, myTier, itemSprite, itemBriefDescription, itemDescription, effectRevolvers, effectPistols,effectShotguns,effectRifles,extraDamage,reloadSpeedIncrease,fireRate,enableLaserPointer,movementSpeedBuff,jumpPowerBuff,rollCooldownDecrease,shopDiscount,damageResistance,dodgeChance,extraLivesToGive,increaseMaxHealth)" +
+                "VALUES('"+itemName + "', " + itemTier + ", '" + itemSprite + "', '" + itemBriefDescription + "', '" + itemDescription + "', " + effectRevolvers + ", " + effectPistols + ", " + effectShotguns + ", " + effectRifles + ", " + extraDamage + ", " + reloadSpeedBuff + ", " + fireRateIncrease + ", " + laserPointer + ", " + movementSpeedBuff + ", " + jumpPowerIncrease + ", " + rollCooldownDecrease + ", " + shopDiscount + ", " + damageResistance + ", " + dodgeChance + ", " + extraLivesToGive + ", " + maxHealthIncrease + " );";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
     }
-    
+
+    public void DeleteItem(int id)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM items WHERE itemID= '" + id + "';";
+                command.ExecuteNonQuery();
+
+                command.CommandText = "DELETE FROM gameProfiles_items WHERE itemsID= '" + id + "';";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void ToggleAnItem(int profileID, int itemID, bool toggle)
+    {
+        //if turning item on
+        if (toggle)
+        {
+            using (connection)
+            {
+                connection.Open();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO gameProfiles_items (gameProfilesID, itemsID) VALUES(" + profileID + ", " + itemID + ");";
+                    command.ExecuteNonQuery();
+
+                }
+
+                connection.Close();
+            }
+
+            return;
+        }
+
+        //delete item in profile
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM gameProfiles_items WHERE itemsID= '" + itemID + "' AND gameProfilesID='" + profileID + "';";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public bool IsThisItemEnabled(int itemID, int profileID)
+    {
+        bool returningBool = false;
+        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT 1 FROM gameProfiles_items WHERE gameProfilesID="+profileID+" AND itemsID="+itemID+";";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        returningBool = true;
+                    }
+
+                    reader.Close();
+                }
+            }
+
+            connection.Close();
+        }
+
+        return returningBool;
+    }
+
+    public void UpdateItemName(int id, string newName)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET itemName='"+newName+"' WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemTier(int id, int newTier)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET myTier="+newTier+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemBrief(int id, string newBrief)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET itemBriefDescription='"+newBrief+"' WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemDesc(int id, string newDesc)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET itemDescription='"+newDesc+"' WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemEffectRevolvers(int id, int toggle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET effectRevolvers="+toggle+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemEffectPistols(int id, int toggle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET effectPistols="+toggle+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemEffectShotguns(int id, int toggle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET effectShotguns="+toggle+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemEffectRifles(int id, int toggle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET effectRifles="+toggle+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemExtraDmg(int id, double newExtraDmg)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET extraDamage="+newExtraDmg+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemReloadIncrease(int id, double newReloadSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET reloadSpeedIncrease="+newReloadSpeed+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemFireRate(int id, double newFireRate)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET fireRate="+newFireRate+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemLaserPointer(int id, int toggle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET enableLaserPointer="+toggle+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemMovementSpeed(int id, double newMovementSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET movementSpeedBuff="+newMovementSpeed+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemJumpPower(int id, double newJumpPower)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET jumpPowerBuff="+newJumpPower+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemRollCooldown(int id, double newRollCooldown)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET rollCoolDownDecrease="+newRollCooldown+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemDodgeChance(int id, double newDodgeChance)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET dodgeChance="+newDodgeChance+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemExtraLives(int id, int newLives)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET extraLivesToGive="+newLives+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateItemMaxHealth(int id, double newMaxHealth)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET increaseMaxHealth="+newMaxHealth+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
 }
 

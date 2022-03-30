@@ -24,6 +24,9 @@ public class EditProfile : MonoBehaviour
     [SerializeField] private GameObject weaponsSettingsUi;
 
     private WeaponPanel wepPanel;
+
+    [SerializeField] private GameObject itemsSettingsUi;
+    private ItemPanel itemPanel;
     
     
     [Header("Button Prefabs")] 
@@ -33,7 +36,9 @@ public class EditProfile : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        
         wepPanel = weaponsSettingsUi.GetComponentInChildren<WeaponPanel>();
+        itemPanel = itemsSettingsUi.GetComponentInChildren<ItemPanel>();
     }
 
     public void RefreshAll(int editingProfileID)
@@ -53,12 +58,19 @@ public class EditProfile : MonoBehaviour
             Destroy(listItem.gameObject);
         }
     }
+
+    private void ClearAllUiPanels()
+    {
+        weaponsSettingsUi.SetActive(false);
+        itemsSettingsUi.SetActive(false);
+    }
     
     public void Button_Weapons()
     {
-        weaponsSettingsUi.SetActive(true);
+        ClearAllUiPanels();
         ClearCurrentButtons();
         
+        weaponsSettingsUi.SetActive(true);
         var listOfAllWeps = databaseManager.GetListOfAllWeapons();
         
         
@@ -82,7 +94,12 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Items()
     {
+        ClearAllUiPanels();
         ClearCurrentButtons();
+        
+        itemsSettingsUi.SetActive(true);
+
+        
     }
 
     public void Button_Gameplay()
