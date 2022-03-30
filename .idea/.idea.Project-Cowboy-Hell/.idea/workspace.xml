@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/WeaponPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/WeaponPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/DeleteWeaponConfirm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/DeleteWeaponConfirm.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,7 @@
       <workItem from="1648378807441" duration="4263000" />
       <workItem from="1648466587709" duration="11773000" />
       <workItem from="1648544121259" duration="3752000" />
-      <workItem from="1648628903418" duration="5952000" />
+      <workItem from="1648628903418" duration="7163000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>

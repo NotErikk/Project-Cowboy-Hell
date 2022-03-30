@@ -141,6 +141,12 @@ public class DatabaseManager : MonoBehaviour
             {
                 command.CommandText = "DELETE FROM gameProfiles WHERE profileID= '" + id + "';";
                 command.ExecuteNonQuery();
+                
+                command.CommandText = "DELETE FROM gameProfiles_weapons WHERE gameProfilesID='" + id + "';";
+                command.ExecuteNonQuery();
+
+                command.CommandText = "DELETE FROM gameProfiles_items WHERE gameProfilesID='" + id + "';";
+                command.ExecuteNonQuery();
             }
 
             connection.Close();
@@ -546,6 +552,11 @@ public class DatabaseManager : MonoBehaviour
 
             connection.Close();
         }
+    }
+
+    public void AddNewItem()
+    {
+        
     }
     
 }
