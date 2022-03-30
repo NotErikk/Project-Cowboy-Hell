@@ -258,7 +258,21 @@ public class DatabaseManager : MonoBehaviour
 
      public void FullyRemoveWeapon(int id)
      {
-         Debug.Log("removing wep " + id);
+         using (connection)
+         {
+             connection.Open();
+
+             using (var command = connection.CreateCommand())
+             {
+                 command.CommandText = "DELETE FROM weapons WHERE weaponID= '"+id+"';";
+                 command.ExecuteNonQuery();
+                 
+                 command.CommandText = "DELETE FROM gameProfiles_weapons WHERE weaponsID= '"+id+"';";
+                 command.ExecuteNonQuery();
+
+             }
+             connection.Close();
+         }
      }
      
      public void EnableDisableAWeapon(int profileId, int weaponId, bool toggle)
