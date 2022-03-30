@@ -20,6 +20,12 @@ public class EditProfile : MonoBehaviour
     
     [SerializeField] private GameObject buttonListObject;
 
+    [Header("Settings UIs")]
+    [SerializeField] private GameObject weaponsSettingsUi;
+
+    private WeaponPanel wepPanel;
+    
+    
     [Header("Button Prefabs")] 
     [SerializeField] private GameObject addNewWeaponButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
@@ -27,6 +33,7 @@ public class EditProfile : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        wepPanel = weaponsSettingsUi.GetComponentInChildren<WeaponPanel>();
     }
 
     public void RefreshAll(int editingProfileID)
@@ -49,10 +56,14 @@ public class EditProfile : MonoBehaviour
     
     public void Button_Weapons()
     {
+        weaponsSettingsUi.SetActive(true);
         ClearCurrentButtons();
         
+        var listOfAllWeps = databaseManager.GetListOfAllWeapons();
+        
+        
         Instantiate(addNewWeaponButtonPrefab, buttonListObject.transform, true);
-        foreach (WeaponBasicInfo wepInfo in databaseManager.GetListOfAllWeapons())
+        foreach (WeaponBasicInfo wepInfo in listOfAllWeps)
         {
             GameObject wep = Instantiate(weaponButtonPrefab, buttonListObject.transform, true);
             
@@ -60,6 +71,8 @@ public class EditProfile : MonoBehaviour
             wep.GetComponent<WeaponButton>().SetId(wepInfo.weaponID);
             wep.GetComponentInChildren<TextMeshProUGUI>().text = wepInfo.weaponName;
         }
+        wepPanel.ShowSettingsFromID(listOfAllWeps[listOfAllWeps.Count - 1].weaponID);
+        
     }
 
     public void Button_Enemies()
