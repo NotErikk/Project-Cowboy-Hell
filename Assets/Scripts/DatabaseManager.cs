@@ -378,5 +378,175 @@ public class DatabaseManager : MonoBehaviour
 
         return returningBool;
     }
+
+    public void UpdateWeaponName(int id, string newName)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET displayName='"+newName+"' WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateBulletCapacity(int id, int newCapacity)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET bulletCapacity="+newCapacity+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateFireRate(int id, double newFireRate)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET fireRate="+newFireRate+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateTwoHanded(int id, int newTwoHanded)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET twoHanded="+newTwoHanded+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateClass(int id, int newClass)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET firearmClass="+newClass+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateShotType(int id, int newShotType)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET shootType="+newShotType+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateProjectilesWhenFired(int id, int newProjectilesWhenFired)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET projectilesWhenFired="+newProjectilesWhenFired+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+    public void UpdateProjectileSpeed(int id, double newProjectileSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET projectileSpeed="+newProjectileSpeed+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateAccuracy(int id, double newAccuracy)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET baseAccuracy="+newAccuracy+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateReloadAngle(int id, double newReloadAngle)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET reloadAngle="+newReloadAngle+" WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+    
 }
 

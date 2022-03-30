@@ -117,5 +117,55 @@ public class WeaponPanel : MonoBehaviour
         
     }
 
+    public void Change_WeaponName(TMP_InputField inputField)
+    {
+        databaseManager.UpdateWeaponName(currentWeaponInfo.weaponId, inputField.text);
+    }
 
+    public void Change_BulletCapacity(TMP_InputField inputField)
+    {
+        databaseManager.UpdateBulletCapacity(currentWeaponInfo.weaponId,  Convert.ToInt32(inputField.text));
+    }
+
+    public void Change_FireRate(TMP_InputField inputField)
+    {
+        databaseManager.UpdateFireRate(currentWeaponInfo.weaponId, Convert.ToDouble(inputField.text));
+    }
+
+    public void Change_TwoHanded(Toggle toggle)
+    {
+        int newInt = toggle.isOn == true ? 1 : 0;
+        
+        databaseManager.UpdateTwoHanded(currentWeaponInfo.weaponId, newInt);
+    }
+
+    public void Change_Class(TMP_Dropdown dropDown)
+    {
+        databaseManager.UpdateClass(currentWeaponInfo.weaponId, dropDown.value);
+    }
+
+    public void Change_ShotType(TMP_Dropdown dropDown)
+    {
+        databaseManager.UpdateShotType(currentWeaponInfo.weaponId, dropDown.value);
+    }
+
+    public void Change_ProjectilesWhenFired(TMP_InputField inputField)
+    {
+        databaseManager.UpdateProjectilesWhenFired(currentWeaponInfo.weaponId,Convert.ToInt32(inputField.text));
+    }
+
+    public void Change_ProjectileSpeed(TMP_InputField inputField)
+    {
+        databaseManager.UpdateProjectileSpeed(currentWeaponInfo.weaponId, Convert.ToDouble(inputField.text));
+    }
+
+    public void Change_Accuracy(Slider slider)
+    {
+        databaseManager.UpdateAccuracy(currentWeaponInfo.weaponId, slider.value);
+    }
+
+    public void Change_ReloadAngle(Slider slider)
+    {
+        databaseManager.UpdateReloadAngle(currentWeaponInfo.weaponId, slider.value);
+    }
 }
