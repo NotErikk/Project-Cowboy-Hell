@@ -7,17 +7,28 @@ using UnityEngine.UI;
 public class WeaponButton : MonoBehaviour
 {
     private int id;
+    private int editingProfileId;
     private DatabaseManager databaseManager;
 
     private WeaponPanel wepPanel;
 
     private EditProfile editProfile;
+
+    private Toggle toggle;
     
     private void Awake()
     {
         wepPanel = GameObject.FindGameObjectWithTag("WeaponPanel").GetComponent<WeaponPanel>();
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
         editProfile = GameObject.FindGameObjectWithTag("editProfile").GetComponent<EditProfile>();
+        toggle = GetComponentInChildren<Toggle>();
+    }
+
+
+    private void Start()
+    {
+        editingProfileId = editProfile.getEditingProfileID;
+        toggle.isOn = databaseManager.IsThisWeaponEnabled(id, editingProfileId);
     }
 
     public void SetId(int id)
@@ -32,6 +43,6 @@ public class WeaponButton : MonoBehaviour
 
     public void Toggle_ToggleChanged(Toggle toggle)
     {
-        databaseManager.EnableDisableAWeapon(editProfile.getEditingProfileID, id, toggle.isOn);
+        databaseManager.EnableDisableAWeapon(editingProfileId, id, toggle.isOn);
     }
 }
