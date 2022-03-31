@@ -74,8 +74,8 @@ public class WeaponPanel : MonoBehaviour
     [SerializeField] private TMP_Text weaponDeleteConfirmText;
 
     [SerializeField] private string deleteMsgPrecursor;
+    
     private DeleteWeaponConfirm deleteWepConfirm;
-
     private DatabaseManager databaseManager;
     private AllWeaponInfo currentWeaponInfo;
     

@@ -30,7 +30,21 @@ namespace ProfileSelectInfoStruct
         {
             this.weaponName = weaponName;
             this.weaponID = weaponID;
-            this.sprite = null;
+            sprite = null;
+        }
+    }
+
+    public struct ItemBasicInfo
+    {
+        public string itemName;
+        public int itemID;
+        public Texture2D sprite;
+
+        public ItemBasicInfo(string itemName, int itemID)
+        {
+            this.itemName = itemName;
+            this.itemID = itemID;
+            sprite = null;
         }
     }
 }

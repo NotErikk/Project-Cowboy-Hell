@@ -17,6 +17,9 @@ public class EditProfile : MonoBehaviour
 
     [SerializeField] private GameObject newWeaponUi;
     public GameObject GetNewWeaponUi() => newWeaponUi;
+
+    [SerializeField] private GameObject newItemUi;
+    public GameObject GetNewItemUi() => newItemUi;
     
     [SerializeField] private GameObject buttonListObject;
 
@@ -33,6 +36,8 @@ public class EditProfile : MonoBehaviour
     [SerializeField] private GameObject addNewWeaponButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
 
+    [SerializeField] private GameObject addNewItemButtonPrefab;
+    [SerializeField] private GameObject itemButtonPrefab;
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
@@ -94,12 +99,24 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Items()
     {
+        
         ClearAllUiPanels();
         ClearCurrentButtons();
         
         itemsSettingsUi.SetActive(true);
-
+        var listOfAllItems = databaseManager.GetListOfAllItems();
         
+        
+        Instantiate(addNewItemButtonPrefab, buttonListObject.transform, true);
+        foreach (ItemBasicInfo itemInfo in listOfAllItems)
+        {
+            GameObject item = Instantiate(itemButtonPrefab, buttonListObject.transform, true);
+            
+            item.transform.SetSiblingIndex(0);
+            item.GetComponent<ItemButton>().SetId(itemInfo.itemID);
+            item.GetComponentInChildren<TextMeshProUGUI>().text = itemInfo.itemName;
+        }
+        itemPanel.ShowSettingsFromID(listOfAllItems[listOfAllItems.Count - 1].itemID);
     }
 
     public void Button_Gameplay()

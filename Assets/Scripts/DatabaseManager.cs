@@ -7,6 +7,7 @@ using UnityEngine;
 using ProfileSelectInfoStruct;
 using AllWeaponInfoStruct;
 using Mono.Data.Sqlite;
+using AllItemInfoStruct;
 using UnityEngine.UI;
 
 
@@ -554,7 +555,7 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void AddNewItem(string itemName, int itemTier, string itemSprite, string itemBriefDescription, string itemDescription, int effectRevolvers, int effectPistols, int effectShotguns, int effectRifles, double extraDamage, double reloadSpeedBuff, double fireRateIncrease, int laserPointer, double movementSpeedBuff, double jumpPowerIncrease, double rollCooldownDecrease, double shopDiscount, double damageResistance, double dodgeChance, int extraLivesToGive, double maxHealthIncrease)
+    public void CreateNewItem(string itemName, int itemTier, string itemSprite, string itemBriefDescription, string itemDescription, int effectRevolvers, int effectPistols, int effectShotguns, int effectRifles, double extraDamage, double reloadSpeedBuff, double fireRateIncrease, int laserPointer, double movementSpeedBuff, double jumpPowerIncrease, double rollCooldownDecrease, double shopDiscount, double damageResistance, double dodgeChance, int extraLivesToGive, double maxHealthIncrease)
     {
         using (connection)
         {
@@ -590,6 +591,37 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public AllItemInfo GetAllItemInfoFromID(int id)
+    {
+        AllItemInfo returnInfo = default;
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM items WHERE itemID=" + id + "";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    bool effectRevolvers = Convert.ToInt32(reader["effectRevolvers"]) == 1;
+                    bool effectPistols = Convert.ToInt32(reader["effectPistols"]) == 1;
+                    bool effectShotguns = Convert.ToInt32(reader["effectShotguns"]) == 1;
+                    bool effectRifles = Convert.ToInt32(reader["effectRifles"]) == 1;
+                    
+                    bool laserPointer = Convert.ToInt32(reader["enableLaserPointer"]) == 1;
+                    
+                    
+                    returnInfo = new AllItemInfo(Convert.ToInt32(reader["itemID"]), (string)reader["itemName"], Convert.ToInt32(reader["myTier"]), (string)reader["itemBriefDescription"], (string)reader["itemDescription"], effectRevolvers, effectPistols, effectShotguns, effectRifles, Convert.ToDouble(reader["extraDamage"]),Convert.ToDouble(reader["reloadSpeedIncrease"]), Convert.ToDouble(reader["fireRate"]), laserPointer, Convert.ToDouble(reader["movementSpeedBuff"]),Convert.ToDouble(reader["jumpPowerBuff"]), Convert.ToDouble(reader["rollCooldownDecrease"]), Convert.ToDouble(reader["shopDiscount"]), Convert.ToDouble(reader["damageResistance"]), Convert.ToDouble(reader["dodgeChance"]), Convert.ToInt32(reader["extraLivesToGive"]), Convert.ToDouble(reader["increasemaxHealth"]));
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return returnInfo;
+    }
+    
     public void ToggleAnItem(int profileID, int itemID, bool toggle)
     {
         //if turning item on
@@ -654,6 +686,32 @@ public class DatabaseManager : MonoBehaviour
         }
 
         return returningBool;
+    }
+
+    public List<ItemBasicInfo> GetListOfAllItems()
+    {
+        var itemList = new List<ItemBasicInfo>();
+
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT itemID, itemName FROM items";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        itemList.Add(new ItemBasicInfo((string) reader["itemName"],Convert.ToInt32(reader["itemID"])));
+                    }
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return itemList;
     }
 
     public void UpdateItemName(int id, string newName)
@@ -803,7 +861,7 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void UpdateItemReloadIncrease(int id, double newReloadSpeed)
+    public void UpdateItemReloadSpeed(int id, double newReloadSpeed)
     {
         using (connection)
         {
@@ -899,6 +957,37 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public void UpdateShopDiscount(int id, double newDiscount)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET shopDiscount="+newDiscount+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+    
+    public void UpdateDamageResistance(int id, double newResistance)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE items SET damageResistance="+newResistance+" WHERE itemID="+id+";";
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
     public void UpdateItemDodgeChance(int id, double newDodgeChance)
     {
         using (connection)
