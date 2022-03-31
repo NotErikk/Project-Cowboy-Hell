@@ -46836,7 +46836,7 @@ GameObject:
   - component: {fileID: 1811875968}
   m_Layer: 5
   m_Name: Newitem
-  m_TagString: NewWeaponUi
+  m_TagString: NewItemUi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46874,6 +46874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920513b8dc23c7940982597c5c239e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputItemName: {fileID: 0}
+  inputTier: {fileID: 0}
+  inputBriefDescription: {fileID: 0}
+  inputDescription: {fileID: 0}
 --- !u!1 &1816442685
 GameObject:
   m_ObjectHideFlags: 0
