@@ -38,7 +38,7 @@ public class DatabaseManager : MonoBehaviour
 
                 //weapons
                 command.CommandText =
-                    "CREATE TABLE IF NOT EXISTS weapons (weaponID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,weaponSprite VARCHAR, bulletSprite VARCHAR, casingSprite VARCHAR, projectileSprite VARCHAR,displayName VARCHAR(20), firearmClass INT, bulletCapacity INT, projectilesWhenFired INT, projectileSpeed DOUBLE, baseAccuracy DOUBLE, fireRate DOUBLE, ejectCartridgeOnFire INT, gunSmokeOnFire INT, twoHanded INT, reloadAngle DOUBLE, shootingHandHoldingX FLOAT, shootingHandHoldingY FLOAT, firePointX FLOAT, firePointY FLOAT, otherHandHoldingX FLOAT, otherHandHoldingY FLOAT, loadBulletsPointX FLOAT, loadBulletsPointY FLOAT, bulletReleaseKeyX FLOAT, bulletReleaseKeyY FLOAT, cylinderLocationX FLOAT, cylinderLocationY FLOAT, shootType INT);";
+                    "CREATE TABLE IF NOT EXISTS weapons (weaponID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,weaponSprite VARCHAR, bulletSprite VARCHAR, casingSprite VARCHAR, projectileSprite VARCHAR,displayName VARCHAR(20),weaponTier INT ,firearmClass INT, bulletCapacity INT, projectilesWhenFired INT, projectileSpeed DOUBLE, baseAccuracy DOUBLE, fireRate DOUBLE, ejectCartridgeOnFire INT, gunSmokeOnFire INT, twoHanded INT, reloadAngle DOUBLE, shootingHandHoldingX FLOAT, shootingHandHoldingY FLOAT, firePointX FLOAT, firePointY FLOAT, otherHandHoldingX FLOAT, otherHandHoldingY FLOAT, loadBulletsPointX FLOAT, loadBulletsPointY FLOAT, bulletReleaseKeyX FLOAT, bulletReleaseKeyY FLOAT, cylinderLocationX FLOAT, cylinderLocationY FLOAT, shootType INT);";
                 command.ExecuteNonQuery();
 
                 //items
@@ -81,7 +81,7 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateNewWeapon(string weaponName, int weaponClass, int bulletCapacity, int projectilesWhenFired,
+    public void CreateNewWeapon(string weaponName,int weaponTier ,int weaponClass, int bulletCapacity, int projectilesWhenFired,
         double projectileSpeed, double baseAccuracy, double fireRate, int twoHanded, int shootType)
     {
         using (connection)
@@ -91,9 +91,9 @@ public class DatabaseManager : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 command.CommandText =
-                    "INSERT INTO weapons (weaponSprite, bulletSprite, casingSprite, projectileSprite, displayName, firearmClass, bulletCapacity, projectilesWhenFired, projectileSpeed, baseAccuracy, fireRate, ejectCartridgeOnFire, gunSmokeOnFire, twoHanded, reloadAngle, shootingHandHoldingX, shootingHandHoldingY, firePointX, firePointY, otherHandHoldingX, otherHandHoldingY, loadBulletsPointX, loadBulletsPointY, bulletReleaseKeyX, bulletReleaseKeyY, cylinderLocationX, cylinderLocationY, shootType) " +
+                    "INSERT INTO weapons (weaponSprite, bulletSprite, casingSprite, projectileSprite, displayName, weaponTier,firearmClass, bulletCapacity, projectilesWhenFired, projectileSpeed, baseAccuracy, fireRate, ejectCartridgeOnFire, gunSmokeOnFire, twoHanded, reloadAngle, shootingHandHoldingX, shootingHandHoldingY, firePointX, firePointY, otherHandHoldingX, otherHandHoldingY, loadBulletsPointX, loadBulletsPointY, bulletReleaseKeyX, bulletReleaseKeyY, cylinderLocationX, cylinderLocationY, shootType) " +
                     "VALUES ('weaponSprite' , 'bulletSprite', 'castingSprite', 'projectileSprite', '" + weaponName +
-                    "', '" + weaponClass + "', '" + bulletCapacity + "', '" + projectilesWhenFired + "', '" +
+                    "',"+weaponTier+", '" + weaponClass + "', '" + bulletCapacity + "', '" + projectilesWhenFired + "', '" +
                     projectileSpeed + "', '" + baseAccuracy + "', '" + fireRate + "', 0, 0, '" + twoHanded +
                     "', -30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '" + shootType + "');";
                 command.ExecuteNonQuery();
@@ -282,7 +282,7 @@ public class DatabaseManager : MonoBehaviour
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     bool twoHanded = (Convert.ToInt32(reader["twoHanded"]) == 1);
-                    returnInfo = new AllWeaponInfo(Convert.ToInt32(reader["weaponID"]), (string) reader["displayName"],
+                    returnInfo = new AllWeaponInfo(Convert.ToInt32(reader["weaponID"]), (string) reader["displayName"],Convert.ToInt32(reader["weaponTier"]) ,
                         Convert.ToInt32(reader["bulletCapacity"]), (double) reader["fireRate"], twoHanded,
                         Convert.ToInt32(reader["firearmClass"]), Convert.ToInt32(reader["shootType"]),
                         Convert.ToInt32(reader["projectilesWhenFired"]), (double) reader["projectileSpeed"],
@@ -395,6 +395,23 @@ public class DatabaseManager : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "UPDATE weapons SET displayName='"+newName+"' WHERE weaponID="+id+";";
+                command.ExecuteNonQuery();
+
+            }
+
+            connection.Close();
+        }
+    }
+
+    public void UpdateWeaponTier(int id, int newTier)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE weapons SET weaponTier='"+newTier+"' WHERE weaponID="+id+";";
                 command.ExecuteNonQuery();
 
             }

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CreateNewWeapon : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputName;
+    [SerializeField] private TMP_Dropdown inputTier;
     [SerializeField] private TMP_Dropdown inputClass;
     [SerializeField] private TMP_Dropdown inputShotType;
     [SerializeField] private TMP_InputField inputAmmoCap;
@@ -31,7 +32,7 @@ public class CreateNewWeapon : MonoBehaviour
         int twoHanded = inputTwoHanded.isOn ? 1 : 0;
         try
         {
-            databaseManager.CreateNewWeapon(inputName.text, inputClass.value, Convert.ToInt32(inputAmmoCap.text), 1,
+            databaseManager.CreateNewWeapon(inputName.text,inputTier.value ,inputClass.value, Convert.ToInt32(inputAmmoCap.text), 1,
                 Convert.ToDouble(inputProjectileSpeed.text), Convert.ToDouble(inputAccuracy.text),
                 Convert.ToDouble(inputFireRate.text), twoHanded, inputShotType.value);
         }
@@ -56,6 +57,7 @@ public class CreateNewWeapon : MonoBehaviour
     private void ClearInputs()
     {
         inputName.text = "";
+        inputTier.value = 0;
         inputClass.value = 0;
         inputShotType.value = 0;
         inputAmmoCap.text = "";

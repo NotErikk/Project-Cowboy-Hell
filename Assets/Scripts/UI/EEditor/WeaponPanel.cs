@@ -12,6 +12,7 @@ namespace AllWeaponInfoStruct
     {
         //basic
         public int weaponId;
+        public int weaponTier;
         public string name;
         public int bulletCapacity;
         public double fireRate;
@@ -29,9 +30,10 @@ namespace AllWeaponInfoStruct
         //reloadAngle
         public double reloadAngle;
 
-        public AllWeaponInfo(int weaponId, string name, int bulletCapacity, double fireRate, bool twoHanded, int weaponClass, int shotType, int projectilesWhenFired, double projectileSpeed, double accuracy, double reloadAngle)
+        public AllWeaponInfo(int weaponId, string name, int weaponTier, int bulletCapacity, double fireRate, bool twoHanded, int weaponClass, int shotType, int projectilesWhenFired, double projectileSpeed, double accuracy, double reloadAngle)
         {
             this.weaponId = weaponId;
+            this.weaponTier = weaponTier;
             this.name = name;
             this.bulletCapacity = bulletCapacity;
             this.fireRate = fireRate;
@@ -53,6 +55,7 @@ public class WeaponPanel : MonoBehaviour
 {
     [Header("Basic Settings")]
     [SerializeField] private TMP_InputField inputName;
+    [SerializeField] private TMP_Dropdown inputTier;
     [SerializeField] private TMP_InputField inputBulletCapacity;
     [SerializeField] private TMP_InputField inputFirerate;
     [SerializeField] private Toggle inputTwoHanded;
@@ -91,6 +94,7 @@ public class WeaponPanel : MonoBehaviour
 
         //basic
         inputName.text = currentWeaponInfo.name;
+        inputTier.value = currentWeaponInfo.weaponTier;
         inputBulletCapacity.text = Convert.ToString(currentWeaponInfo.bulletCapacity);
         inputFirerate.text = Convert.ToString(currentWeaponInfo.fireRate);
         inputTwoHanded.isOn = currentWeaponInfo.twoHanded;
@@ -122,6 +126,11 @@ public class WeaponPanel : MonoBehaviour
         databaseManager.UpdateWeaponName(currentWeaponInfo.weaponId, inputField.text);
     }
 
+    public void Change_WeaponTier(TMP_Dropdown dropDown)
+    {
+        databaseManager.UpdateWeaponTier(currentWeaponInfo.weaponId, dropDown.value);
+    }
+    
     public void Change_BulletCapacity(TMP_InputField inputField)
     {
         databaseManager.UpdateBulletCapacity(currentWeaponInfo.weaponId,  Convert.ToInt32(inputField.text));
