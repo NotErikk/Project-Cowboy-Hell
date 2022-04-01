@@ -25,13 +25,14 @@ public class EditProfile : MonoBehaviour
 
     [Header("Settings UIs")]
     [SerializeField] private GameObject weaponsSettingsUi;
-
     private WeaponPanel wepPanel;
 
     [SerializeField] private GameObject itemsSettingsUi;
     private ItemPanel itemPanel;
-    
-    
+
+    [SerializeField] private GameObject gameplaySettingsUi;
+    private GameplayPanel gameplayPanel;
+
     [Header("Button Prefabs")] 
     [SerializeField] private GameObject addNewWeaponButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
@@ -44,6 +45,7 @@ public class EditProfile : MonoBehaviour
         
         wepPanel = weaponsSettingsUi.GetComponentInChildren<WeaponPanel>();
         itemPanel = itemsSettingsUi.GetComponentInChildren<ItemPanel>();
+        gameplayPanel = gameplaySettingsUi.GetComponentInChildren<GameplayPanel>();
     }
 
     public void RefreshAll(int editingProfileID)
@@ -68,6 +70,7 @@ public class EditProfile : MonoBehaviour
     {
         weaponsSettingsUi.SetActive(false);
         itemsSettingsUi.SetActive(false);
+        gameplaySettingsUi.SetActive(false);
     }
     
     public void Button_Weapons()
@@ -89,11 +92,11 @@ public class EditProfile : MonoBehaviour
             wep.GetComponentInChildren<TextMeshProUGUI>().text = wepInfo.weaponName;
         }
         wepPanel.ShowSettingsFromID(listOfAllWeps[listOfAllWeps.Count - 1].weaponID);
-        
     }
 
     public void Button_Enemies()
     {
+        ClearAllUiPanels();
         ClearCurrentButtons();
     }
 
@@ -121,11 +124,16 @@ public class EditProfile : MonoBehaviour
 
     public void Button_Gameplay()
     {
+        ClearAllUiPanels();
         ClearCurrentButtons();
+        
+        gameplaySettingsUi.SetActive(true);
+        gameplayPanel.ShowSettingsFromID(editingProfileID);
     }
 
     public void Button_Misc()
     {
+        ClearAllUiPanels();
         ClearCurrentButtons();
     }
     

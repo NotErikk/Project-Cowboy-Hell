@@ -32,7 +32,7 @@ public class CreateNewItem : MonoBehaviour
         }
 
         gameObject.SetActive(false);
-        editProfile.Button_Weapons();
+        editProfile.Button_Items();
         ClearInputs();
     }
     

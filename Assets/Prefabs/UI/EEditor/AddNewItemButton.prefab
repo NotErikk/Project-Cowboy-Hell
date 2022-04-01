@@ -282,9 +282,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonNewWeapon, Assembly-CSharp
-        m_MethodName: Button_AddNewWeapon
+      - m_Target: {fileID: 8098358344161145187}
+        m_TargetAssemblyTypeName: ButtonNewItem, Assembly-CSharp
+        m_MethodName: Button_AddNewItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

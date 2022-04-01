@@ -8,6 +8,8 @@ using ProfileSelectInfoStruct;
 using AllWeaponInfoStruct;
 using Mono.Data.Sqlite;
 using AllItemInfoStruct;
+using AllGameplayInfoStruct;
+
 using UnityEngine.UI;
 
 
@@ -268,6 +270,172 @@ public class DatabaseManager : MonoBehaviour
 
         return returnInfo;
     }
+
+    public AllGameplayInfo GetProfileGeneralSettings(int id)
+    {
+        AllGameplayInfo returnInfo = default;
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT profileID, playerHealth, playerMovementSpeed, playerJumpForce, playerCrouchMovementSpeed, playerCoyoteTime, playerRollLength, playerRollSpeed, playerRollCooldown, playerSlideDeceleration FROM gameProfiles WHERE profileID="+id+";";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        returnInfo = new AllGameplayInfo(Convert.ToInt32(reader["profileID"]),
+                            Convert.ToDouble(reader["playerHealth"]),Convert.ToDouble(reader["playerMovementSpeed"]) ,Convert.ToDouble(reader["playerCrouchMovementSpeed"]),
+                            Convert.ToDouble(reader["playerMovementSpeed"]),
+                            Convert.ToDouble(reader["playerCoyoteTime"]), Convert.ToDouble(reader["playerRollLength"]),
+                            Convert.ToDouble(reader["playerRollSpeed"]), Convert.ToDouble(reader["playerRollCooldown"]),
+                            Convert.ToDouble(reader["playerSlideDeceleration"]));
+                    }
+                    reader.Close();
+                }
+            }
+
+            connection.Close();
+        }
+
+        return returnInfo;
+    }
+
+    public void UpdateMaxHealth(int id, double newHealth)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerHealth="+newHealth+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+    public void UpdateMovementSpeed(int id, double newMovementSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerMovementSpeed="+newMovementSpeed+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateCrouchMovementSpeed(int id, double newCrouchMovementSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerCrouchMovementSpeed="+newCrouchMovementSpeed+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateJumpForce(int id, double newJumpForce)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerJumpForce="+newJumpForce+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateCoyoteTime(int id, double newCoyoteTime)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerCoyoteTime="+newCoyoteTime+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateRollLength(int id, double newRollLength)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerRollLength="+newRollLength+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateRollSpeed(int id, double newRollSpeed)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerRollSpeed="+newRollSpeed+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateRollCooldown(int id, double newRollCooldown)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerRollCooldown="+newRollCooldown+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateSlideDeceleration(int id, double newDecel)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET playerSlideDeceleration="+newDecel+" WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+    
 
     public AllWeaponInfo GetAllWeaponInfoFromID(int id)
     {
