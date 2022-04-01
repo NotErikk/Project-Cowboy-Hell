@@ -24,7 +24,7 @@ public class CreateNewItem : MonoBehaviour
     {
         try
         {
-            databaseManager.CreateNewItem() //HGAHAHHA YO UHAVE TO TYPE ALL THIS SHIT OUT HAHAHAHAHAHHAHA LFMAOOOO O HAVE FUN LAMFFOAOOOO LOLOLOLOL AHAHAHAHAH
+            databaseManager.CreateNewItem(inputItemName.text, inputTier.value, "", inputBriefDescription.text, inputDescription.text, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0,0.0);
         }
         catch
         {
@@ -34,5 +34,20 @@ public class CreateNewItem : MonoBehaviour
         gameObject.SetActive(false);
         editProfile.Button_Weapons();
         ClearInputs();
+    }
+    
+    public void Button_Close()
+    {
+        gameObject.SetActive(false);
+        
+        ClearInputs();
+    }
+
+    private void ClearInputs()
+    {
+        inputItemName.text = "";
+        inputTier.value = 0;
+        inputBriefDescription.text = "";
+        inputDescription.text = "";
     }
 }

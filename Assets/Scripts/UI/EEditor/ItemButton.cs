@@ -17,7 +17,7 @@ public class ItemButton : MonoBehaviour
     
     private void Awake()
     {
-        itemPanel = GameObject.FindGameObjectWithTag("WeaponPanel").GetComponent<ItemPanel>();
+        itemPanel = GameObject.FindGameObjectWithTag("ItemPanel").GetComponent<ItemPanel>();
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
         editProfile = GameObject.FindGameObjectWithTag("editProfile").GetComponent<EditProfile>();
         toggle = GetComponentInChildren<Toggle>();
@@ -27,7 +27,7 @@ public class ItemButton : MonoBehaviour
     private void Start()
     {
         editingProfileId = editProfile.getEditingProfileID;
-        toggle.isOn = databaseManager.IsThisWeaponEnabled(id, editingProfileId);
+        toggle.isOn = databaseManager.IsThisItemEnabled(id, editingProfileId);
     }
 
     public void SetId(int id)
