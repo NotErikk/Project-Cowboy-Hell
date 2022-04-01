@@ -27,6 +27,9 @@ public class EditProfile : MonoBehaviour
     [SerializeField] private GameObject weaponsSettingsUi;
     private WeaponPanel wepPanel;
 
+    [SerializeField] private GameObject enemiesSettingsUi;
+    private EnemyPanel enemyPanel;
+
     [SerializeField] private GameObject itemsSettingsUi;
     private ItemPanel itemPanel;
 
@@ -44,6 +47,7 @@ public class EditProfile : MonoBehaviour
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
         
         wepPanel = weaponsSettingsUi.GetComponentInChildren<WeaponPanel>();
+        enemyPanel = enemiesSettingsUi.GetComponentInChildren<EnemyPanel>();
         itemPanel = itemsSettingsUi.GetComponentInChildren<ItemPanel>();
         gameplayPanel = gameplaySettingsUi.GetComponentInChildren<GameplayPanel>();
     }
@@ -69,6 +73,7 @@ public class EditProfile : MonoBehaviour
     private void ClearAllUiPanels()
     {
         weaponsSettingsUi.SetActive(false);
+        enemiesSettingsUi.SetActive(false);
         itemsSettingsUi.SetActive(false);
         gameplaySettingsUi.SetActive(false);
     }
@@ -98,6 +103,8 @@ public class EditProfile : MonoBehaviour
     {
         ClearAllUiPanels();
         ClearCurrentButtons();
+        
+        enemiesSettingsUi.SetActive(true);
     }
 
     public void Button_Items()

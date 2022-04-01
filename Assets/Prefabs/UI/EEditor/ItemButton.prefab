@@ -545,8 +545,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WeaponButton, Assembly-CSharp
+      - m_Target: {fileID: 8858694444500930690}
+        m_TargetAssemblyTypeName: ItemButton, Assembly-CSharp
         m_MethodName: Button_ShowSettings
         m_Mode: 1
         m_Arguments:
