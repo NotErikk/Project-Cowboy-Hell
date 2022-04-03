@@ -252,7 +252,7 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT profileName, profileDescription, pictureID FROM gameProfiles";
+                command.CommandText = "SELECT profileName, profileDescription, pictureID FROM gameProfiles WHERE profileID="+myProfileID+"";
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -1217,6 +1217,36 @@ public class DatabaseManager : MonoBehaviour
                 command.ExecuteNonQuery();
             }
 
+            connection.Close();
+        }
+    }
+
+    public void UpdateProfileName(int id, string newName)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET profileName='"+newName+"' WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void UpdateProfileDesc(int id, string newDesc)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE gameProfiles SET profileDescription='"+newDesc+"' WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
             connection.Close();
         }
     }

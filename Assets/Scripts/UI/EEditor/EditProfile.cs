@@ -36,6 +36,9 @@ public class EditProfile : MonoBehaviour
     [SerializeField] private GameObject gameplaySettingsUi;
     private GameplayPanel gameplayPanel;
 
+    [SerializeField] private GameObject miscSettingsUi;
+    private MiscPanel miscPanel;
+
     [Header("Button Prefabs")] 
     [SerializeField] private GameObject addNewWeaponButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
@@ -50,6 +53,7 @@ public class EditProfile : MonoBehaviour
         enemyPanel = enemiesSettingsUi.GetComponentInChildren<EnemyPanel>();
         itemPanel = itemsSettingsUi.GetComponentInChildren<ItemPanel>();
         gameplayPanel = gameplaySettingsUi.GetComponentInChildren<GameplayPanel>();
+        miscPanel = miscSettingsUi.GetComponentInChildren<MiscPanel>();
     }
 
     public void RefreshAll(int editingProfileID)
@@ -76,6 +80,7 @@ public class EditProfile : MonoBehaviour
         enemiesSettingsUi.SetActive(false);
         itemsSettingsUi.SetActive(false);
         gameplaySettingsUi.SetActive(false);
+        miscSettingsUi.SetActive(false);
     }
     
     public void Button_Weapons()
@@ -142,6 +147,9 @@ public class EditProfile : MonoBehaviour
     {
         ClearAllUiPanels();
         ClearCurrentButtons();
+        
+        miscSettingsUi.SetActive(true);
+        miscPanel.ShowSettingsFromID(editingProfileID);
     }
     
     public void Button_Back()
