@@ -11,6 +11,12 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsCanvas;
     [SerializeField] private GameObject quitCanvas;
 
+    private NewGameCanvasManager newGameCanvasManager;
+
+    private void Awake()
+    {
+        newGameCanvasManager = newGameCanvas.GetComponent<NewGameCanvasManager>();
+    }
 
     private void Start()
     {
@@ -36,6 +42,8 @@ public class MainMenuManager : MonoBehaviour
     {
         bool toggle = !newGameCanvas.activeSelf;
         HideAllCanvases();
+        
+        newGameCanvasManager.FillProfileList();
         newGameCanvas.SetActive(toggle);
     }
 

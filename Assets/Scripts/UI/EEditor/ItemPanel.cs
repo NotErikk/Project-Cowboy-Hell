@@ -211,7 +211,7 @@ public class ItemPanel : MonoBehaviour
 
     public void Change_FireRate(TMP_InputField inputField)
     {
-        databaseManager.UpdateFireRate(currentItemInfo.itemID,Convert.ToDouble(inputField.text));
+        databaseManager.UpdateItemFireRate(currentItemInfo.itemID,Convert.ToDouble(inputField.text));
     }
 
     public void Change_LaserPointer(Toggle toggle)

@@ -1287,330 +1287,361 @@
     <table id="473" parent="163" name="gameProfiles"/>
     <table id="474" parent="163" name="gameProfiles_items"/>
     <table id="475" parent="163" name="gameProfiles_weapons"/>
-    <table id="476" parent="163" name="items"/>
-    <table id="477" parent="163" name="sqlite_master">
+    <table id="476" parent="163" name="gameSaves"/>
+    <table id="477" parent="163" name="items"/>
+    <table id="478" parent="163" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="478" parent="163" name="sqlite_sequence">
+    <table id="479" parent="163" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="479" parent="163" name="weapons"/>
-    <column id="480" parent="473" name="profileID">
+    <table id="480" parent="163" name="weapons"/>
+    <column id="481" parent="473" name="profileID">
       <DataType>INTEGER|0s</DataType>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="481" parent="473" name="profileName">
+    <column id="482" parent="473" name="profileName">
       <DataType>VARCHAR(20)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="482" parent="473" name="pictureID">
+    <column id="483" parent="473" name="pictureID">
       <DataType>INT|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="483" parent="473" name="profileDescription">
+    <column id="484" parent="473" name="profileDescription">
       <DataType>VARCHAR(50)|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="484" parent="473" name="playerHealth">
+    <column id="485" parent="473" name="playerHealth">
       <DataType>INT|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="485" parent="473" name="playerMovementSpeed">
+    <column id="486" parent="473" name="playerMovementSpeed">
       <DataType>DOUBLE|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="486" parent="473" name="playerJumpForce">
+    <column id="487" parent="473" name="playerJumpForce">
       <DataType>DOUBLE|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="487" parent="473" name="playerCrouchMovementSpeed">
+    <column id="488" parent="473" name="playerCrouchMovementSpeed">
       <DataType>DOUBLE|0s</DataType>
       <Position>8</Position>
     </column>
-    <column id="488" parent="473" name="playerCoyoteTime">
+    <column id="489" parent="473" name="playerCoyoteTime">
       <DataType>FLOAT|0s</DataType>
       <Position>9</Position>
     </column>
-    <column id="489" parent="473" name="playerRollLength">
+    <column id="490" parent="473" name="playerRollLength">
       <DataType>DOUBLE|0s</DataType>
       <Position>10</Position>
     </column>
-    <column id="490" parent="473" name="playerRollSpeed">
+    <column id="491" parent="473" name="playerRollSpeed">
       <DataType>DOUBLE|0s</DataType>
       <Position>11</Position>
     </column>
-    <column id="491" parent="473" name="playerRollCooldown">
+    <column id="492" parent="473" name="playerRollCooldown">
       <DataType>DOUBLE|0s</DataType>
       <Position>12</Position>
     </column>
-    <column id="492" parent="473" name="playerSlideDeceleration">
+    <column id="493" parent="473" name="playerSlideDeceleration">
       <DataType>DOUBLE|0s</DataType>
       <Position>13</Position>
     </column>
-    <key id="493" parent="473">
+    <key id="494" parent="473">
       <ColNames>profileID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="494" parent="474" name="gameProfilesID">
+    <column id="495" parent="474" name="gameProfilesID">
       <DataType>INT|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="495" parent="474" name="itemsID">
+    <column id="496" parent="474" name="itemsID">
       <DataType>INT|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="496" parent="475" name="gameProfilesID">
+    <column id="497" parent="475" name="gameProfilesID">
       <DataType>INT|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="497" parent="475" name="weaponsID">
+    <column id="498" parent="475" name="weaponsID">
       <DataType>INT|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="498" parent="476" name="itemID">
+    <column id="499" parent="476" name="saveID">
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="499" parent="476" name="itemName">
+    <column id="500" parent="476" name="saveName">
       <DataType>VARCHAR(20)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="500" parent="476" name="myTier">
+    <column id="501" parent="476" name="profileID">
       <DataType>INT|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="501" parent="476" name="itemSprite">
+    <column id="502" parent="476" name="moneyOnPerson">
+      <DataType>INT|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="503" parent="476" name="moneyInBank">
+      <DataType>INT|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="504" parent="476" name="currentStoryPoint">
+      <DataType>INT|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <key id="505" parent="476">
+      <ColNames>saveID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="506" parent="477" name="itemID">
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="507" parent="477" name="itemName">
+      <DataType>VARCHAR(20)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="508" parent="477" name="myTier">
+      <DataType>INT|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="509" parent="477" name="itemSprite">
       <DataType>VARCHAR|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="502" parent="476" name="itemBriefDescription">
+    <column id="510" parent="477" name="itemBriefDescription">
       <DataType>VARCHAR(50)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="503" parent="476" name="itemDescription">
+    <column id="511" parent="477" name="itemDescription">
       <DataType>VARCHAR(50)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="504" parent="476" name="effectRevolvers">
+    <column id="512" parent="477" name="effectRevolvers">
       <DataType>INT|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="505" parent="476" name="effectPistols">
+    <column id="513" parent="477" name="effectPistols">
       <DataType>INT|0s</DataType>
       <Position>8</Position>
     </column>
-    <column id="506" parent="476" name="effectShotguns">
+    <column id="514" parent="477" name="effectShotguns">
       <DataType>INT|0s</DataType>
       <Position>9</Position>
     </column>
-    <column id="507" parent="476" name="effectRifles">
+    <column id="515" parent="477" name="effectRifles">
       <DataType>INT|0s</DataType>
       <Position>10</Position>
     </column>
-    <column id="508" parent="476" name="extraDamage">
+    <column id="516" parent="477" name="extraDamage">
       <DataType>DOUBLE|0s</DataType>
       <Position>11</Position>
     </column>
-    <column id="509" parent="476" name="reloadSpeedIncrease">
+    <column id="517" parent="477" name="reloadSpeedIncrease">
       <DataType>DOUBLE|0s</DataType>
       <Position>12</Position>
     </column>
-    <column id="510" parent="476" name="fireRate">
+    <column id="518" parent="477" name="fireRate">
       <DataType>DOUBLE|0s</DataType>
       <Position>13</Position>
     </column>
-    <column id="511" parent="476" name="enableLaserPointer">
+    <column id="519" parent="477" name="enableLaserPointer">
       <DataType>INT|0s</DataType>
       <Position>14</Position>
     </column>
-    <column id="512" parent="476" name="movementSpeedBuff">
+    <column id="520" parent="477" name="movementSpeedBuff">
       <DataType>DOUBLE|0s</DataType>
       <Position>15</Position>
     </column>
-    <column id="513" parent="476" name="jumpPowerBuff">
+    <column id="521" parent="477" name="jumpPowerBuff">
       <DataType>DOUBLE|0s</DataType>
       <Position>16</Position>
     </column>
-    <column id="514" parent="476" name="rollCooldownDecrease">
+    <column id="522" parent="477" name="rollCooldownDecrease">
       <DataType>DOUBLE|0s</DataType>
       <Position>17</Position>
     </column>
-    <column id="515" parent="476" name="shopDiscount">
+    <column id="523" parent="477" name="shopDiscount">
       <DataType>DOUBLE|0s</DataType>
       <Position>18</Position>
     </column>
-    <column id="516" parent="476" name="damageResistance">
+    <column id="524" parent="477" name="damageResistance">
       <DataType>DOUBLE|0s</DataType>
       <Position>19</Position>
     </column>
-    <column id="517" parent="476" name="dodgeChance">
+    <column id="525" parent="477" name="dodgeChance">
       <DataType>DOUBLE|0s</DataType>
       <Position>20</Position>
     </column>
-    <column id="518" parent="476" name="extraLivesToGive">
+    <column id="526" parent="477" name="extraLivesToGive">
       <DataType>DOUBLE|0s</DataType>
       <Position>21</Position>
     </column>
-    <column id="519" parent="476" name="increaseMaxHealth">
+    <column id="527" parent="477" name="increaseMaxHealth">
       <DataType>DOUBLE|0s</DataType>
       <Position>22</Position>
     </column>
-    <key id="520" parent="476">
+    <key id="528" parent="477">
       <ColNames>itemID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="521" parent="477" name="type">
+    <column id="529" parent="478" name="type">
       <DataType>text|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="522" parent="477" name="name">
+    <column id="530" parent="478" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="523" parent="477" name="tbl_name">
+    <column id="531" parent="478" name="tbl_name">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="524" parent="477" name="rootpage">
+    <column id="532" parent="478" name="rootpage">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="525" parent="477" name="sql">
+    <column id="533" parent="478" name="sql">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="526" parent="478" name="name">
+    <column id="534" parent="479" name="name">
       <Position>1</Position>
     </column>
-    <column id="527" parent="478" name="seq">
+    <column id="535" parent="479" name="seq">
       <Position>2</Position>
     </column>
-    <column id="528" parent="479" name="weaponID">
+    <column id="536" parent="480" name="weaponID">
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="529" parent="479" name="weaponSprite">
+    <column id="537" parent="480" name="weaponSprite">
       <DataType>VARCHAR|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="530" parent="479" name="bulletSprite">
+    <column id="538" parent="480" name="bulletSprite">
       <DataType>VARCHAR|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="531" parent="479" name="casingSprite">
+    <column id="539" parent="480" name="casingSprite">
       <DataType>VARCHAR|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="532" parent="479" name="projectileSprite">
+    <column id="540" parent="480" name="projectileSprite">
       <DataType>VARCHAR|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="533" parent="479" name="displayName">
+    <column id="541" parent="480" name="displayName">
       <DataType>VARCHAR(20)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="534" parent="479" name="weaponTier">
+    <column id="542" parent="480" name="weaponTier">
       <DataType>INT|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="535" parent="479" name="firearmClass">
+    <column id="543" parent="480" name="firearmClass">
       <DataType>INT|0s</DataType>
       <Position>8</Position>
     </column>
-    <column id="536" parent="479" name="bulletCapacity">
+    <column id="544" parent="480" name="bulletCapacity">
       <DataType>INT|0s</DataType>
       <Position>9</Position>
     </column>
-    <column id="537" parent="479" name="projectilesWhenFired">
+    <column id="545" parent="480" name="projectilesWhenFired">
       <DataType>INT|0s</DataType>
       <Position>10</Position>
     </column>
-    <column id="538" parent="479" name="projectileSpeed">
+    <column id="546" parent="480" name="projectileSpeed">
       <DataType>DOUBLE|0s</DataType>
       <Position>11</Position>
     </column>
-    <column id="539" parent="479" name="baseAccuracy">
+    <column id="547" parent="480" name="baseAccuracy">
       <DataType>DOUBLE|0s</DataType>
       <Position>12</Position>
     </column>
-    <column id="540" parent="479" name="fireRate">
+    <column id="548" parent="480" name="fireRate">
       <DataType>DOUBLE|0s</DataType>
       <Position>13</Position>
     </column>
-    <column id="541" parent="479" name="ejectCartridgeOnFire">
+    <column id="549" parent="480" name="ejectCartridgeOnFire">
       <DataType>INT|0s</DataType>
       <Position>14</Position>
     </column>
-    <column id="542" parent="479" name="gunSmokeOnFire">
+    <column id="550" parent="480" name="gunSmokeOnFire">
       <DataType>INT|0s</DataType>
       <Position>15</Position>
     </column>
-    <column id="543" parent="479" name="twoHanded">
+    <column id="551" parent="480" name="twoHanded">
       <DataType>INT|0s</DataType>
       <Position>16</Position>
     </column>
-    <column id="544" parent="479" name="reloadAngle">
+    <column id="552" parent="480" name="reloadAngle">
       <DataType>DOUBLE|0s</DataType>
       <Position>17</Position>
     </column>
-    <column id="545" parent="479" name="shootingHandHoldingX">
+    <column id="553" parent="480" name="shootingHandHoldingX">
       <DataType>FLOAT|0s</DataType>
       <Position>18</Position>
     </column>
-    <column id="546" parent="479" name="shootingHandHoldingY">
+    <column id="554" parent="480" name="shootingHandHoldingY">
       <DataType>FLOAT|0s</DataType>
       <Position>19</Position>
     </column>
-    <column id="547" parent="479" name="firePointX">
+    <column id="555" parent="480" name="firePointX">
       <DataType>FLOAT|0s</DataType>
       <Position>20</Position>
     </column>
-    <column id="548" parent="479" name="firePointY">
+    <column id="556" parent="480" name="firePointY">
       <DataType>FLOAT|0s</DataType>
       <Position>21</Position>
     </column>
-    <column id="549" parent="479" name="otherHandHoldingX">
+    <column id="557" parent="480" name="otherHandHoldingX">
       <DataType>FLOAT|0s</DataType>
       <Position>22</Position>
     </column>
-    <column id="550" parent="479" name="otherHandHoldingY">
+    <column id="558" parent="480" name="otherHandHoldingY">
       <DataType>FLOAT|0s</DataType>
       <Position>23</Position>
     </column>
-    <column id="551" parent="479" name="loadBulletsPointX">
+    <column id="559" parent="480" name="loadBulletsPointX">
       <DataType>FLOAT|0s</DataType>
       <Position>24</Position>
     </column>
-    <column id="552" parent="479" name="loadBulletsPointY">
+    <column id="560" parent="480" name="loadBulletsPointY">
       <DataType>FLOAT|0s</DataType>
       <Position>25</Position>
     </column>
-    <column id="553" parent="479" name="bulletReleaseKeyX">
+    <column id="561" parent="480" name="bulletReleaseKeyX">
       <DataType>FLOAT|0s</DataType>
       <Position>26</Position>
     </column>
-    <column id="554" parent="479" name="bulletReleaseKeyY">
+    <column id="562" parent="480" name="bulletReleaseKeyY">
       <DataType>FLOAT|0s</DataType>
       <Position>27</Position>
     </column>
-    <column id="555" parent="479" name="cylinderLocationX">
+    <column id="563" parent="480" name="cylinderLocationX">
       <DataType>FLOAT|0s</DataType>
       <Position>28</Position>
     </column>
-    <column id="556" parent="479" name="cylinderLocationY">
+    <column id="564" parent="480" name="cylinderLocationY">
       <DataType>FLOAT|0s</DataType>
       <Position>29</Position>
     </column>
-    <column id="557" parent="479" name="shootType">
+    <column id="565" parent="480" name="shootType">
       <DataType>INT|0s</DataType>
       <Position>30</Position>
     </column>
-    <key id="558" parent="479">
+    <key id="566" parent="480">
       <ColNames>weaponID</ColNames>
       <Primary>1</Primary>
     </key>

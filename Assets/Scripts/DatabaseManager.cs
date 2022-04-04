@@ -57,7 +57,11 @@ public class DatabaseManager : MonoBehaviour
                 command.CommandText =
                     "CREATE TABLE IF NOT EXISTS gameProfiles_items (gameProfilesID INT, itemsID INT);";
                 command.ExecuteNonQuery();
-
+                
+                //gameSaves
+                command.CommandText =
+                    "CREATE TABLE IF NOT EXISTS gameSaves (saveID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, saveName VARCHAR(20), profileID INT, moneyOnPerson INT, moneyInBank INT, currentStoryPoint INT);";
+                command.ExecuteNonQuery();
             }
 
             connection.Close();
@@ -1245,6 +1249,21 @@ public class DatabaseManager : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "UPDATE gameProfiles SET profileDescription='"+newDesc+"' WHERE profileID="+id+";";
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+    }
+
+    public void CreateNewGameSave(string newGameName, int profileID)
+    {
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO gameSaves (saveName, profileID, moneyOnPerson, moneyInBank, currentStoryPoint) VALUES ('"+newGameName+"', "+profileID+", 0,0,0);";
                 command.ExecuteNonQuery();
             }
             connection.Close();
