@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BasicGameSaveInfoStruct;
+using UnityEngine.SceneManagement;
 
 namespace BasicGameSaveInfoStruct
 {
@@ -62,5 +63,10 @@ public class ContinueGameCanvas : MonoBehaviour
     public void SetSelectedSave(int id)
     {
         selectedSave = id;
+    }
+
+    public void Button_Play()
+    {
+        SceneManager.LoadScene(1);
     }
 }

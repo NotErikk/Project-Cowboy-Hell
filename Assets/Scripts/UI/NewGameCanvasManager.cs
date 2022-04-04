@@ -41,14 +41,14 @@ public class NewGameCanvasManager : MonoBehaviour
         int value = profilesDropdown.value;
         Debug.Log(value + " Which means " + allProfileBasicInfo[value].profileName);
 
-        //try
-        //{
+        try
+        {
             databaseManager.CreateNewGameSave(profileName.text, allProfileBasicInfo[value].profileID);
-        //}
-        //catch
-        //{
+        }
+        catch
+        {
             return;
-        //}
+        }
         SceneManager.LoadScene(1);
     }
 }
