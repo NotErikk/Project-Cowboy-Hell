@@ -14,14 +14,12 @@ public class NewGameCanvasManager : MonoBehaviour
     private DatabaseManager databaseManager;
     List<String> allProfileNames;
     private List<ProfileBasicInfo> allProfileBasicInfo;
-    
-    private void Awake()
-    {
-        databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
-    }
-    
+
     public void FillProfileList()
     {
+        if (databaseManager == null) databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        
+        
         profilesDropdown.ClearOptions();
         
         allProfileNames = new List<string>();

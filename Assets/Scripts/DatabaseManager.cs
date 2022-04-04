@@ -1270,5 +1270,10 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public void GetListOfAllGameSavesBasicInfo()
+    {
+        
+    }
+
 }
 
