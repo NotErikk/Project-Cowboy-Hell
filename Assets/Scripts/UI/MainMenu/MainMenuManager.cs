@@ -12,10 +12,12 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject quitCanvas;
 
     private NewGameCanvasManager newGameCanvasManager;
+    private ContinueGameCanvas continueGameManager;
 
     private void Awake()
     {
         newGameCanvasManager = newGameCanvas.GetComponent<NewGameCanvasManager>();
+        continueGameManager = continueGameCanvas.GetComponent<ContinueGameCanvas>();
     }
 
     private void Start()
@@ -35,7 +37,9 @@ public class MainMenuManager : MonoBehaviour
     {
         bool toggle = !continueGameCanvas.activeSelf;
         HideAllCanvases();
+        
         continueGameCanvas.SetActive(toggle);
+        continueGameManager.RefreshSaveDisplayList();
     }
 
     public void Button_NewGame()
@@ -43,8 +47,8 @@ public class MainMenuManager : MonoBehaviour
         bool toggle = !newGameCanvas.activeSelf;
         HideAllCanvases();
         
-        newGameCanvasManager.FillProfileList();
         newGameCanvas.SetActive(toggle);
+        newGameCanvasManager.FillProfileList();
     }
 
     public void Button_Options()

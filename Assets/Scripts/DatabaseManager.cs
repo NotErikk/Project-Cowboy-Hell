@@ -9,6 +9,7 @@ using AllWeaponInfoStruct;
 using Mono.Data.Sqlite;
 using AllItemInfoStruct;
 using AllGameplayInfoStruct;
+using BasicGameSaveInfoStruct;
 
 using UnityEngine.UI;
 
@@ -1270,9 +1271,30 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void GetListOfAllGameSavesBasicInfo()
+    public List<GameSaveInfo> GetListOfAllGameSavesBasicInfo()
     {
-        
+        List<GameSaveInfo> returnInfo = new List<GameSaveInfo>();
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT saveID, saveName, profileID FROM gameSaves";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        returnInfo.Add(new GameSaveInfo(Convert.ToInt32(reader["saveID"]), (string)reader["saveName"], Convert.ToInt32(reader["profileID"])));
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return returnInfo;
     }
 
 }
