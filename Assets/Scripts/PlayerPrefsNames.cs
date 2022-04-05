@@ -18,4 +18,6 @@ public class PlayerPrefsNames
     public static string idleRollDirection = "idleRollDirectionSetting";
 
     public static string currentLevel = "currentLevel";
+
+    public static string currentSaveID = "currentSaveID";
 }

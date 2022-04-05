@@ -108,7 +108,6 @@ public class LootBox : MonoBehaviour
         if (Roll <= Odds[0])
         {
             return Tiers.tier.tier1;
-            ;
         }
         else if (Roll <= Odds[0] + Odds[1])
         {

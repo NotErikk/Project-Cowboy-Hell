@@ -1297,5 +1297,65 @@ public class DatabaseManager : MonoBehaviour
         return returnInfo;
     }
 
+    public int GetProfileIDFromSaveID(int saveID)
+    {
+        int profileInt = 0;
+        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT profileID FROM gameSaves WHERE saveID="+saveID+"";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        profileInt = Convert.ToInt32(reader["profileID"]);
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+
+        return profileInt;
+    }
+
+    public List<AllWeaponInfo> GetAllWeaponInfoFromTierAndProfile(int tier, int profileID)
+    {
+        var returningList = new List<AllWeaponInfo>();
+        List<int> allWepsUnderProfile = new List<int>();
+
+
+        //get all wep ids from this profile
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT weaponsID FROM gameProfiles_weapons WHERE gameProfilesID="+profileID+"";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        allWepsUnderProfile.Add(Convert.ToInt32(reader["weaponsID"]));
+                    }
+
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+        
+        //get all correct tiers
+
+
+        return returningList;
+    }
+
 }
 

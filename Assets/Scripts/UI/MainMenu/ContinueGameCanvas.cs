@@ -67,6 +67,7 @@ public class ContinueGameCanvas : MonoBehaviour
 
     public void Button_Play()
     {
+        PlayerPrefs.SetInt(PlayerPrefsNames.currentLevel, selectedSave);
         SceneManager.LoadScene(1);
     }
 }

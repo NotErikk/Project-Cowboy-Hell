@@ -20,8 +20,22 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private RoomsSO[] levels;
 
     private GeneratorEngine generatorEngine;
+
+
+    private int currentSaveID;
+    public int GetCurrentSaveID() => currentSaveID;
+    
+    private int currentProfileID;
+    public int GetCurrentProfileID() => currentProfileID;
+    
+    private DatabaseManager databaseManager;
     private void Awake()
     {
+        databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        
+        currentSaveID = PlayerPrefs.GetInt(PlayerPrefsNames.currentSaveID);
+        currentProfileID = databaseManager.GetProfileIDFromSaveID(currentSaveID);
+
         if (!forceCurrentLevel)
         {
             currentLevel = PlayerPrefs.GetInt(PlayerPrefsNames.currentLevel);
