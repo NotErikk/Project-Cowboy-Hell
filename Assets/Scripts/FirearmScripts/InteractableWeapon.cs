@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AllWeaponInfoStruct;
 using UnityEngine;
 using UnityEngine.UI;
 

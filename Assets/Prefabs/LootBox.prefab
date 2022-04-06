@@ -302,6 +302,8 @@ MonoBehaviour:
   throwObjectOnOpenForce: 500
   interactableItemPrefab: {fileID: 2087600726070839031, guid: 307f17d053395494d83dacdff2e3157d, type: 3}
   interactableWeaponPrefab: {fileID: 4770325408487582109, guid: 035db93faef84ac419c3e41af94e4f55, type: 3}
+  blankWeapon: {fileID: 11400000, guid: 81c00db3ebd52ae4490a56720d74375b, type: 2}
+  blankItem: {fileID: 0}
   tier1Weps:
   - {fileID: 11400000, guid: 04d49db3386da7b48bc4203e5a9fd439, type: 2}
   - {fileID: 11400000, guid: 216336ee9ec19904fb507885ab21c6ab, type: 2}

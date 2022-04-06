@@ -21,7 +21,7 @@ public class projectileScript : MonoBehaviour
 
     private IEnumerator KillSelfOverTime()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(15);
         DestroySelf();
     }
 

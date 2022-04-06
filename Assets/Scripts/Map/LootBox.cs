@@ -28,6 +28,12 @@ public class LootBox : MonoBehaviour
     [SerializeField] private GameObject interactableItemPrefab;
     [SerializeField] private GameObject interactableWeaponPrefab;
 
+    [Header("Blank Weapon")] 
+    [SerializeField] private FirearmSO blankWeapon;
+
+    [Header("Blank Item")] 
+    [SerializeField] private FirearmSO blankItem;
+    
     [Header("Weapons")] 
     [SerializeField] FirearmSO[] tier1Weps;
     [SerializeField] FirearmSO[] tier2Weps;
@@ -49,9 +55,15 @@ public class LootBox : MonoBehaviour
     [SerializeField] private float[] level4Odds;
     [SerializeField] private float[] level5Odds;
     [SerializeField] private float[] level6Odds;
+
+    private DatabaseManager databaseManager;
+    private int currentProfileID;
     
     private void Awake()
     {
+        databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+
+
         if (GameObject.FindGameObjectWithTag("LevelManager") != null)
         {
             currentLevel = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentLevel();
@@ -65,8 +77,11 @@ public class LootBox : MonoBehaviour
         }
         SetTierOfLoot();
     }
-    
-    
+
+    private void Start()
+    {
+        currentProfileID = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentProfileID();
+    }
 
     [ContextMenu("Re-Roll Tier")]
     void SetTierOfLoot()
@@ -155,9 +170,35 @@ public class LootBox : MonoBehaviour
         GameObject droppedWeapon = Instantiate(interactableWeaponPrefab, myTransform.position, myTransform.rotation);
         
         //set to random wep
-        var allWeps = GetAllWeaponsOfTier();
-        droppedWeapon.GetComponent<InteractableWeapon>().firearm = allWeps[Random.Range(0, allWeps.Count)];
+        var allWeps = databaseManager.GetAllWeaponInfoFromTierAndProfile((int)myTier, currentProfileID);
+        var wep = allWeps[Random.Range(0, allWeps.Count)];
+
+        var firearm = ScriptableObject.CreateInstance<FirearmSO>();
+
+        firearm.GunSprite = blankWeapon.GunSprite;
+        firearm.BulletSprite = blankWeapon.BulletSprite;
+        firearm.CasingSprite = blankWeapon.CasingSprite;
+        firearm.ProjectileSprite = blankWeapon.ProjectileSprite;
+        firearm.DisplayName = wep.name;
+        firearm.myTier = (Tiers.tier) wep.weaponTier;
+        firearm.firearmType = (FirearmSO.FirearmClassesAvailable) wep.weaponClass;
+        firearm.BulletCapacity = wep.bulletCapacity;
+        firearm.ProjectilesOnFire = wep.projectilesWhenFired;
+        firearm.ProjectileSpeed = (int) wep.projectileSpeed;
+        firearm.BaseAccuracy = (float) wep.accuracy;
+        firearm.Firerate = (float) wep.fireRate;
+        firearm.TwoHanded = wep.twoHanded;
+        firearm.WeaponReloadAngle = (float) wep.reloadAngle;
+        firearm.myShootType = (FirearmSO.ShootTypes) wep.shotType;
+        firearm.ProjectileGO = blankWeapon.ProjectileGO;
         
+        firearm.ReloadSetUpActions = blankWeapon.ReloadSetUpActions;
+        firearm.MainReloadActions = blankWeapon.MainReloadActions;
+        firearm.ReloadFinishedActions = blankWeapon.ReloadFinishedActions;
+        
+        
+        droppedWeapon.GetComponent<InteractableWeapon>().firearm = firearm;
+
         //throw wep into air
         Rigidbody2D droppedWepRb = droppedWeapon.GetComponent<Rigidbody2D>();
         droppedWepRb.AddForce(new Vector2(0.0f,throwObjectOnOpenForce));

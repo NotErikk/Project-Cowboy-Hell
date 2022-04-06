@@ -1327,9 +1327,9 @@ public class DatabaseManager : MonoBehaviour
     public List<AllWeaponInfo> GetAllWeaponInfoFromTierAndProfile(int tier, int profileID)
     {
         var returningList = new List<AllWeaponInfo>();
-        List<int> allWepsUnderProfile = new List<int>();
+        List<int> allWepIdsUnderProfile = new List<int>();
 
-
+        Debug.Log("Tier = " + tier + " and profileID = " + profileID);
         //get all wep ids from this profile
         using (connection)
         {
@@ -1337,21 +1337,42 @@ public class DatabaseManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT weaponsID FROM gameProfiles_weapons WHERE gameProfilesID="+profileID+"";
+                command.CommandText = "SELECT weaponsID FROM gameProfiles_weapons WHERE gameProfilesID=" + profileID + "";
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        allWepsUnderProfile.Add(Convert.ToInt32(reader["weaponsID"]));
+                        allWepIdsUnderProfile.Add(Convert.ToInt32(reader["weaponsID"]));
                     }
-
                     reader.Close();
                 }
+
+                Debug.Log("wep ids list length = " + allWepIdsUnderProfile.Count);
+                foreach (var wepId in allWepIdsUnderProfile)
+                {
+                    command.CommandText = "SELECT * FROM weapons WHERE weaponID=" + wepId + " AND weaponTier="+tier+"";
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            bool twoHanded = Convert.ToInt32(reader["twoHanded"]) == 1;
+                            
+                            returningList.Add(new AllWeaponInfo(wepId, (string)reader["displayName"], tier,
+                                Convert.ToInt32(reader["bulletCapacity"]), Convert.ToDouble(reader["fireRate"]),
+                                twoHanded, Convert.ToInt32(reader["firearmClass"]),
+                                Convert.ToInt32(reader["shootType"]), Convert.ToInt32(reader["projectilesWhenFired"]),
+                                Convert.ToDouble(reader["projectileSpeed"]), Convert.ToDouble(reader["baseAccuracy"]),
+                                Convert.ToDouble(reader["reloadAngle"])));
+                        }
+                        Debug.Log("weps/TierCollected");
+                        reader.Close();
+                    }
+                }
+
             }
+
             connection.Close();
         }
-        
-        //get all correct tiers
 
 
         return returningList;

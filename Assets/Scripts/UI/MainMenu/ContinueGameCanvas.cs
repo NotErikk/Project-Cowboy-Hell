@@ -63,11 +63,12 @@ public class ContinueGameCanvas : MonoBehaviour
     public void SetSelectedSave(int id)
     {
         selectedSave = id;
+        Debug.Log("Selected save id: " + selectedSave);
     }
 
     public void Button_Play()
     {
-        PlayerPrefs.SetInt(PlayerPrefsNames.currentLevel, selectedSave);
+        PlayerPrefs.SetInt(PlayerPrefsNames.currentSaveID, selectedSave);
         SceneManager.LoadScene(1);
     }
 }

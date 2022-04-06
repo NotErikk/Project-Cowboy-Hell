@@ -14,7 +14,6 @@ public class GeneratorEngine : MonoBehaviour
     PlayerMovementScript playerMovementScript;
     [SerializeField] private LoadingScreenShowHide loadingScreen;
 
-
     private void Awake()
     {
         playerMovementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>();
@@ -28,6 +27,7 @@ public class GeneratorEngine : MonoBehaviour
 
     public void FixedUpdate()
     {
+
         if (Counter < TotalRooms)
         {
             GameObject UseThisSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];

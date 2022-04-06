@@ -32,8 +32,15 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
+        generatorEngine = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<GeneratorEngine>();
         
+        generatorEngine.enabled = false;
+    }
+
+    private void Start()
+    {
         currentSaveID = PlayerPrefs.GetInt(PlayerPrefsNames.currentSaveID);
+        Debug.Log(currentSaveID);
         currentProfileID = databaseManager.GetProfileIDFromSaveID(currentSaveID);
 
         if (!forceCurrentLevel)
@@ -44,12 +51,12 @@ public class LevelManager : MonoBehaviour
         
         if (roomsPerLevelLowerRange < 1) roomsPerLevelLowerRange = 1;
         if (roomsPerLevelUpperRange < 1) roomsPerLevelUpperRange = 1;
-
-        generatorEngine = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<GeneratorEngine>();
-
+        
         generatorEngine.RoomsAvailable = levels[currentLevel];
         generatorEngine.TotalRooms = Random.Range(roomsPerLevelLowerRange, roomsPerLevelUpperRange);
+        generatorEngine.enabled = true;
     }
+
 
     public int GetCurrentLevel()
     {

@@ -2817,6 +2817,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7797045110130231577, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7797045110130231578, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: StartingPoint
       value: 
@@ -2875,11 +2879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: currentLevel
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: forceCurrentLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: levels.Array.size
