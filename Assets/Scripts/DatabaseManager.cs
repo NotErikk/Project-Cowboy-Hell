@@ -1328,8 +1328,7 @@ public class DatabaseManager : MonoBehaviour
     {
         var returningList = new List<AllWeaponInfo>();
         List<int> allWepIdsUnderProfile = new List<int>();
-
-        Debug.Log("Tier = " + tier + " and profileID = " + profileID);
+        
         //get all wep ids from this profile
         using (connection)
         {
@@ -1347,7 +1346,6 @@ public class DatabaseManager : MonoBehaviour
                     reader.Close();
                 }
 
-                Debug.Log("wep ids list length = " + allWepIdsUnderProfile.Count);
                 foreach (var wepId in allWepIdsUnderProfile)
                 {
                     command.CommandText = "SELECT * FROM weapons WHERE weaponID=" + wepId + " AND weaponTier="+tier+"";
@@ -1364,7 +1362,6 @@ public class DatabaseManager : MonoBehaviour
                                 Convert.ToDouble(reader["projectileSpeed"]), Convert.ToDouble(reader["baseAccuracy"]),
                                 Convert.ToDouble(reader["reloadAngle"])));
                         }
-                        Debug.Log("weps/TierCollected");
                         reader.Close();
                     }
                 }
@@ -1373,10 +1370,55 @@ public class DatabaseManager : MonoBehaviour
 
             connection.Close();
         }
-
-
         return returningList;
     }
 
+    public List<AllItemInfo> GetAllItemInfoFromTierAndProfileID(int tier, int profileID)
+    {
+        var returningList = new List<AllItemInfo>();
+        List<int> allItemIdsUnderProfile = new List<int>();
+        
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT itemsID FROM gameProfiles_items WHERE gameProfilesID=" + profileID + "";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        allItemIdsUnderProfile.Add(Convert.ToInt32(reader["itemsID"]));
+                    }
+                    reader.Close();
+                }
+                
+                foreach (var itemID in allItemIdsUnderProfile)
+                {
+                    command.CommandText = "SELECT * FROM items WHERE itemID=" + itemID + " AND myTier="+tier+"";
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            bool effectRevolvers = Convert.ToInt32(reader["effectRevolvers"]) == 1;
+                            bool effectPistols = Convert.ToInt32(reader["effectPistols"]) == 1;
+                            bool effectShotguns = Convert.ToInt32(reader["effectShotguns"]) == 1;
+                            bool effectRifles = Convert.ToInt32(reader["effectRifles"]) == 1;
+                    
+                            bool laserPointer = Convert.ToInt32(reader["enableLaserPointer"]) == 1;
+                            
+                            returningList.Add(new AllItemInfo(itemID, (string)reader["itemName"], Convert.ToInt32(reader["myTier"]), (string)reader["itemBriefDescription"], (string)reader["itemDescription"], effectRevolvers, effectPistols, effectShotguns, effectRifles, Convert.ToDouble(reader["extraDamage"]), Convert.ToDouble(reader["reloadSpeedIncrease"]), Convert.ToDouble(reader["fireRate"]), laserPointer, Convert.ToDouble(reader["movementSpeedBuff"]), Convert.ToDouble(reader["jumpPowerBuff"]), Convert.ToDouble(reader["rollCooldownDecrease"]), Convert.ToDouble(reader["shopDiscount"]), Convert.ToDouble(reader["damageResistance"]), Convert.ToDouble(reader["dodgeChance"]), Convert.ToInt32(reader["extraLivesToGive"]), Convert.ToDouble(reader["increaseMaxHealth"])));
+                        }
+                        reader.Close();
+                    }
+                }
+
+            }
+
+            connection.Close();
+        }
+        return returningList;
+    }
 }
 

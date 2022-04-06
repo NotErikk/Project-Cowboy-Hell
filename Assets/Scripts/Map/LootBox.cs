@@ -32,7 +32,7 @@ public class LootBox : MonoBehaviour
     [SerializeField] private FirearmSO blankWeapon;
 
     [Header("Blank Item")] 
-    [SerializeField] private FirearmSO blankItem;
+    [SerializeField] private ItemSO blankItem;
     
     [Header("Weapons")] 
     [SerializeField] FirearmSO[] tier1Weps;
@@ -181,6 +181,7 @@ public class LootBox : MonoBehaviour
         firearm.ProjectileSprite = blankWeapon.ProjectileSprite;
         firearm.DisplayName = wep.name;
         firearm.myTier = (Tiers.tier) wep.weaponTier;
+        firearm.damage = blankWeapon.damage;
         firearm.firearmType = (FirearmSO.FirearmClassesAvailable) wep.weaponClass;
         firearm.BulletCapacity = wep.bulletCapacity;
         firearm.ProjectilesOnFire = wep.projectilesWhenFired;
@@ -238,8 +239,39 @@ public class LootBox : MonoBehaviour
         GameObject droppedItem = Instantiate(interactableItemPrefab, myTransform.position, myTransform.rotation);
         
         //set to random item
-        var allItems = GetAllItemsOfTier();
-        droppedItem.GetComponent<InteractableItem>().item = allItems[Random.Range(0, allItems.Count)];
+        var allItems = databaseManager.GetAllItemInfoFromTierAndProfileID((int)myTier, currentProfileID);
+        var item = allItems[Random.Range(0, allItems.Count)];
+
+        item.itemName = item.itemName;
+        var newItem = ScriptableObject.CreateInstance<ItemSO>();
+
+        newItem.itemName = item.itemName;
+        newItem.myTier = (Tiers.tier) item.itemTier;
+        newItem.itemSprite = blankItem.itemSprite;
+        newItem.briefDescription = item.itemBriefDesc;
+        newItem.description = item.itemDesc;
+        
+        newItem.effectRevolvers = item.effectRevolvers;
+        newItem.effectPistols = item.effectPistols;
+        newItem.effectShotguns = item.effectShotguns;
+        newItem.effectRifles = item.effectRifles;
+        
+        newItem.extraDamage = item.extraDamage;
+        newItem.reloadSpeedIncrease = item.reloadSpeedBuff;
+        newItem.fireRate = item.fireRateBuff;
+        newItem.enableLaserPointer = item.laserPointer;
+        
+        newItem.movementSpeedIncrease = item.movementSpeed;
+        newItem.jumpPowerIncrease = item.jumpPower;
+        newItem.rollCooldownDecrease = item.rollCooldown;
+
+        newItem.shopDiscount = item.shopDiscount;
+        newItem.damageResistance = item.damageResistance;
+        newItem.dodgeChance = item.dodgeChance;
+        newItem.extraLivesToGive = item.extraLives;
+        newItem.increaseMaxHealth = item.maxHealth;
+
+        droppedItem.GetComponent<InteractableItem>().item = newItem;
         
         //throw item into air
         Rigidbody2D droppedItemRb = droppedItem.GetComponent<Rigidbody2D>();
