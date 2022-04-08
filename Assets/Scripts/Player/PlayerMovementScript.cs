@@ -51,7 +51,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     [Tooltip("Maximum movement speed of a crouching player")]
     [SerializeField]
-    private float CrouchMovementSpeed;
+    public float CrouchMovementSpeed;
 
     [HideInInspector]
     public bool Crouching;
@@ -78,7 +78,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     [Tooltip("Jump force when the player jumps")]
     [SerializeField]
-    private float JumpForce;
+    public float JumpForce;
 
     [Tooltip("jump force buff from items")]
     [SerializeField]
@@ -97,7 +97,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     [Tooltip("Amount of time the player has after walking of an edge to jump")]
     [SerializeField]
-    private float CoyoteTime;
+    public float CoyoteTime;
 
     [Tooltip("Maximum speed of the player in air")]
     [SerializeField]
@@ -129,15 +129,15 @@ public class PlayerMovementScript : MonoBehaviour
 
     [Tooltip("How long a roll will last")]
     [SerializeField]
-    private float RollTime;
+    public float RollTime;
 
     [Tooltip("How fast the player is moving during a roll")]
     [SerializeField]
-    private float RollSpeed;
+    public float RollSpeed;
 
     [Tooltip("How long the player needs to wait inbetween rolls")]
     [SerializeField]
-    private float RollCooldown;
+    public float RollCooldown;
 
 
     [Tooltip("buff given from items")]
@@ -161,7 +161,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Decelamount")]
-    private float SlideDecelleration;   
+    public float SlideDecelleration;   
     
     private int SlideDirection;
 

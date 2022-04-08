@@ -2879,11 +2879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: currentLevel
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: forceCurrentLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7797045111455335052, guid: 5d0ef027f5790b14ababe906692e422e, type: 3}
       propertyPath: levels.Array.size

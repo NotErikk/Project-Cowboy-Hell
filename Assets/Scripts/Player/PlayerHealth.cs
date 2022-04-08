@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     [SerializeField] private float maximumHealth;
+    
 
     private float currentHealth;
     int lives;
@@ -16,12 +17,17 @@ public class PlayerHealth : MonoBehaviour
     
     private void Awake()
     {
-        currentHealth = startingHealth;
         itemManager = GetComponent<ItemManager>();
         deathScreenUi = GameObject.FindGameObjectWithTag("DeathScreen");
         deathScreenUi.SetActive(false);
     }
 
+    public void SetHealth(double newHealth)
+    {
+        currentHealth = (float)newHealth;
+        maximumHealth = startingHealth;
+    }
+    
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

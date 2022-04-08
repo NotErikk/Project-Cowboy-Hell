@@ -40,9 +40,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currentSaveID = PlayerPrefs.GetInt(PlayerPrefsNames.currentSaveID);
-        Debug.Log(currentSaveID);
         currentProfileID = databaseManager.GetProfileIDFromSaveID(currentSaveID);
-
+        
         if (!forceCurrentLevel)
         {
             currentLevel = PlayerPrefs.GetInt(PlayerPrefsNames.currentLevel);

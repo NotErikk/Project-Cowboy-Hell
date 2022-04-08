@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/GetInfoFromDB.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LootBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LootBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +121,9 @@
       <workItem from="1649077498001" duration="5491000" />
       <workItem from="1649090366246" duration="2074000" />
       <workItem from="1649149377649" duration="6798000" />
-      <workItem from="1649244907754" duration="10690000" />
+      <workItem from="1649244907754" duration="11548000" />
+      <workItem from="1649420500510" duration="1244000" />
+      <workItem from="1649435263328" duration="2351000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>

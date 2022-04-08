@@ -335,8 +335,8 @@ MonoBehaviour:
   - {fileID: 1301083670}
   - {fileID: 57685001}
   m_Bounds:
-    m_Center: {x: -0.32249293, y: 0.18486725, z: 0}
-    m_Extent: {x: 0.3403711, y: 0.21458931, z: 0}
+    m_Center: {x: -0.32249308, y: 0.18486728, z: 0}
+    m_Extent: {x: 0.3403716, y: 0.21458916, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &139645188
@@ -1097,8 +1097,8 @@ MonoBehaviour:
   - {fileID: 1118497172}
   - {fileID: 1978459475}
   m_Bounds:
-    m_Center: {x: 0.32749012, y: 0.14653659, z: 0}
-    m_Extent: {x: 0.34565356, y: 0.20390525, z: 0}
+    m_Center: {x: 0.3274903, y: 0.14653653, z: 0}
+    m_Extent: {x: 0.345654, y: 0.20390525, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &1286859315
@@ -1981,6 +1981,7 @@ GameObject:
   - component: {fileID: 2386517192048200826}
   - component: {fileID: 4711876060638889518}
   - component: {fileID: 5906904799282725767}
+  - component: {fileID: 7489760013099855551}
   - component: {fileID: 1493863779310972761}
   - component: {fileID: 471355436328510502}
   m_Layer: 7
@@ -2192,6 +2193,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad9dbc0708304c46a394d73cff5adb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7489760013099855551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493863779310972763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deac3490857bec342a468897b051c47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1493863779310972761
 Rigidbody2D:
   serializedVersion: 4
@@ -2204,7 +2217,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.4850924
+  m_Mass: 1.4850923
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 15
