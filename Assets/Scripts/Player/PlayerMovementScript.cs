@@ -898,8 +898,9 @@ public class PlayerMovementScript : MonoBehaviour
             }
     }
 
-    private void SlopeCheck() //checks the angle of the ground the player is stood and and adjusts gravity direction accordingly, this makes going up and down hills much smoother and  the player will stick to the slopes
-    {
+    private void SlopeCheck() //checks the angle of the ground the player is stood and and adjusts gravity direction accordingly,
+    {                          //this makes going up and down hills much smoother and  the player will stick to the slopes
+        
         RaycastHit2D GradientRay = Physics2D.Raycast(transform.position, Vector2.down, SlopeGradientRayDistance, GroundLayerMask);
 
         Debug.DrawRay(transform.position, Vector2.down * SlopeGradientRayDistance, Color.yellow);

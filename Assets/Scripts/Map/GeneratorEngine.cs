@@ -77,7 +77,6 @@ public class GeneratorEngine : MonoBehaviour
 
             Instantiate(RoomsAvailable.EndRooms[Random.Range(0, RoomsAvailable.EndRooms.Length)], new Vector3(UseThisSpawnPoint.transform.position.x, UseThisSpawnPoint.transform.position.y, 0), Quaternion.identity);
             playerMovementScript.GetBridgeList();
-
             
             foreach (GameObject spawnPoint in GameObject.FindGameObjectsWithTag("SpawnPoint"))
             {

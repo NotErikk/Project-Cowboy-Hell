@@ -64,17 +64,20 @@ public class LootBox : MonoBehaviour
         databaseManager = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<DatabaseManager>();
 
 
-        if (GameObject.FindGameObjectWithTag("LevelManager") != null)
+        //Get current level
+        if (GameObject.FindGameObjectWithTag("LevelManager") != null) 
         {
             currentLevel = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().GetCurrentLevel();
             currentLevel++;
         }
         
+        //weapon or item?
         if (myLootType == LootBoxTypes.Random)
         {
             int randomValue = Random.Range(0, 2);
             myLootType = (LootBoxTypes)randomValue;
         }
+        
         SetTierOfLoot();
     }
 
@@ -175,6 +178,7 @@ public class LootBox : MonoBehaviour
 
         var firearm = ScriptableObject.CreateInstance<FirearmSO>();
 
+        //database data into new firearm
         firearm.GunSprite = blankWeapon.GunSprite;
         firearm.BulletSprite = blankWeapon.BulletSprite;
         firearm.CasingSprite = blankWeapon.CasingSprite;

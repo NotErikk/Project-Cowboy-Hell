@@ -4889,6 +4889,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7995031982231151818}
     m_Modifications:
+    - target: {fileID: 3574973125759701110, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417769455659259, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417769455659259, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417769455659259, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417770003078953, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: myWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: cc336e9e764f9ee44a16a7e8243e1616, type: 2}
+    - target: {fileID: 8886417770003078954, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: visionAngle
+      value: 169
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417770003078954, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: visionRange
+      value: 26.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417770003078954, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: maxPathDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417770003078954, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: combatMovementSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886417770003078954, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
+      propertyPath: instantDetectionRadius
+      value: 3.86
+      objectReference: {fileID: 0}
     - target: {fileID: 8886417770003078955, guid: 3393283eedd05aa4da069581912bcb86, type: 3}
       propertyPath: m_RootOrder
       value: 0

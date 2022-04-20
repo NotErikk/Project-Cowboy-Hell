@@ -15,11 +15,10 @@ public class Display : MonoBehaviour
     
     void Awake()
     {
-        SetUpResolutionDropDown();
         DisplayCurrentValues();
     }
 
-    void SetUpResolutionDropDown()
+    void SetUpAndDisplayResolutionDropDown()
     {
         resolutions = Screen.resolutions;
         
@@ -48,13 +47,13 @@ public class Display : MonoBehaviour
     
     void DisplayCurrentValues()
     {
+        SetUpAndDisplayResolutionDropDown();
+        
         fullscreenDropDown.value = PlayerPrefs.GetInt(PlayerPrefsNames.fullscreenSetting);
-
+        
         vsyncToggle.isOn = PlayerPrefs.GetInt(PlayerPrefsNames.vsyncSetting) == 1;
     }
-    
-    
-    
+
     //Value Changed Funcs \/
     public void ResolutionChanged()
     {

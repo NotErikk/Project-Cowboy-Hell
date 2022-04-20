@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/GetInfoFromDB.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Items/BlankItem.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirearmScripts/WeaponAiming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirearmScripts/WeaponAiming.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/GeneratorEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/GeneratorEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/LootBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/ItemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/ItemManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Settings/Display.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Settings/Display.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +128,16 @@
       <workItem from="1649149377649" duration="6798000" />
       <workItem from="1649244907754" duration="11548000" />
       <workItem from="1649420500510" duration="1244000" />
-      <workItem from="1649435263328" duration="2351000" />
+      <workItem from="1649435263328" duration="2714000" />
+      <workItem from="1649675297717" duration="639000" />
+      <workItem from="1649769692900" duration="4887000" />
+      <workItem from="1649850766389" duration="6569000" />
+      <workItem from="1650012476186" duration="9612000" />
+      <workItem from="1650120778123" duration="1382000" />
+      <workItem from="1650197088758" duration="1129000" />
+      <workItem from="1650283887257" duration="8780000" />
+      <workItem from="1650368033802" duration="1686000" />
+      <workItem from="1650374452232" duration="1771000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>

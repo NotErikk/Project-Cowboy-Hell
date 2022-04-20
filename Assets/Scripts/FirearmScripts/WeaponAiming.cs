@@ -58,44 +58,37 @@ public class WeaponAiming : MonoBehaviour
 
     void Update()
     {
-        if (CanAim)
+        if (!CanAim) return;
+        
+        //gets player mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = mousePos + (Camera.main.transform.forward * 10.0f);
+        mousePos = mousePos - PlayerGO.transform.position;
+
+        //if the mouse is far away from the player shoot normally but if it's close hip fire (close and far depending on HipfireDistance)
+        if (mousePos.magnitude <= HipFireDistance)
         {
-            //gets player mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos = mousePos + (Camera.main.transform.forward * 10.0f);
-            mousePos = mousePos - PlayerGO.transform.position;
+            WepController.currentAccuracy = HipFireDebufAccuracy;
+            WepController.FirerateHipFireMultiplier = HipFireFirerateBuff;
 
-
-            //get direction between firepoint & mouse
-           // Vector3 aimDirection = (mousePos - firePoint.transform.position).normalized;
-
-
-
-            //if the mouse is far away from the player shoot normally but if it's close hip fire (close and far depending on HipfireDistance)
-            if (mousePos.magnitude <= HipFireDistance)
-            {
-                WepController.currentAccuracy = HipFireDebufAccuracy;
-                WepController.FirerateHipFireMultiplier = HipFireFirerateBuff;
-
-                mousePos = Vector3.ClampMagnitude(mousePos, HipFireDistanceArmRange);
-                transform.position = mousePos + HipFirePosition.transform.position;
-            }
-            else
-            {
-                WepController.currentAccuracy = 1;
-                WepController.FirerateHipFireMultiplier = 1;
-
-                mousePos = Vector3.ClampMagnitude(mousePos, NormalWeaponDistanceArmRange);
-                transform.position = mousePos + NormalFirePosition.transform.position;
-            }
-
-            //aims the weapon at the target
-            float lookrotation = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-
-
-            transform.rotation = Quaternion.Euler(0f, 0f, lookrotation);
-           // transform.
+            mousePos = Vector3.ClampMagnitude(mousePos, HipFireDistanceArmRange);
+            transform.position = mousePos + HipFirePosition.transform.position;
         }
+        else
+        {
+            WepController.currentAccuracy = 1;
+            WepController.FirerateHipFireMultiplier = 1;
+
+            mousePos = Vector3.ClampMagnitude(mousePos, NormalWeaponDistanceArmRange);
+            transform.position = mousePos + NormalFirePosition.transform.position;
+        }
+
+        //aims the weapon at the target
+        float lookrotation = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+
+        transform.rotation = Quaternion.Euler(0f, 0f, lookrotation);
+        // transform.
     }
 
     public void ToggleLaserPointer(bool toggle)

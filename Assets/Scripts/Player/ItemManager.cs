@@ -122,16 +122,14 @@ public class ItemManager : MonoBehaviour
         LinearAddition(ref extraLives, newItem.extraLivesToGive);
         LinearAddition(ref maxHealthBonus, newItem.increaseMaxHealth);
 
-
-
+        
         UpdateBuffs();
-
     }
 
 
     private void LinearAddition(ref double statisticBeingIncreased, double increase)
     {
-        statisticBeingIncreased = statisticBeingIncreased + increase;
+        statisticBeingIncreased += increase;
     }
 
     private void HyperbolicAddition(ref float statisticBeingIncreased, double increase, ItemSO newItem)

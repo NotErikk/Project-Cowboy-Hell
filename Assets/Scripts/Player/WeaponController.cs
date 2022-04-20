@@ -299,8 +299,7 @@ public class WeaponController : MonoBehaviour
         int ShotsToReload = CurrentFirearm.BulletCapacity - CurrentFirearmAmmoCount;
 
             ReloadMechanics myReloadMechanics = new ReloadMechanics(sWeaponAiming, WeaponGO.transform, CurrentFirearm, ReloadPosition.transform, transform, Cursor.transform, ReloadSpeedBuff, HoldingPointBack.transform, SpentCasingPrefab, PlayerPocket.transform, BackArm, CurrentFirearm.WeaponReloadAngle, this);
-            
-            
+
             myReloadMechanics.ToggleReloadLocks(ref reloading, ref canSwapWeapon, true);
             yield return StartCoroutine(myReloadMechanics.BringGunCloseToPlayer());
             myReloadMechanics.ToggleSecondHandVisible(true);
@@ -322,9 +321,7 @@ public class WeaponController : MonoBehaviour
             {
                 yield return StartCoroutine(ReturnReloadAction(myReloadMechanics, Func));
             }
-
-        
-
+            
         myReloadMechanics.ToggleSecondHandVisible(CurrentFirearm.TwoHanded);
         ResetHandPositionsForNewFirearm();
             yield return StartCoroutine(myReloadMechanics.ReturnToShootingPosition());
@@ -334,7 +331,6 @@ public class WeaponController : MonoBehaviour
         canSwapWeapon = true;
         canDropWeapon = true;
         canPickUpWeapon = true;
-        yield break;
     }
 
     IEnumerator ReturnReloadAction(ReloadMechanics myReloadMechanics,FirearmSO.ReloadFunctions func)
@@ -411,14 +407,11 @@ public class WeaponController : MonoBehaviour
             }
 
         }
-
+        
         else if (CurrentFirearmAmmoCount <= 0 && !reloading)
         {
             StartCoroutine(Reload());
         }
-
-
-
     }
 
     private void DropWeapon()
@@ -450,10 +443,8 @@ public class WeaponController : MonoBehaviour
         SecondaryFirearm = newFirearmIW.firearm;
         SecondaryFirearmAmmoCount = newFirearmIW.roundsInFirearm;
         SwapWeapons();
-
-
+        
         Destroy(newFirearmGO);
-        return;
 
     }
 
