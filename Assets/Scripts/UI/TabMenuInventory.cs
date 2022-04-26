@@ -26,8 +26,8 @@ public class TabMenuInventory : MonoBehaviour
         {
             if (ListAlreadyHas(itemManager.itemList[i])) continue;
             
-            spawnedItems.Add(itemManager.itemList[i].name);
-            GameObject newIcon = Instantiate(uiIconPrefab, @group.transform);
+            spawnedItems.Add(itemManager.itemList[i].itemName);
+            GameObject newIcon = Instantiate(uiIconPrefab, group.transform);
             newIcon.GetComponent<Image>().sprite = itemManager.itemList[i].itemSprite;
         }
     }
@@ -35,6 +35,6 @@ public class TabMenuInventory : MonoBehaviour
 
     bool ListAlreadyHas(ItemSO item)
     {
-        return spawnedItems.Contains(item.name);
+        return spawnedItems.Contains(item.itemName);
     }
 }

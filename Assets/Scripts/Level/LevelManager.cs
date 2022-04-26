@@ -35,11 +35,12 @@ public class LevelManager : MonoBehaviour
         generatorEngine = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<GeneratorEngine>();
         
         generatorEngine.enabled = false;
+        
+        currentSaveID = PlayerPrefs.GetInt(PlayerPrefsNames.currentSaveID);
     }
 
     private void Start()
     {
-        currentSaveID = PlayerPrefs.GetInt(PlayerPrefsNames.currentSaveID);
         currentProfileID = databaseManager.GetProfileIDFromSaveID(currentSaveID);
         
         if (!forceCurrentLevel)

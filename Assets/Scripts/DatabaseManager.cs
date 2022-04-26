@@ -292,7 +292,7 @@ public class DatabaseManager : MonoBehaviour
                     {
                         returnInfo = new AllGameplayInfo(Convert.ToInt32(reader["profileID"]),
                             Convert.ToDouble(reader["playerHealth"]),Convert.ToDouble(reader["playerMovementSpeed"]) ,Convert.ToDouble(reader["playerCrouchMovementSpeed"]),
-                            Convert.ToDouble(reader["playerMovementSpeed"]),
+                            Convert.ToDouble(reader["playerJumpForce"]),
                             Convert.ToDouble(reader["playerCoyoteTime"]), Convert.ToDouble(reader["playerRollLength"]),
                             Convert.ToDouble(reader["playerRollSpeed"]), Convert.ToDouble(reader["playerRollCooldown"]),
                             Convert.ToDouble(reader["playerSlideDeceleration"]));
@@ -1419,6 +1419,34 @@ public class DatabaseManager : MonoBehaviour
             connection.Close();
         }
         return returningList;
+    }
+
+    public int GetLatestSaveId()
+    {
+        int saveId = 0;
+        using (connection)
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText =
+                    "SELECT saveID FROM gameSaves WHERE saveID = (SELECT MAX(saveID) FROM gameSaves)";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        saveId = Convert.ToInt32(reader["saveID"]);
+                    }
+
+                    reader.Close();
+                }
+            }
+
+            connection.Close();
+        }
+
+        return saveId;
     }
 }
 

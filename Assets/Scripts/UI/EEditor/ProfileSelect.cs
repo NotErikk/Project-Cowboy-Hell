@@ -65,8 +65,8 @@ public class ProfileSelect : MonoBehaviour
             return;
         }
         
+        selectedUi.SetActive(true);
         UpdateSelectedProfile(profilesList[profilesList.Count - 1]);
-        selectedProfile = databaseManager.GetProfileBasicInfoFromID(profilesList.Count - 1);
     }
 
     public void AddToProfileList(ProfileBasicInfo profileBasic)

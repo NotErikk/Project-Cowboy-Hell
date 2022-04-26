@@ -19,9 +19,6 @@ public class GetInfoFromDB : MonoBehaviour
         playerMovementScript = gameObject.GetComponent<PlayerMovementScript>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         playerHealth = gameObject.GetComponent<PlayerHealth>();
-
-        
-
     }
 
 

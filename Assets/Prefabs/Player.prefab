@@ -335,8 +335,8 @@ MonoBehaviour:
   - {fileID: 1301083670}
   - {fileID: 57685001}
   m_Bounds:
-    m_Center: {x: -0.32249308, y: 0.18486728, z: 0}
-    m_Extent: {x: 0.3403716, y: 0.21458916, z: 0}
+    m_Center: {x: -0.32249293, y: 0.18486725, z: 0}
+    m_Extent: {x: 0.3403711, y: 0.21458931, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &139645188
@@ -1097,8 +1097,8 @@ MonoBehaviour:
   - {fileID: 1118497172}
   - {fileID: 1978459475}
   m_Bounds:
-    m_Center: {x: 0.3274903, y: 0.14653653, z: 0}
-    m_Extent: {x: 0.345654, y: 0.20390525, z: 0}
+    m_Center: {x: 0.32749012, y: 0.14653659, z: 0}
+    m_Extent: {x: 0.34565356, y: 0.20390525, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &1286859315
@@ -1984,6 +1984,7 @@ GameObject:
   - component: {fileID: 7489760013099855551}
   - component: {fileID: 1493863779310972761}
   - component: {fileID: 471355436328510502}
+  - component: {fileID: 4367189491976843031}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2217,7 +2218,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.4850923
+  m_Mass: 1.4850924
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 15
@@ -2242,6 +2243,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.0615319}
   m_Size: {x: 0.5, y: 1.9369361}
   m_Direction: 0
+--- !u!114 &4367189491976843031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493863779310972763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef05ab5737e8c344ba770e76ff5b1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493863779419428004
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,4 +20,6 @@ public class PlayerPrefsNames
     public static string currentLevel = "currentLevel";
 
     public static string currentSaveID = "currentSaveID";
+
+    public static string firstTimeBoot = "firstTimeBoot";
 }

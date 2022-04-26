@@ -764,6 +764,10 @@ PrefabInstance:
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 1918118820}
+    - target: {fileID: 1493863779310972742, guid: ba5e5412d62d82e47a00f0a540fd6bfe, type: 3}
+      propertyPath: GravityRampMultiplier
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 1493863779310972743, guid: ba5e5412d62d82e47a00f0a540fd6bfe, type: 3}
       propertyPath: Cursor
       value: 

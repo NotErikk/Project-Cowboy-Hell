@@ -49,6 +49,7 @@ public class NewGameCanvasManager : MonoBehaviour
         {
             return;
         }
+        PlayerPrefs.SetInt(PlayerPrefsNames.currentSaveID, databaseManager.GetLatestSaveId());
         SceneManager.LoadScene(1);
     }
 }
