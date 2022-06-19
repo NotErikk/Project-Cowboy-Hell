@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: 1875 Revolver
   firearmType: 0
   myTier: 4
-  damage: 0
+  damage: 50
   BulletCapacity: 6
   ProjectilesOnFire: 1
   ProjectileSpeed: 25

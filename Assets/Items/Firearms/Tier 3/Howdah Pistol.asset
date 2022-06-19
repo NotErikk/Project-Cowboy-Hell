@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: Quad Barrell Pistol
   firearmType: 1
   myTier: 2
-  damage: 0
+  damage: 50
   BulletCapacity: 4
   ProjectilesOnFire: 1
   ProjectileSpeed: 15

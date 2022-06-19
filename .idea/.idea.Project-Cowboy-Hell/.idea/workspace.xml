@@ -2,31 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b09eca3-c975-4d6b-9fbd-3d1cb47ccba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FillDBDefault.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/FillDBDefault.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EndLevelOnEnter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EndLevelOnEnter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Cowboy-Hell/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/EEditor/ItemButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/EEditor/ItemButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/EEditor/WeaponButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/EEditor/WeaponButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/EndRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Open Air.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/Open Air.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/SpawnRoomTemplate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/PlaceHolder/SpawnRoomTemplate.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DatabaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GetInfoFromDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/GetInfoFromDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerPrefsNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerPrefsNames.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/CreateNewProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/CreateNewProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EEditor/ProfileSelect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/ContinueGameCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/ContinueGameCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/GameSavePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/GameSavePrefab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NewGameCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NewGameCanvasManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TabMenuInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TabMenuInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Colt Paterson.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Colt Paterson.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Flint Lock Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Flint Lock Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Musket.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Musket.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Single Barrel Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 1/Single Barrel Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Coach Gun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Coach Gun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Colt Navy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Colt Navy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Sharps Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Sharps Rifle.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Single Action Derringer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 2/Single Action Derringer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Colt Lightning.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Colt Lightning.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Howdah Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Howdah Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Spencer Roper Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 3/Spencer Roper Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Henry Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Henry Rifle.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Model 3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Model 3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Volcano Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Volcano Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Winchester 1887 Lever Action Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 4/Winchester 1887 Lever Action Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Browning Auto 5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Browning Auto 5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Mauser C96.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Mauser C96.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Remington model 1875.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Remington model 1875.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Winchester 1892.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Firearms/Tier 5/Winchester 1892.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +151,8 @@
       <workItem from="1650532870544" duration="8520000" />
       <workItem from="1650621289748" duration="2361000" />
       <workItem from="1650984810799" duration="778000" />
-      <workItem from="1650985832643" duration="5109000" />
+      <workItem from="1650985832643" duration="6869000" />
+      <workItem from="1653313725914" duration="1403000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1647086421737</created>

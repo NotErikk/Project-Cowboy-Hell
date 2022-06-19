@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: 1892 Lever Action
   firearmType: 3
   myTier: 4
-  damage: 0
+  damage: 50
   BulletCapacity: 10
   ProjectilesOnFire: 8
   ProjectileSpeed: 40

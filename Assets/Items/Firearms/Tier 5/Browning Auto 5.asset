@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: Semi-Auto Shotgun
   firearmType: 2
   myTier: 4
-  damage: 0
+  damage: 50
   BulletCapacity: 5
   ProjectilesOnFire: 8
   ProjectileSpeed: 20

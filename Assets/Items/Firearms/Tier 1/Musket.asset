@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: Musket
   firearmType: 3
   myTier: 0
-  damage: 0
+  damage: 50
   BulletCapacity: 1
   ProjectilesOnFire: 1
   ProjectileSpeed: 23

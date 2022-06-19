@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: Pump Action Shotgun
   firearmType: 2
   myTier: 2
-  damage: 0
+  damage: 50
   BulletCapacity: 5
   ProjectilesOnFire: 8
   ProjectileSpeed: 15

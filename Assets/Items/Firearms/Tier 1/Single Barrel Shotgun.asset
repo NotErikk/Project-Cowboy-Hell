@@ -21,7 +21,7 @@ MonoBehaviour:
   DisplayName: Single Barrel Shotgun
   firearmType: 2
   myTier: 0
-  damage: 0
+  damage: 50
   BulletCapacity: 1
   ProjectilesOnFire: 8
   ProjectileSpeed: 15
